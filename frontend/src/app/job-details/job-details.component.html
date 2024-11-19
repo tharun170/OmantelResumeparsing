@@ -1,337 +1,257 @@
 <div class="title-bar">
-  <div class="title">
-    <img
-      src="https://i.postimg.cc/0yjGZYwP/image.png"
-      alt="Profile"
-      class="logo"
-    />
-  </div>
-  <div class="icons">
-    <span class="material-icons icon">notifications</span>
-    <img
-      src="https://i.postimg.cc/tgbrcVpx/0.jpg"
-      alt="Profile"
-      class="icon profile"
-    />
-  </div>
+    <div class="title">
+        <img src="https://i.postimg.cc/0yjGZYwP/image.png" alt="Profile" class="logo" />
+    </div>
+    <div class="icons">
+        <span class="material-icons icon">notifications</span>
+        <img src="https://i.postimg.cc/tgbrcVpx/0.jpg" alt="Profile" class="icon profile" />
+    </div>
 </div>
 <div class="container">
-  <!-- Sidebar -->
-  <div class="sidebar">
-    <div class="menu-item active">
-      <i class="icon material-icons">work</i>
-      <span>Jobs</span>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="menu-item active">
+            <i class="icon material-icons">work</i>
+            <span>Jobs</span>
+        </div>
+        <div class="menu-item">
+            <i class="icon material-icons">group</i>
+            <span>Candidates</span>
+        </div>
+
+        <div class="menu-item">
+            <i class="icon material-icons">done_all</i>
+            <span>Shortlisted Candidates</span>
+        </div>
+
+        <div class="menu-item">
+            <i class="icon material-icons">info</i>
+            <span>About</span>
+        </div>
+
     </div>
-    <div class="menu-item">
-      <i class="icon material-icons">group</i>
-      <span>Candidates</span>
-    </div>
-    <div class="menu-item">
-      <i class="icon material-icons">cloud_upload</i>
-      <span>Upload</span>
-    </div>
-    <div class="menu-item">
-      <i class="icon material-icons">done_all</i>
-      <span>Shortlisted Candidates</span>
-    </div>
-    <div class="menu-item">
-      <i class="icon material-icons">report</i>
-      <span>Issues</span>
-    </div>
-    <div class="menu-item">
-      <i class="icon material-icons">sync_alt</i>
-      <span>Integrate ATS</span>
-    </div>
-    <div class="menu-item">
-      <i class="icon material-icons">settings</i>
-      <span>Settings</span>
-    </div>
-  </div>
-  <div class="modal-container">
-    <!-- Modal Backdrop -->
-    <div class="modal-backdrop" *ngIf="showDetails" (click)="closeModal()">
-      <div class="modal-content" (click)="stopPropagation($event)">
-        <div class="resume-form">
-          <h3 class="section-title">Resume Details</h3>
-          <div class="nested-section">
-            <div class="form-group">
-              <label class="key">Full Name:</label>
-              <input
-                [(ngModel)]="resumeDetails['Full Name']"
-                class="value input-field"
-              />
-            </div>
+    <div class="modal-container">
+        <!-- Modal Backdrop -->
+        <div class="modal-backdrop" *ngIf="showDetails" (click)="closeModal()">
+            <div class="modal-content" (click)="stopPropagation($event)">
+                <div class="resume-form">
+                    <h3 class="section-title">Resume Details</h3>
+                    <div class="nested-section">
+                        <div class="form-group">
+                            <label class="key">Full Name:</label>
+                            <input [(ngModel)]="resumeDetails['Full Name']" class="value input-field" />
+                        </div>
 
-            <div class="form-group">
-              <label class="key">Email:</label>
-              <input
-                [(ngModel)]="resumeDetails.Email"
-                type="email"
-                class="value input-field"
-              />
-            </div>
+                        <div class="form-group">
+                            <label class="key">Email:</label>
+                            <input [(ngModel)]="resumeDetails.Email" type="email" class="value input-field" />
+                        </div>
 
-            <div class="form-group">
-              <label class="key">Phone Number:</label>
-              <input
-                [(ngModel)]="resumeDetails['Phone Number']"
-                type="tel"
-                class="value input-field"
-              />
-            </div>
+                        <div class="form-group">
+                            <label class="key">Phone Number:</label>
+                            <input [(ngModel)]="resumeDetails['Phone Number']" type="tel" class="value input-field" />
+                        </div>
 
-            <div class="form-group">
-              <label class="key">Location:</label>
-              <input
-                [(ngModel)]="resumeDetails.Location"
-                class="value input-field"
-              />
-            </div>
+                        <div class="form-group">
+                            <label class="key">Location:</label>
+                            <input [(ngModel)]="resumeDetails.Location" class="value input-field" />
+                        </div>
 
-            <div class="form-group">
-              <label class="key">Summary:</label>
-              <textarea
-                [(ngModel)]="resumeDetails.Summary"
-                class="value input-field textarea-field"
-              ></textarea>
-            </div>
-          </div>
+                        <div class="form-group">
+                            <label class="key">Summary:</label>
+                            <textarea [(ngModel)]="resumeDetails.Summary" class="value input-field textarea-field"></textarea>
+                        </div>
+                    </div>
 
-          <h4 class="section-subtitle">Education</h4>
-          <div
-            *ngFor="let edu of resumeDetails.Education; let i = index"
-            class="nested-section"
-          >
-            <div class="form-group">
-              <label class="key">Degree:</label>
-              <input [(ngModel)]="edu.Degree" class="value input-field" />
-            </div>
-            <div class="form-group">
-              <label class="key">Institution:</label>
-              <input [(ngModel)]="edu.Institution" class="value input-field" />
-            </div>
-            <div class="form-group">
-              <label class="key">Location:</label>
-              <input [(ngModel)]="edu.Location" class="value input-field" />
-            </div>
-            <div class="form-group">
-              <label class="key">GPA:</label>
-              <input [(ngModel)]="edu.GPA" class="value input-field" />
-            </div>
-            <div class="form-group">
-              <label class="key">Start Date:</label>
-              <input
-                [(ngModel)]="edu.StartDate"
-                class="value input-field"
-                [value]="edu.StartDate || ''"
-              />
-            </div>
+                    <h4 class="section-subtitle">Education</h4>
+                    <div *ngFor="let edu of resumeDetails.Education; let i = index" class="nested-section">
+                        <div class="form-group">
+                            <label class="key">Degree:</label>
+                            <input [(ngModel)]="edu.Degree" class="value input-field" />
+                        </div>
+                        <div class="form-group">
+                            <label class="key">Institution:</label>
+                            <input [(ngModel)]="edu.Institution" class="value input-field" />
+                        </div>
+                        <div class="form-group">
+                            <label class="key">Location:</label>
+                            <input [(ngModel)]="edu.Location" class="value input-field" />
+                        </div>
+                        <div class="form-group">
+                            <label class="key">GPA:</label>
+                            <input [(ngModel)]="edu.GPA" class="value input-field" />
+                        </div>
+                        <div class="form-group">
+                            <label class="key">Start Date:</label>
+                            <input [(ngModel)]="edu.StartDate" class="value input-field" [value]="edu.StartDate || ''" />
+                        </div>
 
-            <div class="form-group">
-              <label class="key">End Date:</label>
-              <input
-                [(ngModel)]="edu.EndDate"
-                class="value input-field"
-                [value]="edu.EndDate || ''"
-              />
-            </div>
-          </div>
+                        <div class="form-group">
+                            <label class="key">End Date:</label>
+                            <input [(ngModel)]="edu.EndDate" class="value input-field" [value]="edu.EndDate || ''" />
+                        </div>
+                    </div>
 
-          <h4 class="section-subtitle">Work Experience</h4>
-          <div
-            *ngFor="let work of resumeDetails['Work Experience']; let i = index"
-            class="nested-section"
-          >
-            <div class="form-group">
-              <label class="key">Company:</label>
-              <input [(ngModel)]="work.Company" class="value input-field" />
-            </div>
-            <div class="form-group">
-              <label class="key">Position:</label>
-              <input [(ngModel)]="work.Position" class="value input-field" />
-            </div>
-            <div class="form-group">
-              <label class="key">Location:</label>
-              <input [(ngModel)]="work.Location" class="value input-field" />
-            </div>
-            <div class="form-group">
-              <label class="key">Start Date:</label>
-              <input [(ngModel)]="work.StartDate" class="value input-field" />
-            </div>
-            <div class="form-group">
-              <label class="key">End Date:</label>
-              <input [(ngModel)]="work.EndDate" class="value input-field" />
-            </div>
-            <div class="form-group">
-              <label class="key">Description:</label>
-              <!-- <div *ngFor="let desc of work.Description; let j = index"> -->
-              <textarea
-                [(ngModel)]="work.Description"
-                class="value input-field textarea-field"
-              ></textarea>
-              <!-- </div> -->
-            </div>
-          </div>
+                    <h4 class="section-subtitle">Work Experience</h4>
+                    <div *ngFor="let work of resumeDetails['Work Experience']; let i = index" class="nested-section">
+                        <div class="form-group">
+                            <label class="key">Company:</label>
+                            <input [(ngModel)]="work.Company" class="value input-field" />
+                        </div>
+                        <div class="form-group">
+                            <label class="key">Position:</label>
+                            <input [(ngModel)]="work.Position" class="value input-field" />
+                        </div>
+                        <div class="form-group">
+                            <label class="key">Location:</label>
+                            <input [(ngModel)]="work.Location" class="value input-field" />
+                        </div>
+                        <div class="form-group">
+                            <label class="key">Start Date:</label>
+                            <input [(ngModel)]="work.StartDate" class="value input-field" />
+                        </div>
+                        <div class="form-group">
+                            <label class="key">End Date:</label>
+                            <input [(ngModel)]="work.EndDate" class="value input-field" />
+                        </div>
+                        <div class="form-group">
+                            <label class="key">Description:</label>
+                            <!-- <div *ngFor="let desc of work.Description; let j = index"> -->
+                            <textarea [(ngModel)]="work.Description" class="value input-field textarea-field"></textarea>
+                            <!-- </div> -->
+                        </div>
+                    </div>
 
-          <h4 class="section-subtitle">Certifications</h4>
-          <div
-            *ngFor="let cert of resumeDetails.Certifications; let i = index"
-            class="nested-section"
-          >
-            <div class="form-group">
-              <label class="key">Name:</label>
-              <input [(ngModel)]="cert.Name" class="value input-field" />
-            </div>
-            <div class="form-group">
-              <label class="key">Organization:</label>
-              <input
-                [(ngModel)]="cert.Organization"
-                class="value input-field"
-              />
-            </div>
-          </div>
+                    <h4 class="section-subtitle">Certifications</h4>
+                    <div *ngFor="let cert of resumeDetails.Certifications; let i = index" class="nested-section">
+                        <div class="form-group">
+                            <label class="key">Name:</label>
+                            <input [(ngModel)]="cert.Name" class="value input-field" />
+                        </div>
+                        <div class="form-group">
+                            <label class="key">Organization:</label>
+                            <input [(ngModel)]="cert.Organization" class="value input-field" />
+                        </div>
+                    </div>
 
-          <h4 class="section-subtitle">Skills</h4>
-          <div class="nested-section">
-            <div class="form-group">
-              <label class="key">Soft Skills:</label>
-              <ul class="skills-list">
-                <li
-                  *ngFor="
+                    <h4 class="section-subtitle">Skills</h4>
+                    <div class="nested-section">
+                        <div class="form-group">
+                            <label class="key">Soft Skills:</label>
+                            <ul class="skills-list">
+                                <li *ngFor="
                     let skill of resumeDetails.Skills['Soft Skills'];
                     let i = index
-                  "
-                >
-                  <input
-                    [(ngModel)]="resumeDetails.Skills['Soft Skills'][i]"
-                    class="skill-input"
-                  />
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!-- Blue line separator -->
-          <hr class="blue-line" />
+                  ">
+                                    <input [(ngModel)]="resumeDetails.Skills['Soft Skills'][i]" class="skill-input" />
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Blue line separator -->
+                    <hr class="blue-line" />
 
-          <div class="nested-section">
-            <div class="form-group">
-              <label class="key">Technical Skills:</label>
-              <ul class="skills-list">
-                <li
-                  *ngFor="
+                    <div class="nested-section">
+                        <div class="form-group">
+                            <label class="key">Technical Skills:</label>
+                            <ul class="skills-list">
+                                <li *ngFor="
                     let skill of resumeDetails.Skills['Technical Skills'];
                     let i = index
-                  "
-                >
-                  <input
-                    [(ngModel)]="resumeDetails.Skills['Technical Skills'][i]"
-                    class="skill-input"
-                  />
-                </li>
-              </ul>
+                  ">
+                                    <input [(ngModel)]="resumeDetails.Skills['Technical Skills'][i]" class="skill-input" />
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <br />
+
+                <div class="center-container">
+                    <button (click)="closeModal()" class="center-button">Submit</button>
+                </div>
             </div>
-          </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="bread_bar">
+            <nav class="breadcrumb">
+                <ul>
+                    <li><a href="# ">Omantel</a></li>
+                    <li><a href="# ">Jobs</a></li>
+                    <li><span>Software Developer</span></li>
+                </ul>
+            </nav>
         </div>
         <br />
+        <!-- Breadcrumb separator -->
+        <!-- Job Details Section -->
+        <div class="job-details" style="position: relative">
+            <div class="back-button" (click)="navigateBack()">
+                <span class="arrow">←</span>
+                <span>Back to Jobs</span>
+            </div>
+            <br />
+            <div class="job-header">
+                <h2>Software Developer</h2>
+                <button class="btn-primary">View Job Description</button>
+            </div>
+            <br />
+            <div class="job-info">
+                <div class="info-item">🌐 <span>GLAV-262128</span></div>
+                <div class="info-item">📍 <span>Muscat, Oman</span></div>
+                <div class="info-item">⏰ <span>Full-time</span></div>
 
-        <div class="center-container">
-          <button (click)="closeModal()" class="center-button">Submit</button>
+                <div class="info-item">
+                    🏢 <span>Oman Telecommunications Company</span>
+                </div>
+                <div class="info-item">📁 <span>IT</span></div>
+
+                <div class="info-item">🎓 <span>Permanent</span></div>
+                <div class="info-item">🚫 <span>No travel required</span></div>
+                <div class="info-item">📅 <span>16 Nov 2024</span></div>
+            </div>
+            <br />
+            <div class="line"></div>
+            <br />
+            <div class="job-actions">
+                <button class="btn-primary">🔗Copy job link</button> ‎ ‎
+                <button class="btn-primary">↗️Share</button>
+            </div>
+            <br />
+
+            <div class="ai-scoring-card">
+                <div class="ai-icon">✨</div>
+                <div class="ai-content">
+                    <h3>Instant AI-Powered Scoring</h3>
+                    <p>
+                        After submitting your resume, our AI quickly analyzes it against the job description. Receive an instant score that shows how well the resume aligns with the role's requirements. Get actionable insights to make smarter hiring decisions.
+                    </p>
+                </div>
+            </div>
+            <br />
+            <a (click)="fileInput.click()">
+                <div class="file-upload" (dragover)="onDragOver($event)" (drop)="onFileDrop($event)">
+                    <span> 📤 Drop files here to upload or choose file </span>
+                    <input type="file" (change)="onFileSelect($event)" style="display: none" #fileInput />
+                    <p>Allowed file formats (max-2MB): PNG, JPG, DOCX, DOC, PDF</p>
+                </div>
+            </a>
+            <!-- Progress Bar -->
+            <div *ngIf="isLoading" class="progress-container">
+                <div class="progress-bar" [style.width]="progress + '%'"></div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 
-  <!-- Main Content -->
-  <div class="main-content">
-    <div class="bread_bar">
-      <nav class="breadcrumb">
+    <!-- Related Jobs -->
+    <div class="related-jobs">
+        <h3>Related Jobs</h3>
         <ul>
-          <li><a href="# ">Omantel</a></li>
-          <li><a href="# ">Jobs</a></li>
-          <li><span>Software Developer</span></li>
-        </ul>
-      </nav>
-    </div>
-    <br />
-    <!-- Breadcrumb separator -->
-    <!-- Job Details Section -->
-    <div class="job-details" style="position: relative">
-      <div class="back-button" (click)="navigateBack()">
-        <span class="arrow">←</span>
-        <span>Back to Jobs</span>
-      </div>
-      <br />
-      <div class="job-header">
-        <h2>Software Developer</h2>
-        <button class="btn-primary">View Job Description</button>
-      </div>
-      <br />
-      <div class="job-info">
-        <div class="info-item">🌐 <span>GLAV-262128</span></div>
-        <div class="info-item">📍 <span>Muscat, Oman</span></div>
-        <div class="info-item">⏰ <span>Full-time</span></div>
-
-        <div class="info-item">
-          🏢 <span>Oman Telecommunications Company</span>
-        </div>
-        <div class="info-item">📁 <span>IT</span></div>
-
-        <div class="info-item">🎓 <span>Permanent</span></div>
-        <div class="info-item">🚫 <span>No travel required</span></div>
-        <div class="info-item">📅 <span>16 Nov 2024</span></div>
-      </div>
-      <br />
-      <div class="line"></div>
-      <br />
-      <div class="job-actions">
-        <button class="btn-primary">🔗Copy job link</button> ‎ ‎
-        <button class="btn-primary">↗️Share</button>
-      </div>
-      <br />
-
-      <div class="ai-scoring-card">
-        <div class="ai-icon">✨</div>
-        <div class="ai-content">
-          <h3>Instant AI-Powered Scoring</h3>
-          <p>
-            After submitting your resume, our AI quickly analyzes it against the
-            job description. Receive an instant score that shows how well the
-            resume aligns with the role's requirements. Get actionable insights
-            to make smarter hiring decisions.
-          </p>
-        </div>
-      </div>
-      <br />
-      <a (click)="fileInput.click()">
-        <div
-          class="file-upload"
-          (dragover)="onDragOver($event)"
-          (drop)="onFileDrop($event)"
-        >
-          <span> 📤 Drop files here to upload or choose file </span>
-          <input
-            type="file"
-            (change)="onFileSelect($event)"
-            style="display: none"
-            #fileInput
-          />
-          <p>Allowed file formats (max-2MB): PNG, JPG, DOCX, DOC, PDF</p>
-        </div>
-      </a>
-      <!-- Progress Bar -->
-      <div *ngIf="isLoading" class="progress-container">
-        <div class="progress-bar" [style.width]="progress + '%'"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Related Jobs -->
-  <div class="related-jobs">
-    <h3>Related Jobs</h3>
-    <ul>
-      <li>
-        <span
-          >Senior Securities <br />
+            <li>
+                <span>Senior Securities <br />
           Operations <br />Representative - Trade <br />Settlements</span
         >
         <p>• Sur, Oman ‎ ‎ ‎ ‎ ‎ ‎‎ ‎ ‎ ‎ ‎‎ ‎ ‎‎ ‎ ‎‎‎ ‎ ‎ • Operations</p>

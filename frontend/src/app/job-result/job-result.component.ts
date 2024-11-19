@@ -54,7 +54,9 @@ export class JobResultComponent {
     message: '',
   };
   showDetails = false;
+  formattedExperience: any = ''; // Variable for formatted experience
 
+  dynamicName: string = ''; // Variable for the dynamic name
   // fetchApiResult() {
   //   this.http.get('http://localhost:5000/submit').subscribe(
   //     (response: any) => {
@@ -84,6 +86,10 @@ export class JobResultComponent {
           message: response.message,
         };
         console.log('API Result:', this.apiResult);
+
+        // Extract dynamic name after fetching the data
+        this.extractNameFromSummary(this.apiResult['Short Description']);
+        this.formatExperience(this.apiResult['Relevant Experience']);
       },
       (error) => {
         console.error('Error fetching API result:', error);
@@ -149,9 +155,37 @@ export class JobResultComponent {
   navigateBack() {
     this.router.navigate(['/job-list']);
   }
+  extractNameFromSummary(summaryText: string): void {
+    // const summaryText =
+    //   'Based on the resume of Tharun S C for the Data Engineer role, here is a summary:'; // Example summary
+    // const nameMatch  = this.apiResult['Short Description'];
+    // console.log('Summary:', summaryText);
+    const nameMatch = summaryText.match(/^(\w+\s+\w+(?:\s+\w+)?)/); // Extracts the first name(s) in the text
+    if (nameMatch && nameMatch[1]) {
+      this.dynamicName = nameMatch[1]; // Set the extracted name
+    } else {
+      this.dynamicName = 'Unknown'; // Fallback name
+    }
 
+    // Format Relevant Experience
+    // this.apiResult['Relevant Experience'] = this.apiResult['Relevant Experience']
+    //   .replace('year as', 'Year');
+  }
+  formatExperience(experience: string): void {
+    // const experience = this.apiResult['Relevant Experience'];
+    console.log('Experience:', experience);
+    const match = experience.match(/(\d+)\s*year/i); // Regex to extract the number of years
+
+    if (match && match[1]) {
+      this.formattedExperience = `${match[1]} Year`; // Format as "1 Year"
+    } else {
+      this.formattedExperience = 'Experience Not Available'; // Fallback if no match
+    }
+  }
   ngOnInit(): void {
     // Trigger the backend call when the component initializes
     this.getBackendData();
+    // this.formatExperience();
+    // this.extractNameFromSummary();
   }
 }

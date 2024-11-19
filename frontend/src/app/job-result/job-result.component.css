@@ -585,9 +585,9 @@
 }
 
 .profile-img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border-radius: 40%;
   margin-right: 10px; /* Adds space between the image and the name */
 }
 
@@ -634,9 +634,10 @@
 }
 .profile-img {
   width: 90px;
-  height: 75px;
-  border-radius: 50%;
+  height: 90px;
+  border-radius: 10%;
   margin-right: 15px;
+
 }
 
 /* ############## */
@@ -723,7 +724,7 @@ body.modal-open {
 
 .value {
   flex: 1;
-  color: blue;
+  color: #146faa;
 }
 
 .input-field {
@@ -824,3 +825,25 @@ body.modal-open {
   padding: 5px;
   width: calc(100% - 10px); /* Make input fit nicely inside the list */
 }
+.candidate-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 5px auto;
+  overflow: hidden;
+}
+
+/* ######l */
+
+.candidate-card {
+  background: linear-gradient(135deg, #f8f9fa, #ffffff);
+  border: 1px solid #e0e0e0;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px auto;
+  max-width: 600px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
