@@ -3,13 +3,12 @@ import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
-
 @Component({
-  selector: 'app-job-details',
-  templateUrl: './job-details.component.html',
-  styleUrls: ['./job-details.component.css'],
+  selector: 'app-job-details-sm',
+  templateUrl: './job-details-sm.component.html',
+  styleUrl: './job-details-sm.component.css',
 })
-export class JobDetailsComponent {
+export class JobDetailsSmComponent {
   data: any;
   isLoading = false;
   progress = 0;
@@ -17,6 +16,13 @@ export class JobDetailsComponent {
   jobDetails: any;
   errorMessage: string = '';
   private baseUrl: string = 'http://localhost:5000/jobs'; // Flask API base URL
+
+  // Dynamic job description data
+  jobDescription: any = {
+    Title: '',
+    RequiredSkills: [],
+    Responsibilities: [],
+  };
 
   // Resume details dynamically updated via ngModel
   resumeDetails: any = {
@@ -56,7 +62,6 @@ export class JobDetailsComponent {
       'Technical Skills': [],
     },
   };
-  jobDescription: any;
 
   constructor(
     private router: Router,
@@ -66,7 +71,7 @@ export class JobDetailsComponent {
 
   ngOnInit() {
     // Fetch dynamic job description data from an API
-    this.http.get('http://localhost:5000/jd1').subscribe(
+    this.http.get('http://localhost:5000/jd2').subscribe(
       (response: any) => {
         this.jobDescription = response; // Bind the response to jobDescription
       },

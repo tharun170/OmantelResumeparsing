@@ -7,13 +7,17 @@ import { JobDetailsComponent } from './job-details/job-details.component';
 import { JobResultComponent } from './job-result/job-result.component';
 import { JobListComponent } from './job-list/job-list.component';
 import { FormsModule } from '@angular/forms';
+import { JobDetailsSmComponent } from './job-details-sm/job-details-sm.component';
+import { JobDetailsDeComponent } from './job-details-de/job-details-de.component';
 
 @NgModule({
   declarations: [
     AppComponent, // Root component
     JobDetailsComponent,
     JobResultComponent,
-    JobListComponent, // Other components
+    JobListComponent,
+    JobDetailsSmComponent,
+    JobDetailsDeComponent, // Other components
   ],
   imports: [
     BrowserModule,

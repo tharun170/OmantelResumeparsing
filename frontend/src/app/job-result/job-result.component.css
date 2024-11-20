@@ -576,7 +576,7 @@
   align-items: center; /* Vertically aligns items within the container */
   justify-content: space-between; /* Pushes content to opposite ends */
   padding: 10px 20px; /* Adds some spacing */
-  background-color: #ffffff; /* Optional: Background color for the header */
+  /* background-color: #ffffff; Optional: Background color for the header */
 }
 
 .profile-info {
