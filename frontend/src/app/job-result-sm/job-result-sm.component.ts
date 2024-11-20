@@ -3,11 +3,11 @@ import { Router } from '@angular/router'; // Import the Router
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-job-result',
-  templateUrl: './job-result.component.html',
-  styleUrl: './job-result.component.css',
+  selector: 'app-job-result-sm',
+  templateUrl: './job-result-sm.component.html',
+  styleUrl: './job-result-sm.component.css'
 })
-export class JobResultComponent {
+export class JobResultSmComponent {
   constructor(private router: Router, private http: HttpClient) {}
   popupMessage: string | null = null;
   public resumeDetails: any = {

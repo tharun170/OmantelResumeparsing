@@ -1,1531 +1,1649 @@
 /* Overall Layout */
 .container {
-    display: flex;
-    flex-direction: row;
-    font-family: Arial, sans-serif;
-  }
-  
-  .sidebar {
-    width: 250px;
-    margin-top: 10px;
-    background-color: #f9f9fc;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
-  }
-  
-  .menu-item {
-    display: flex;
-    align-items: center;
-    padding: 10px 15px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  .menu-item i.icon {
-    font-size: 20px;
-    color: #6c63ff;
-    margin-right: 15px;
-  }
-  
-  .menu-item span {
-    font-size: 16px;
-    color: #333;
-  }
-  
-  .menu-item.active,
-  .menu-item:hover {
-    background-color: #e4e3fd;
-    color: #6c63ff;
-  }
-  
-  .menu-item.active i.icon,
-  .menu-item:hover i.icon {
-    color: #6c63ff;
-  }
-  
-  /* Breadcrumb Styling */
-  .breadcrumb {
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    color: #999; /* Light gray for non-active links */
-    display: flex;
-    align-items: center;
-    padding: 10px 0;
-  }
-  
-  .breadcrumb ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    align-items: center;
-  }
-  
-  .breadcrumb li {
-    display: flex;
-    align-items: center;
-  }
-  
-  .breadcrumb li a {
-    text-decoration: none;
-    color: #999; /* Light gray links */
-    transition: color 0.3s ease;
-  }
-  
-  .breadcrumb li a:hover {
-    color: #f89406; /* Orange color for hover effect */
-  }
-  
-  .breadcrumb li span {
-    color: #f89406; /* Highlighted color for the current item */
-    font-weight: bold;
-  }
-  
-  .breadcrumb li + li::before {
-    content: "›"; /* Chevron separator */
-    margin: 0 8px;
-    color: #ccc; /* Light gray for separator */
-  }
-  
-  .ai-scoring-card {
-    display: flex;
-    align-items: flex-start;
-    padding: 12px 10px 6px 12px;
-    border-radius: 8px;
-    background-color: #e8eeee7d; /* Light gray background */
-    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
-    color: #333; /* Dark text for readability */
-    font-family: "Arial", sans-serif;
-  }
-  
-  .ai-icon {
-    font-size: 24px;
-    margin-right: 12px;
-    color: #ffcc00; /* Gold color for the sparkle icon */
-  }
-  
-  .ai-content h3 {
-    margin: 0;
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .ai-content p {
-    margin: 8px 0 0;
-    font-size: 14px;
-    line-height: 1.5;
-    color: #666; /* Slightly muted text color for description */
-  }
-  
-  /* Sidebar */
-  .sidebar {
-    width: 250px;
-    background: #f7f7f9;
-    padding: 20px;
-  }
-  
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .sidebar li {
-    margin: 20px 0;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-  }
-  .back-button {
-    display: flex;
-    align-items: center;
-    color: orange;
-    cursor: pointer;
-    font-size: 14px;
-    text-decoration: none;
-  }
-  
-  .back-button:hover {
-    text-decoration: underline;
-  }
-  
-  .arrow {
-    margin-right: 5px;
-  }
-  
-  .sidebar .icon {
-    margin-right: 10px;
-  }
-  
-  /* Main Content */
-  .main-content {
-    flex: 2;
-    padding: 20px;
-  }
-  
-  .breadcrumbs {
-    font-size: 14px;
-    margin-bottom: 20px;
-  }
-  .bread_bar {
-    border: 1px solid #d6d6d6; /* Fine, neutral border */
-    padding: 10px 15px; /* Compact padding for a slim appearance */
-    border-radius: 4px; /* Minimal rounding for a clean look */
-    font-size: 14px; /* Appropriate text size for breadcrumbs */
-    color: #555; /* Neutral gray for text */
-    display: flex; /* Flexbox for alignment */
-    gap: 8px; /* Slight spacing between breadcrumb items */
-    align-items: center; /* Vertically centers breadcrumb items */
-  }
-  
-  .bread_bar a {
-    text-decoration: none; /* Removes underlines from links */
-    color: #0073e6; /* Muted blue for a distinct and clean link color */
-    font-weight: 500; /* Slightly bold for visibility */
-  }
-  
-  .bread_bar a:hover {
-    color: #005bb5; /* Slightly darker blue on hover */
-  }
-  
-  .bread_bar span {
-    color: #888; /* Softer gray for separators */
-  }
-  
-  .job-details {
-    background: #ffffff; /* Keeps it clean and simple */
-    border: 1px solid #e0e0e0; /* Soft border for minimalistic design */
-    padding: 20px; /* Ensures enough spacing for content */
-    border-radius: 12px; /* Slightly larger radius for a more modern feel */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Adds a subtle shadow for depth */
-    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
-  }
-  
-  .job-details:hover {
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Enhances shadow on hover */
-    transform: translateY(-2px); /* Slight lift effect on hover */
-  }
-  
-  .job-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .job-header h2 {
-    margin: 0;
-    font-size: 24px;
-  }
-  
-  .btn-primary {
-    background-color: #ff8c00;
-    color: #ffffff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  /* Job information section */
-  .job-info {
-    display: flex;
-    flex-wrap: wrap; /* Ensures it stays responsive */
-    gap: 20px;
-  }
-  
-  .job-info p {
-    margin: 5px 0;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .icon {
-    margin-right: 10px;
-  }
-  
-  .job-actions {
-    margin-top: 20px;
-  }
-  .line {
-    width: 100px; /* Adjust as needed */
-    height: 5px; /* Adjust for thickness */
-    background-color: #ff8c00; /* Adjust color to match */
-  }
-  .btn-secondary {
-    background-color: #e0e0e0;
-    color: #000;
-    border: none;
-    padding: 8px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-right: 10px;
-  }
-  
-  .ai-scoring {
-    margin-top: 30px;
-  }
-  
-  .file-upload {
-    border: 4px dashed #a785ff; /* Base dashed border */
-    border-radius: 8px; /* Smoothly rounded corners */
-    background-color: #f9f5ff; /* Light purple background */
-    padding: 20px; /* Inner spacing */
-    text-align: center; /* Center align content */
-    color: #993399; /* Purple for text and icon */
-    font-family: Arial, sans-serif; /* Clean and modern font */
-    font-size: 14px; /* Default text size */
-    cursor: pointer; /* Indicate interactivity */
-    border-style: dashed;
-    border-image: repeating-linear-gradient(
-        to right,
-        #a785ff 0,
-        #800080 10px,
-        transparent 10px,
-        transparent 20px
-      )
-      10;
-  }
-  
-  .file-upload .icon {
-    font-size: 24px; /* Prominent icon */
-    margin-bottom: 8px; /* Space between icon and text */
-  }
-  
-  .file-upload:hover {
-    background-color: #f0eaff; /* Slightly darker background */
-    border-color: #6c63ff; /* More vibrant border on hover */
-  }
-  
-  .file-upload p {
-    margin: 5px 0; /* Spacing between text */
-    font-size: 14px; /* Consistent text size */
-  }
-  
-  .file-upload span {
-    font-size: 12px; /* Subtext font size */
-    color: #993399; /* Purple for text and icon */
-  }
-  
-  .file-upload a {
-    font-size: 12px; /* Subtext font size */
-    color: #993399; /* Purple for text and icon */
-  }
-  
-  /* Related Jobs */
-  .related-jobs {
-    width: 300px; /* Keeps it compact and structured */
-    padding: 15px 20px; /* Balanced padding */
-    background: #f5f5f5; /* Light gray background for contrast */
-    border: 1px solid #e0e0e0; /* Adds a subtle border */
-    border-radius: 6px; /* Slight rounding for a soft look */
-    font-family: Arial, sans-serif; /* Consistent typography */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Slight elevation */
-  }
-  
-  .related-jobs h3 {
-    font-size: 16px; /* Reduced size for subtlety */
-    font-weight: 600; /* Semi-bold for balance */
-    color: #444; /* Darker gray for better contrast */
-    margin-bottom: 15px;
-    border-bottom: 2px solid #dcdcdc; /* Slightly heavier bottom border for emphasis */
-    padding-bottom: 8px;
-  }
-  
-  .related-jobs ul {
-    list-style: none; /* Removes default list styling */
-    padding: 0;
-    margin: 0;
-  }
-  
-  .related-jobs li {
-    margin-bottom: 15px; /* Compact spacing between items */
-    padding: 10px 0; /* Vertical padding for cleaner look */
-    border-bottom: 1px dashed #dcdcdc; /* Dashed separator for visual variety */
-    transition: background-color 0.2s ease, transform 0.2s ease; /* Smooth hover effects */
-  }
-  
-  .related-jobs li:hover {
-    background-color: #eaeaea; /* Subtle highlight on hover */
-    transform: translateX(5px); /* Slight horizontal shift for interactivity */
-    cursor: pointer;
-  }
-  
-  .related-jobs span {
-    font-weight: 500; /* Slightly bold for emphasis */
-    font-size: 15px;
-    color: #333; /* Neutral text color */
-    display: block;
-    margin-bottom: 5px;
-    line-height: 1.5;
-  }
-  
-  .related-jobs p {
-    margin: 0;
-    font-size: 14px;
-    color: #555; /* Muted text for description */
-  }
-  
-  /* Link hover effect */
-  .related-jobs span:hover {
-    color: #0073e6; /* Muted blue for hover state */
-    text-decoration: underline; /* Indicates interactivity */
-  }
-  
-  /* Ensures emojis are not italic */
-  .info-item span {
-    font-style: normal; /* Removes italic style */
-  }
-  
-  .info-item {
-    display: flex;
-    align-items: center;
-    font-size: 1rem;
-    font-weight: normal;
-    gap: 8px; /* Spacing between emoji and text */
-  }
-  
-  .title-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-    padding: 10px 20px;
-    border-bottom: 6px solid #ff8c00;
-    height: 40px; /* Adjust for title bar height */
-  }
-  
-  .title span {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #0000ff; /* Blue color for "Omantel" */
-  }
-  
-  .icons {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo {
-    margin-right: 28px;
-  
-    width: 150px;
-    height: 110px;
-  }
-  .icon {
-    margin-left: 28px;
-    font-size: 34px;
-    cursor: pointer;
-  }
-  
-  .material-icons icon {
-    width: 40px;
-    height: 40px;
-  }
-  .profile {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%; /* To make the profile icon circular */
-  }
-  .file-upload {
-    border: 2px dashed #ccc;
-    padding: 20px;
-    text-align: center;
-    cursor: pointer;
-  }
-  
-  .file-upload:hover {
-    background-color: #f5f5f5;
-  }
-  
-  .modal {
-    /* position: fixed; */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .modal-content {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    width: 60%;
-  }
-  .file-upload {
-    border: 2px dashed #ccc;
-    padding: 20px;
-    text-align: center;
-    cursor: pointer;
-  }
-  
-  .file-upload:hover {
-    background-color: #f5f5f5;
-  }
-  
-  .modal-backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .modal-content {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    width: 70%;
-    max-height: 80%;
-    overflow-y: auto;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  }
-  
-  .modal-content h3,
-  h4 {
-    margin-top: 20px;
-  }
-  
-  .key {
-    color: orange;
-    font-weight: bold;
-  }
-  
-  .value {
-    color: blue;
-  }
-  
-  .modal-content p {
-    margin-bottom: 10px;
-    color: black;
-  }
-  
-  button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  .modal-backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000; /* Ensures the modal is above other elements */
-  }
-  
-  .modal-content {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    width: 70%;
-    max-height: 80%;
-    overflow-y: auto;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    z-index: 11; /* Stays above the backdrop */
-  }
-  .modal-backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10;
-  }
-  .modal-content {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    width: 90%; /* Adjust for a full-screen appearance */
-    max-width: 1200px; /* Ensure it's not too wide */
-    height: 90%; /* Cover most of the viewport */
-    max-height: 95%; /* Allow some space at the edges */
-    overflow-y: auto; /* Scrollable if content overflows */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    z-index: 11;
-  }
-  
-  body.modal-open {
-    overflow: hidden; /* Prevent scrolling the main page when modal is open */
-  }
-  
-  /* #333333333333333333333333 */
-  .resume-form {
-    max-width: 800px;
-    margin: auto;
-    font-family: "Helvetica", sans-serif;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .section-title,
-  .section-subtitle {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    color: #333;
-    font-weight: bold;
-  }
-  
-  .form-group {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .key {
-    flex: 0 0 150px;
-    font-weight: bold;
-    color: #555;
-  }
-  
-  .value {
-    flex: 1;
-  }
-  
-  .input-field {
-    padding: 8px;
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    transition: border-color 0.3s;
-  }
-  
-  .input-field:focus {
-    border-color: #007bff;
-    outline: none;
-  }
-  
-  .textarea-field {
-    height: 60px;
-    resize: vertical;
-  }
-  
-  .nested-section {
-    border-left: 3px solid #007bff;
-    padding-left: 10px;
-    margin-bottom: 15px;
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    padding: 10px;
-  }
-  
-  /* ######## */
-  
-  .skills-list {
-    /* border-left: 3px solid #007bff; */
-    color: #007bff;
-  
-    list-style-type: disc;
-    padding-left: 20px;
-    margin: 10px 0;
-  }
-  
-  .skills-list li {
-    color: #007bff;
-    margin-bottom: 10px;
-  }
-  
-  .skill-input {
-    /* border-left: 3px solid #007bff; */
-    color: #007bff;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-    color: #333;
-    padding: 5px;
-    width: calc(100% - 10px); /* Make input fit nicely inside the list */
-  }
-  .blue-line {
-    border: none;
-    border-top: 2px solid #007bff; /* Blue color */
-    margin: 15px 0; /* Add spacing */
-  }
-  
-  .center-button {
-    display: block;
-    margin: 0 auto; /* Centers the button horizontally */
-    padding: 10px 20px; /* Optional padding for better appearance */
-    background-color: #007bff; /* Button background color */
-    color: white; /* Text color */
-    border: none; /* Remove border */
-    border-radius: 4px; /* Rounded corners */
-    font-size: 16px; /* Font size */
-    cursor: pointer; /* Pointer cursor on hover */
-  }
-  
-  .center-button:hover {
-    background-color: #0056b3; /* Darken button color on hover */
-  }
-  
-  /* ==undoredo=== */
-  
-  /* Overall Layout */
-  .container {
-    display: flex;
-    flex-direction: row;
-    font-family: Arial, sans-serif;
-  }
-  
-  .sidebar {
-    width: 250px;
-    background-color: #f9f9fc;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
-  }
-  
-  .menu-item {
-    display: flex;
-    align-items: center;
-    padding: 10px 15px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  .menu-item i.icon {
-    font-size: 20px;
-    color: #6c63ff;
-    margin-right: 15px;
-  }
-  
-  .menu-item span {
-    font-size: 16px;
-    color: #333;
-  }
-  
-  .menu-item.active,
-  .menu-item:hover {
-    background-color: #e4e3fd;
-    color: #6c63ff;
-  }
-  
-  .menu-item.active i.icon,
-  .menu-item:hover i.icon {
-    color: #6c63ff;
-  }
-  
-  /* Breadcrumb Styling */
-  .breadcrumb {
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    color: #999; /* Light gray for non-active links */
-    display: flex;
-    align-items: center;
-    padding: 10px 0;
-  }
-  
-  .breadcrumb ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    align-items: center;
-  }
-  
-  .breadcrumb li {
-    display: flex;
-    align-items: center;
-  }
-  
-  .breadcrumb li a {
-    text-decoration: none;
-    color: #999; /* Light gray links */
-    transition: color 0.3s ease;
-  }
-  
-  .breadcrumb li a:hover {
-    color: #f89406; /* Orange color for hover effect */
-  }
-  
-  .breadcrumb li span {
-    color: #f89406; /* Highlighted color for the current item */
-    font-weight: bold;
-  }
-  
-  .breadcrumb li + li::before {
-    content: "›"; /* Chevron separator */
-    margin: 0 8px;
-    color: #ccc; /* Light gray for separator */
-  }
-  
-  .ai-scoring-card {
-    /* display: flex; */
-    /* align-items: flex-start; */
-    padding: 12px 10px 6px 12px;
-    /* border-radius: 8px; */
-    background-color: #e8eeee7d; /* Light gray background */
-    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
-    color: #333; /* Dark text for readability */
-    font-family: "Arial";
-  }
-  
-  .ai-icon {
-    font-size: 24px;
-    margin-right: 12px;
-    color: #ffcc00; /* Gold color for the sparkle icon */
-  }
-  
-  .ai-content h3 {
-    margin: 0;
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .ai-content p {
-    margin: 8px 0 0;
-    font-size: 14px;
-    line-height: 1.5;
-    color: #666; /* Slightly muted text color for description */
-  }
-  
-  /* Sidebar */
-  .sidebar {
-    width: 250px;
-    background: #f7f7f9;
-    padding: 20px;
-    margin-top: 10px;
-  }
-  
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .sidebar li {
-    margin: 20px 0;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-  }
-  .back-button {
-    display: flex;
-    align-items: center;
-    color: orange;
-    cursor: pointer;
-    font-size: 14px;
-    text-decoration: none;
-  }
-  
-  .back-button:hover {
-    text-decoration: underline;
-  }
-  
-  .arrow {
-    margin-right: 5px;
-  }
-  
-  .sidebar .icon {
-    margin-right: 10px;
-  }
-  
-  /* Main Content */
-  .main-content {
-    flex: 2;
-    padding: 20px;
-  }
-  
-  .breadcrumbs {
-    font-size: 14px;
-    margin-bottom: 20px;
-  }
-  .bread_bar {
-    border: 1px solid #d6d6d6; /* Fine, neutral border */
-    padding: 10px 15px; /* Compact padding for a slim appearance */
-    border-radius: 4px; /* Minimal rounding for a clean look */
-    font-size: 14px; /* Appropriate text size for breadcrumbs */
-    color: #555; /* Neutral gray for text */
-    display: flex; /* Flexbox for alignment */
-    gap: 8px; /* Slight spacing between breadcrumb items */
-    align-items: center; /* Vertically centers breadcrumb items */
-  }
-  
-  .bread_bar a {
-    text-decoration: none; /* Removes underlines from links */
-    color: #0073e6; /* Muted blue for a distinct and clean link color */
-    font-weight: 500; /* Slightly bold for visibility */
-  }
-  
-  .bread_bar a:hover {
-    color: #005bb5; /* Slightly darker blue on hover */
-  }
-  
-  .bread_bar span {
-    color: #888; /* Softer gray for separators */
-  }
-  
-  .job-details {
-    background: #ffffff; /* Keeps it clean and simple */
-    border: 1px solid #e0e0e0; /* Soft border for minimalistic design */
-    padding: 20px; /* Ensures enough spacing for content */
-    border-radius: 12px; /* Slightly larger radius for a more modern feel */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Adds a subtle shadow for depth */
-    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
-  }
-  
-  .job-details:hover {
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Enhances shadow on hover */
-    transform: translateY(-2px); /* Slight lift effect on hover */
-  }
-  
-  .job-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .job-header h2 {
-    margin: 0;
-    font-size: 24px;
-  }
-  
-  .btn-primary {
-    background-color: #ff8c00; /* Orange background */
-    color: #ffffff; /* White text */
-    border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    /* font-size: 16px;          Optional: Adjust font size */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
-  }
-  
-  .btn-primary:hover {
-    background-color: #e67600; /* Slightly darker orange on hover */
-    transform: scale(1.05); /* Slight enlargement on hover */
-  }
-  
-  .btn-primary-view {
-    background-color: #ff8c00;
-    color: #ffffff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-right: 120px;
-  }
-  /* Job information section */
-  .job-info {
-    display: flex;
-    flex-wrap: wrap; /* Ensures it stays responsive */
-    gap: 20px;
-  }
-  
-  .job-info p {
-    margin: 5px 0;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .icon {
-    margin-right: 10px;
-  }
-  
-  .job-actions {
-    margin-top: 20px;
-  }
-  .line {
-    width: 100px; /* Adjust as needed */
-    height: 5px; /* Adjust for thickness */
-    background-color: #ff8c00; /* Adjust color to match */
-  }
-  .btn-secondary {
-    background-color: #e0e0e0;
-    color: #000;
-    border: none;
-    padding: 8px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-right: 10px;
-  }
-  
-  .ai-scoring {
-    margin-top: 30px;
-  }
-  
-  .file-upload {
-    border: 4px dashed #a785ff; /* Base dashed border */
-    border-radius: 8px; /* Smoothly rounded corners */
-    background-color: #f9f5ff; /* Light purple background */
-    padding: 20px; /* Inner spacing */
-    text-align: center; /* Center align content */
-    color: #993399; /* Purple for text and icon */
-    font-family: Arial, sans-serif; /* Clean and modern font */
-    font-size: 14px; /* Default text size */
-    cursor: pointer; /* Indicate interactivity */
-    border-style: dashed;
-    border-image: repeating-linear-gradient(
-        to right,
-        #a785ff 0,
-        #800080 10px,
-        transparent 10px,
-        transparent 20px
-      )
-      10;
-  }
-  
-  .file-upload .icon {
-    font-size: 24px; /* Prominent icon */
-    margin-bottom: 8px; /* Space between icon and text */
-  }
-  
-  .file-upload:hover {
-    background-color: #f0eaff; /* Slightly darker background */
-    border-color: #6c63ff; /* More vibrant border on hover */
-  }
-  
-  .file-upload p {
-    margin: 5px 0; /* Spacing between text */
-    font-size: 14px; /* Consistent text size */
-  }
-  
-  .file-upload span {
-    font-size: 12px; /* Subtext font size */
-    color: #993399; /* Purple for text and icon */
-  }
-  
-  .file-upload a {
-    font-size: 12px; /* Subtext font size */
-    color: #993399; /* Purple for text and icon */
-  }
-  
-  /* Related Jobs */
-  .related-jobs {
-    width: 300px; /* Keeps it compact and structured */
-    padding: 15px 20px; /* Balanced padding */
-    background: #f5f5f5; /* Light gray background for contrast */
-    border: 1px solid #e0e0e0; /* Adds a subtle border */
-    border-radius: 6px; /* Slight rounding for a soft look */
-    margin-top: 10px;
-    font-family: Arial, sans-serif; /* Consistent typography */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Slight elevation */
-  }
-  
-  .related-jobs h3 {
-    font-size: 16px; /* Reduced size for subtlety */
-    font-weight: 600; /* Semi-bold for balance */
-    color: #444; /* Darker gray for better contrast */
-    margin-bottom: 15px;
-    border-bottom: 2px solid #dcdcdc; /* Slightly heavier bottom border for emphasis */
-    padding-bottom: 8px;
-  }
-  
-  .related-jobs ul {
-    list-style: none; /* Removes default list styling */
-    padding: 0;
-    margin: 0;
-  }
-  
-  .related-jobs li {
-    margin-bottom: 15px; /* Compact spacing between items */
-    padding: 10px 0; /* Vertical padding for cleaner look */
-    border-bottom: 1px dashed #dcdcdc; /* Dashed separator for visual variety */
-    transition: background-color 0.2s ease, transform 0.2s ease; /* Smooth hover effects */
-  }
-  
-  .related-jobs li:hover {
-    background-color: #eaeaea; /* Subtle highlight on hover */
-    transform: translateX(5px); /* Slight horizontal shift for interactivity */
-    cursor: pointer;
-  }
-  
-  .related-jobs span {
-    font-weight: 500; /* Slightly bold for emphasis */
-    font-size: 15px;
-    color: #333; /* Neutral text color */
-    display: block;
-    margin-bottom: 5px;
-    line-height: 1.5;
-  }
-  
-  .related-jobs p {
-    margin: 0;
-    font-size: 14px;
-    color: #555; /* Muted text for description */
-  }
-  
-  /* Link hover effect */
-  .related-jobs span:hover {
-    color: #0073e6; /* Muted blue for hover state */
-    text-decoration: underline; /* Indicates interactivity */
-  }
-  
-  /* Ensures emojis are not italic */
-  .info-item span {
-    font-style: normal; /* Removes italic style */
-  }
-  
-  .info-item {
-    display: flex;
-    align-items: center;
-    font-size: 1rem;
-    font-weight: normal;
-    gap: 8px; /* Spacing between emoji and text */
-  }
-  
-  .title-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-    padding: 10px 20px;
-    border-bottom: 6px solid #ff8c00;
-    height: 40px; /* Adjust for title bar height */
-  }
-  
-  .title span {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #0000ff; /* Blue color for "Omantel" */
-  }
-  
-  .icons {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo {
-    margin-right: 28px;
-  
-    width: 150px;
-    height: 110px;
-  }
-  .icon {
-    margin-left: 28px;
-    font-size: 34px;
-    cursor: pointer;
-  }
-  
-  .material-icons icon {
-    width: 40px;
-    height: 40px;
-  }
-  .profile {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%; /* To make the profile icon circular */
-  }
-  /* ######################### */
-  .card {
-    width: 400px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .info h2 {
-    margin: 0;
-    font-size: 18px;
-  }
-  
-  .info .btn {
-    margin-top: 5px;
-    padding: 5px 10px;
-    font-size: 12px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-  }
-  
-  .shortlist {
-    background-color: #28a745;
-    color: #fff;
-  }
-  
-  .reject {
-    background-color: #dc3545;
-    color: #fff;
-    margin-left: 10px;
-  }
-  
-  .stats {
-    display: flex;
-    justify-content: space-between;
-    /* margin-top: 10px; */
-    /* margin-bottom: 20px; */
-  }
-  
-  .stat {
-    text-align: center;
-  }
-  
-  .stat .label {
-    font-weight: bold;
-  
-    font-size: 15px;
-    color: #666;
-  }
-  
-  .stat .value {
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 5px;
-  }
-  
-  .stat .score {
-    color: #ff910d;
-  }
-  
-  .stat .high {
-    color: #28a745;
-  }
-  
-  .summary {
-    font-size: 14px;
-  }
-  
-  .summary p {
-    margin-bottom: 10px;
-  }
-  
-  .summary ul {
-    padding-left: 20px;
-  }
-  
-  .summary li {
-    margin-bottom: 5px;
-  }
-  
-  .summary {
-    font-size: 15px; /* Slightly larger font for better readability */
-    line-height: 1.6; /* Improved line spacing for a cleaner look */
-    color: #333; /* Neutral dark gray for professional appearance */
-    background-color: #f9f9f9; /* Light gray background for subtle emphasis */
-    padding: 15px 20px; /* Adds spacing inside the box */
-    border-radius: 8px; /* Rounded corners for a modern touch */
-    border-left: 4px solid #ff910d; /* Adds a professional accent with a left border */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  }
-  
-  .summary p {
-    margin-bottom: 15px; /* More spacing for paragraphs */
-    font-weight: 500; /* Medium font weight for better contrast */
-  }
-  
-  .summary ul {
-    padding-left: 25px; /* Extra padding for better alignment */
-    list-style: disc; /* Disc bullets for a professional feel */
-    margin: 10px 0; /* Consistent margin around the list */
-  }
-  
-  .summary li {
-    margin-bottom: 8px; /* Slightly more space between items */
-    font-weight: 400; /* Regular weight for item text */
-  }
-  
-  .summary li strong {
-    color: #ff910d; /* Highlight keywords for emphasis */
-  }
-  
-  /* ###################3 */
-  
-  .header {
-    display: flex;
-    align-items: center; /* Vertically aligns items within the container */
-    justify-content: space-between; /* Pushes content to opposite ends */
-    padding: 10px 20px; /* Adds some spacing */
-    background-color: #ffffff; /* Optional: Background color for the header */
-  }
-  
-  .profile-info {
-    display: flex;
-    align-items: center; /* Vertically aligns the image and text */
-  }
-  
-  .profile-img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 10px; /* Adds space between the image and the name */
-  }
-  
-  .profile-info h2 {
-    font-size: 20px;
-    color: #333; /* Professional dark gray */
-    margin: 0; /* Removes default margin */
-  }
-  
-  .action-buttons {
-    display: flex;
-    gap: 10px; /* Adds spacing between buttons */
-  }
-  
-  .btn {
-    padding: 5px 15px;
-    border-radius: 5px;
-    font-size: 14px;
-    cursor: pointer;
-    border: 1px solid #e0e0e0;
-    transition: all 0.3s ease;
-  }
-  
-  .btn.shortlist {
-    background-color: #ffffff;
-    color: #ff7a00; /* Orange color for "Shortlist" */
-    border: 1px solid #ff7a00;
-  }
-  
-  .btn.shortlist:hover {
-    background-color: #ff7a00;
-    color: #ffffff;
-  }
-  
-  .btn.reject {
-    background-color: #ffffff;
-    color: #dc3545; /* Red color for "Reject" */
-    border: 1px solid #dc3545;
-  }
-  
-  .btn.reject:hover {
-    background-color: #dc3545;
-    color: #ffffff;
-  }
-  .profile-img {
-    width: 90px;
-    height: 75px;
-    border-radius: 50%;
-    margin-right: 15px;
-  }
-  
-  /* ############## */
-  
-  .modal-backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10;
-  }
-  .modal-content {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    width: 90%; /* Adjust for a full-screen appearance */
-    max-width: 1200px; /* Ensure it's not too wide */
-    height: 90%; /* Cover most of the viewport */
-    max-height: 95%; /* Allow some space at the edges */
-    overflow-y: auto; /* Scrollable if content overflows */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    z-index: 11;
-  }
-  
-  .modal-content {
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 10px;
-    width: 60%;
-    max-width: 1200px;
-    height: 90%;
-    max-height: 95%;
-    overflow-y: auto;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    z-index: 11;
-  }
-  body.modal-open {
-    overflow: hidden; /* Prevent scrolling the main page when modal is open */
-  }
-  
-  /* 333333333 */
-  
-  /* Resume Form Styling */
-  .resume-form {
-    max-width: 800px;
-    margin: auto;
-    font-family: "Helvetica", sans-serif;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .section-title {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    color: #333;
-    font-weight: bold;
-  }
-  
-  .nested-section {
-    border-left: 3px solid #007bff;
-    padding-left: 10px;
-    margin-top: 10px;
-  }
-  
-  .form-group {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .key {
-    flex: 0 0 150px;
-    font-weight: bold;
-    color: orange;
-  }
-  
-  .value {
-    flex: 1;
-    color: blue;
-  }
-  
-  .input-field {
-    padding: 8px;
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    transition: border-color 0.3s;
-  }
-  
-  .input-field:focus {
-    border-color: #007bff;
-    outline: none;
-  }
-  
-  .textarea-field {
-    height: 60px;
-    resize: vertical;
-  }
-  
-  .section-subtitle {
-    font-size: 1.25rem;
-    margin-bottom: 10px;
-    color: #555;
-    font-weight: 600;
-  }
-  
-  .skills-list {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .skill-input {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 100%;
-    margin-bottom: 5px;
-  }
-  
-  .blue-line {
-    width: 100px;
-    height: 3px;
-    background-color: #007bff;
-    margin: 10px 0;
-  }
-  
-  .center-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0;
-  }
-  
-  .center-button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .center-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .nested-section {
-    border-left: 3px solid #007bff;
-    padding-left: 10px;
-    margin-bottom: 15px;
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    padding: 10px;
-  }
-  
-  .skills-list {
-    /* border-left: 3px solid #007bff; */
-    color: #007bff;
-  
-    list-style-type: disc;
-    padding-left: 20px;
-    margin: 10px 0;
-  }
-  
-  .skills-list li {
-    color: #007bff;
-    margin-bottom: 10px;
-  }
-  
-  .skill-input {
-    /* border-left: 3px solid #007bff; */
-    color: #007bff;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-    color: #333;
-    padding: 5px;
-    width: calc(100% - 10px); /* Make input fit nicely inside the list */
-  }
-  .progress-container {
-    width: 100%;
-    height: 10px;
-    background-color: #f0f0f0;
-    margin: 10px 0;
-    border-radius: 5px;
-    overflow: hidden;
-  }
-  
-  .progress-bar {
-    height: 100%;
-    background-color: orange;
-    transition: width 0.2s ease;
-  }
+  display: flex;
+  flex-direction: row;
+  font-family: Arial, sans-serif;
+}
+
+.sidebar {
+  width: 250px;
+  margin-top: 10px;
+  background-color: #f9f9fc;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu-item i.icon {
+  font-size: 20px;
+  color: #6c63ff;
+  margin-right: 15px;
+}
+
+.menu-item span {
+  font-size: 16px;
+  color: #333;
+}
+
+.menu-item.active,
+.menu-item:hover {
+  background-color: #e4e3fd;
+  color: #6c63ff;
+}
+
+.menu-item.active i.icon,
+.menu-item:hover i.icon {
+  color: #6c63ff;
+}
+
+/* Breadcrumb Styling */
+.breadcrumb {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #999; /* Light gray for non-active links */
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.breadcrumb ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb li {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb li a {
+  text-decoration: none;
+  color: #999; /* Light gray links */
+  transition: color 0.3s ease;
+}
+
+.breadcrumb li a:hover {
+  color: #f89406; /* Orange color for hover effect */
+}
+
+.breadcrumb li span {
+  color: #f89406; /* Highlighted color for the current item */
+  font-weight: bold;
+}
+
+.breadcrumb li + li::before {
+  content: "›"; /* Chevron separator */
+  margin: 0 8px;
+  color: #ccc; /* Light gray for separator */
+}
+
+.ai-scoring-card {
+  display: flex;
+  align-items: flex-start;
+  padding: 12px 10px 6px 12px;
+  border-radius: 8px;
+  background-color: #e8eeee7d; /* Light gray background */
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+  color: #333; /* Dark text for readability */
+  font-family: "Arial", sans-serif;
+}
+
+.ai-icon {
+  font-size: 24px;
+  margin-right: 12px;
+  color: #ffcc00; /* Gold color for the sparkle icon */
+}
+
+.ai-content h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.ai-content p {
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #666; /* Slightly muted text color for description */
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background: #f7f7f9;
+  padding: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 20px 0;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+.back-button {
+  display: flex;
+  align-items: center;
+  color: orange;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.back-button:hover {
+  text-decoration: underline;
+}
+
+.arrow {
+  margin-right: 5px;
+}
+
+.sidebar .icon {
+  margin-right: 10px;
+}
+
+/* Main Content */
+.main-content {
+  flex: 2;
+  padding: 20px;
+}
+
+.breadcrumbs {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.bread_bar {
+  border: 1px solid #d6d6d6; /* Fine, neutral border */
+  padding: 10px 15px; /* Compact padding for a slim appearance */
+  border-radius: 4px; /* Minimal rounding for a clean look */
+  font-size: 14px; /* Appropriate text size for breadcrumbs */
+  color: #555; /* Neutral gray for text */
+  display: flex; /* Flexbox for alignment */
+  gap: 8px; /* Slight spacing between breadcrumb items */
+  align-items: center; /* Vertically centers breadcrumb items */
+}
+
+.bread_bar a {
+  text-decoration: none; /* Removes underlines from links */
+  color: #0073e6; /* Muted blue for a distinct and clean link color */
+  font-weight: 500; /* Slightly bold for visibility */
+}
+
+.bread_bar a:hover {
+  color: #005bb5; /* Slightly darker blue on hover */
+}
+
+.bread_bar span {
+  color: #888; /* Softer gray for separators */
+}
+
+.job-details {
+  background: #ffffff; /* Keeps it clean and simple */
+  border: 1px solid #e0e0e0; /* Soft border for minimalistic design */
+  padding: 20px; /* Ensures enough spacing for content */
+  border-radius: 12px; /* Slightly larger radius for a more modern feel */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Adds a subtle shadow for depth */
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+}
+
+.job-details:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Enhances shadow on hover */
+  transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.job-header h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.btn-primary {
+  background-color: #ff8c00;
+  color: #ffffff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+/* Job information section */
+.job-info {
+  display: flex;
+  flex-wrap: wrap; /* Ensures it stays responsive */
+  gap: 20px;
+}
+
+.job-info p {
+  margin: 5px 0;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+.job-actions {
+  margin-top: 20px;
+}
+.line {
+  width: 100px; /* Adjust as needed */
+  height: 5px; /* Adjust for thickness */
+  background-color: #ff8c00; /* Adjust color to match */
+}
+.btn-secondary {
+  background-color: #e0e0e0;
+  color: #000;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.ai-scoring {
+  margin-top: 30px;
+}
+
+.file-upload {
+  border: 4px dashed #a785ff; /* Base dashed border */
+  border-radius: 8px; /* Smoothly rounded corners */
+  background-color: #f9f5ff; /* Light purple background */
+  padding: 20px; /* Inner spacing */
+  text-align: center; /* Center align content */
+  color: #993399; /* Purple for text and icon */
+  font-family: Arial, sans-serif; /* Clean and modern font */
+  font-size: 14px; /* Default text size */
+  cursor: pointer; /* Indicate interactivity */
+  border-style: dashed;
+  border-image: repeating-linear-gradient(
+      to right,
+      #a785ff 0,
+      #800080 10px,
+      transparent 10px,
+      transparent 20px
+    )
+    10;
+}
+
+.file-upload .icon {
+  font-size: 24px; /* Prominent icon */
+  margin-bottom: 8px; /* Space between icon and text */
+}
+
+.file-upload:hover {
+  background-color: #f0eaff; /* Slightly darker background */
+  border-color: #6c63ff; /* More vibrant border on hover */
+}
+
+.file-upload p {
+  margin: 5px 0; /* Spacing between text */
+  font-size: 14px; /* Consistent text size */
+}
+
+.file-upload span {
+  font-size: 12px; /* Subtext font size */
+  color: #993399; /* Purple for text and icon */
+}
+
+.file-upload a {
+  font-size: 12px; /* Subtext font size */
+  color: #993399; /* Purple for text and icon */
+}
+
+/* Related Jobs */
+.related-jobs {
+  width: 300px; /* Keeps it compact and structured */
+  padding: 15px 20px; /* Balanced padding */
+  background: #f5f5f5; /* Light gray background for contrast */
+  border: 1px solid #e0e0e0; /* Adds a subtle border */
+  border-radius: 6px; /* Slight rounding for a soft look */
+  font-family: Arial, sans-serif; /* Consistent typography */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Slight elevation */
+}
+
+.related-jobs h3 {
+  font-size: 16px; /* Reduced size for subtlety */
+  font-weight: 600; /* Semi-bold for balance */
+  color: #444; /* Darker gray for better contrast */
+  margin-bottom: 15px;
+  border-bottom: 2px solid #dcdcdc; /* Slightly heavier bottom border for emphasis */
+  padding-bottom: 8px;
+}
+
+.related-jobs ul {
+  list-style: none; /* Removes default list styling */
+  padding: 0;
+  margin: 0;
+}
+
+.related-jobs li {
+  margin-bottom: 15px; /* Compact spacing between items */
+  padding: 10px 0; /* Vertical padding for cleaner look */
+  border-bottom: 1px dashed #dcdcdc; /* Dashed separator for visual variety */
+  transition: background-color 0.2s ease, transform 0.2s ease; /* Smooth hover effects */
+}
+
+.related-jobs li:hover {
+  background-color: #eaeaea; /* Subtle highlight on hover */
+  transform: translateX(5px); /* Slight horizontal shift for interactivity */
+  cursor: pointer;
+}
+
+.related-jobs span {
+  font-weight: 500; /* Slightly bold for emphasis */
+  font-size: 15px;
+  color: #333; /* Neutral text color */
+  display: block;
+  margin-bottom: 5px;
+  line-height: 1.5;
+}
+
+.related-jobs p {
+  margin: 0;
+  font-size: 14px;
+  color: #555; /* Muted text for description */
+}
+
+/* Link hover effect */
+.related-jobs span:hover {
+  color: #0073e6; /* Muted blue for hover state */
+  text-decoration: underline; /* Indicates interactivity */
+}
+
+/* Ensures emojis are not italic */
+.info-item span {
+  font-style: normal; /* Removes italic style */
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: normal;
+  gap: 8px; /* Spacing between emoji and text */
+}
+
+.title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px 20px;
+  border-bottom: 6px solid #ff8c00;
+  height: 40px; /* Adjust for title bar height */
+}
+
+.title span {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #0000ff; /* Blue color for "Omantel" */
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  margin-right: 28px;
+
+  width: 150px;
+  height: 110px;
+}
+.icon {
+  margin-left: 28px;
+  font-size: 34px;
+  cursor: pointer;
+}
+
+.material-icons icon {
+  width: 40px;
+  height: 40px;
+}
+.profile {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /* To make the profile icon circular */
+}
+.file-upload {
+  border: 2px dashed #ccc;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.file-upload:hover {
+  background-color: #f5f5f5;
+}
+
+.modal {
+  /* position: fixed; */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  width: 60%;
+}
+.file-upload {
+  border: 2px dashed #ccc;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.file-upload:hover {
+  background-color: #f5f5f5;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  width: 70%;
+  max-height: 80%;
+  overflow-y: auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h3,
+h4 {
+  margin-top: 20px;
+}
+
+.key {
+  color: orange;
+  font-weight: bold;
+}
+
+.value {
+  color: blue;
+}
+
+.modal-content p {
+  margin-bottom: 10px;
+  color: black;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensures the modal is above other elements */
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  width: 70%;
+  max-height: 80%;
+  overflow-y: auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 11; /* Stays above the backdrop */
+}
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+.modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%; /* Adjust for a full-screen appearance */
+  max-width: 1200px; /* Ensure it's not too wide */
+  height: 90%; /* Cover most of the viewport */
+  max-height: 95%; /* Allow some space at the edges */
+  overflow-y: auto; /* Scrollable if content overflows */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 11;
+}
+
+body.modal-open {
+  overflow: hidden; /* Prevent scrolling the main page when modal is open */
+}
+
+/* #333333333333333333333333 */
+.resume-form {
+  max-width: 800px;
+  margin: auto;
+  font-family: "Helvetica", sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section-title,
+.section-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #333;
+  font-weight: bold;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.key {
+  flex: 0 0 150px;
+  font-weight: bold;
+  color: #555;
+}
+
+.value {
+  flex: 1;
+}
+
+.input-field {
+  padding: 8px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+.input-field:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.textarea-field {
+  height: 60px;
+  resize: vertical;
+}
+
+.nested-section {
+  border-left: 3px solid #007bff;
+  padding-left: 10px;
+  margin-bottom: 15px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/* ######## */
+
+.skills-list {
+  /* border-left: 3px solid #007bff; */
+  color: #007bff;
+
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 10px 0;
+}
+
+.skills-list li {
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.skill-input {
+  /* border-left: 3px solid #007bff; */
+  color: #007bff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+  padding: 5px;
+  width: calc(100% - 10px); /* Make input fit nicely inside the list */
+}
+.blue-line {
+  border: none;
+  border-top: 2px solid #007bff; /* Blue color */
+  margin: 15px 0; /* Add spacing */
+}
+
+.center-button {
+  display: block;
+  margin: 0 auto; /* Centers the button horizontally */
+  padding: 10px 20px; /* Optional padding for better appearance */
+  background-color: #007bff; /* Button background color */
+  color: white; /* Text color */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+.center-button:hover {
+  background-color: #0056b3; /* Darken button color on hover */
+}
+
+/* ==undoredo=== */
+
+/* Overall Layout */
+.container {
+  display: flex;
+  flex-direction: row;
+  font-family: Arial, sans-serif;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #f9f9fc;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu-item i.icon {
+  font-size: 20px;
+  color: #6c63ff;
+  margin-right: 15px;
+}
+
+.menu-item span {
+  font-size: 16px;
+  color: #333;
+}
+
+.menu-item.active,
+.menu-item:hover {
+  background-color: #e4e3fd;
+  color: #6c63ff;
+}
+
+.menu-item.active i.icon,
+.menu-item:hover i.icon {
+  color: #6c63ff;
+}
+
+/* Breadcrumb Styling */
+.breadcrumb {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #999; /* Light gray for non-active links */
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.breadcrumb ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb li {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb li a {
+  text-decoration: none;
+  color: #999; /* Light gray links */
+  transition: color 0.3s ease;
+}
+
+.breadcrumb li a:hover {
+  color: #f89406; /* Orange color for hover effect */
+}
+
+.breadcrumb li span {
+  color: #f89406; /* Highlighted color for the current item */
+  font-weight: bold;
+}
+
+.breadcrumb li + li::before {
+  content: "›"; /* Chevron separator */
+  margin: 0 8px;
+  color: #ccc; /* Light gray for separator */
+}
+
+.ai-scoring-card {
+  /* display: flex; */
+  /* align-items: flex-start; */
+  padding: 12px 10px 6px 12px;
+  /* border-radius: 8px; */
+  background-color: #e8eeee7d; /* Light gray background */
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+  color: #333; /* Dark text for readability */
+  font-family: "Arial";
+}
+
+.ai-icon {
+  font-size: 24px;
+  margin-right: 12px;
+  color: #ffcc00; /* Gold color for the sparkle icon */
+}
+
+.ai-content h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.ai-content p {
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #666; /* Slightly muted text color for description */
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background: #f7f7f9;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 20px 0;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+.back-button {
+  display: flex;
+  align-items: center;
+  color: orange;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.back-button:hover {
+  text-decoration: underline;
+}
+
+.arrow {
+  margin-right: 5px;
+}
+
+.sidebar .icon {
+  margin-right: 10px;
+}
+
+/* Main Content */
+.main-content {
+  flex: 2;
+  padding: 20px;
+}
+
+.breadcrumbs {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.bread_bar {
+  border: 1px solid #d6d6d6; /* Fine, neutral border */
+  padding: 10px 15px; /* Compact padding for a slim appearance */
+  border-radius: 4px; /* Minimal rounding for a clean look */
+  font-size: 14px; /* Appropriate text size for breadcrumbs */
+  color: #555; /* Neutral gray for text */
+  display: flex; /* Flexbox for alignment */
+  gap: 8px; /* Slight spacing between breadcrumb items */
+  align-items: center; /* Vertically centers breadcrumb items */
+}
+
+.bread_bar a {
+  text-decoration: none; /* Removes underlines from links */
+  color: #0073e6; /* Muted blue for a distinct and clean link color */
+  font-weight: 500; /* Slightly bold for visibility */
+}
+
+.bread_bar a:hover {
+  color: #005bb5; /* Slightly darker blue on hover */
+}
+
+.bread_bar span {
+  color: #888; /* Softer gray for separators */
+}
+
+.job-details {
+  background: #ffffff; /* Keeps it clean and simple */
+  border: 1px solid #e0e0e0; /* Soft border for minimalistic design */
+  padding: 20px; /* Ensures enough spacing for content */
+  border-radius: 12px; /* Slightly larger radius for a more modern feel */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Adds a subtle shadow for depth */
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+}
+
+.job-details:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Enhances shadow on hover */
+  transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.job-header h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.btn-primary {
+  background-color: #ff8c00; /* Orange background */
+  margin-bottom: 22px; /* Spacing below the button */
+
+  color: #ffffff; /* White text */
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  /* font-size: 16px;          Optional: Adjust font size */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+}
+
+.btn-primary:hover {
+  background-color: #e67600; /* Slightly darker orange on hover */
+  transform: scale(1.05); /* Slight enlargement on hover */
+}
+
+.btn-primary-view {
+  background-color: #ff8c00;
+  color: #ffffff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 120px;
+}
+/* Job information section */
+.job-info {
+  display: flex;
+  flex-wrap: wrap; /* Ensures it stays responsive */
+  gap: 20px;
+}
+
+.job-info p {
+  margin: 5px 0;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+.job-actions {
+  margin-top: 20px;
+}
+.line {
+  width: 100px; /* Adjust as needed */
+  height: 5px; /* Adjust for thickness */
+  background-color: #ff8c00; /* Adjust color to match */
+}
+.btn-secondary {
+  background-color: #e0e0e0;
+  color: #000;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.ai-scoring {
+  margin-top: 30px;
+}
+
+.file-upload {
+  border: 4px dashed #a785ff; /* Base dashed border */
+  border-radius: 8px; /* Smoothly rounded corners */
+  background-color: #f9f5ff; /* Light purple background */
+  padding: 20px; /* Inner spacing */
+  text-align: center; /* Center align content */
+  color: #993399; /* Purple for text and icon */
+  font-family: Arial, sans-serif; /* Clean and modern font */
+  font-size: 14px; /* Default text size */
+  cursor: pointer; /* Indicate interactivity */
+  border-style: dashed;
+  border-image: repeating-linear-gradient(
+      to right,
+      #a785ff 0,
+      #800080 10px,
+      transparent 10px,
+      transparent 20px
+    )
+    10;
+}
+
+.file-upload .icon {
+  font-size: 24px; /* Prominent icon */
+  margin-bottom: 8px; /* Space between icon and text */
+}
+
+.file-upload:hover {
+  background-color: #f0eaff; /* Slightly darker background */
+  border-color: #6c63ff; /* More vibrant border on hover */
+}
+
+.file-upload p {
+  margin: 5px 0; /* Spacing between text */
+  font-size: 14px; /* Consistent text size */
+}
+
+.file-upload span {
+  font-size: 12px; /* Subtext font size */
+  color: #993399; /* Purple for text and icon */
+}
+
+.file-upload a {
+  font-size: 12px; /* Subtext font size */
+  color: #993399; /* Purple for text and icon */
+}
+
+/* Related Jobs */
+.related-jobs {
+  width: 300px; /* Keeps it compact and structured */
+  padding: 15px 20px; /* Balanced padding */
+  background: #f5f5f5; /* Light gray background for contrast */
+  border: 1px solid #e0e0e0; /* Adds a subtle border */
+  border-radius: 6px; /* Slight rounding for a soft look */
+  margin-top: 10px;
+  font-family: Arial, sans-serif; /* Consistent typography */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Slight elevation */
+}
+
+.related-jobs h3 {
+  font-size: 16px; /* Reduced size for subtlety */
+  font-weight: 600; /* Semi-bold for balance */
+  color: #444; /* Darker gray for better contrast */
+  margin-bottom: 15px;
+  border-bottom: 2px solid #dcdcdc; /* Slightly heavier bottom border for emphasis */
+  padding-bottom: 8px;
+}
+
+.related-jobs ul {
+  list-style: none; /* Removes default list styling */
+  padding: 0;
+  margin: 0;
+}
+
+.related-jobs li {
+  margin-bottom: 15px; /* Compact spacing between items */
+  padding: 10px 0; /* Vertical padding for cleaner look */
+  border-bottom: 1px dashed #dcdcdc; /* Dashed separator for visual variety */
+  transition: background-color 0.2s ease, transform 0.2s ease; /* Smooth hover effects */
+}
+
+.related-jobs li:hover {
+  background-color: #eaeaea; /* Subtle highlight on hover */
+  transform: translateX(5px); /* Slight horizontal shift for interactivity */
+  cursor: pointer;
+}
+
+.related-jobs span {
+  font-weight: 500; /* Slightly bold for emphasis */
+  font-size: 15px;
+  color: #333; /* Neutral text color */
+  display: block;
+  margin-bottom: 5px;
+  line-height: 1.5;
+}
+
+.related-jobs p {
+  margin: 0;
+  font-size: 14px;
+  color: #555; /* Muted text for description */
+}
+
+/* Link hover effect */
+.related-jobs span:hover {
+  color: #0073e6; /* Muted blue for hover state */
+  text-decoration: underline; /* Indicates interactivity */
+}
+
+/* Ensures emojis are not italic */
+.info-item span {
+  font-style: normal; /* Removes italic style */
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: normal;
+  gap: 8px; /* Spacing between emoji and text */
+}
+
+.title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px 20px;
+  border-bottom: 6px solid #ff8c00;
+  height: 40px; /* Adjust for title bar height */
+}
+
+.title span {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #0000ff; /* Blue color for "Omantel" */
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  margin-right: 28px;
+
+  width: 150px;
+  height: 110px;
+}
+.icon {
+  margin-left: 28px;
+  font-size: 34px;
+  cursor: pointer;
+}
+
+.material-icons icon {
+  width: 40px;
+  height: 40px;
+}
+.profile {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /* To make the profile icon circular */
+}
+/* ######################### */
+.card {
+  width: 400px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.info h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.info .btn {
+  margin-top: 5px;
+  padding: 5px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+.shortlist {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.reject {
+  background-color: #dc3545;
+  color: #fff;
+  margin-left: 10px;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  /* margin-top: 10px; */
+  /* margin-bottom: 20px; */
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat .label {
+  font-weight: bold;
+
+  font-size: 15px;
+  color: #666;
+}
+
+.stat .value {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.stat .score {
+  color: #ff910d;
+}
+
+.stat .high {
+  color: #28a745;
+}
+
+.summary {
+  font-size: 14px;
+}
+
+.summary p {
+  margin-bottom: 10px;
+}
+
+.summary ul {
+  padding-left: 20px;
+}
+
+.summary li {
+  margin-bottom: 5px;
+}
+
+.summary {
+  font-size: 15px; /* Slightly larger font for better readability */
+  line-height: 1.6; /* Improved line spacing for a cleaner look */
+  color: #333; /* Neutral dark gray for professional appearance */
+  background-color: #f9f9f9; /* Light gray background for subtle emphasis */
+  padding: 15px 20px; /* Adds spacing inside the box */
+  border-radius: 8px; /* Rounded corners for a modern touch */
+  border-left: 4px solid #ff910d; /* Adds a professional accent with a left border */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.summary p {
+  margin-bottom: 15px; /* More spacing for paragraphs */
+  font-weight: 500; /* Medium font weight for better contrast */
+}
+
+.summary ul {
+  padding-left: 25px; /* Extra padding for better alignment */
+  list-style: disc; /* Disc bullets for a professional feel */
+  margin: 10px 0; /* Consistent margin around the list */
+}
+
+.summary li {
+  margin-bottom: 8px; /* Slightly more space between items */
+  font-weight: 400; /* Regular weight for item text */
+}
+
+.summary li strong {
+  color: #ff910d; /* Highlight keywords for emphasis */
+}
+
+/* ###################3 */
+
+.header {
+  display: flex;
+  align-items: center; /* Vertically aligns items within the container */
+  justify-content: space-between; /* Pushes content to opposite ends */
+  padding: 10px 20px; /* Adds some spacing */
+  background-color: #ffffff; /* Optional: Background color for the header */
+}
+
+.profile-info {
+  display: flex;
+  align-items: center; /* Vertically aligns the image and text */
+}
+
+.profile-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px; /* Adds space between the image and the name */
+}
+
+.profile-info h2 {
+  font-size: 20px;
+  color: #333; /* Professional dark gray */
+  margin: 0; /* Removes default margin */
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px; /* Adds spacing between buttons */
+}
+
+.btn {
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
+}
+
+.btn.shortlist {
+  background-color: #ffffff;
+  color: #ff7a00; /* Orange color for "Shortlist" */
+  border: 1px solid #ff7a00;
+}
+
+.btn.shortlist:hover {
+  background-color: #ff7a00;
+  color: #ffffff;
+}
+
+.btn.reject {
+  background-color: #ffffff;
+  color: #dc3545; /* Red color for "Reject" */
+  border: 1px solid #dc3545;
+}
+
+.btn.reject:hover {
+  background-color: #dc3545;
+  color: #ffffff;
+}
+.profile-img {
+  width: 90px;
+  height: 75px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+/* ############## */
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+.modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%; /* Adjust for a full-screen appearance */
+  max-width: 1200px; /* Ensure it's not too wide */
+  height: 90%; /* Cover most of the viewport */
+  max-height: 95%; /* Allow some space at the edges */
+  overflow-y: auto; /* Scrollable if content overflows */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 11;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  width: 60%;
+  max-width: 1200px;
+  height: 90%;
+  max-height: 95%;
+  overflow-y: auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 11;
+}
+body.modal-open {
+  overflow: hidden; /* Prevent scrolling the main page when modal is open */
+}
+
+/* 333333333 */
+
+/* Resume Form Styling */
+.resume-form {
+  max-width: 800px;
+  margin: auto;
+  font-family: "Helvetica", sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #333;
+  font-weight: bold;
+}
+
+.nested-section {
+  border-left: 3px solid #007bff;
+  padding-left: 10px;
+  margin-top: 10px;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.key {
+  flex: 0 0 150px;
+  font-weight: bold;
+  color: orange;
+}
+
+.value {
+  flex: 1;
+  color: blue;
+}
+
+.input-field {
+  padding: 8px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+.input-field:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.textarea-field {
+  height: 60px;
+  resize: vertical;
+}
+
+.section-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  color: #555;
+  font-weight: 600;
+}
+
+.skills-list {
+  list-style: none;
+  padding: 0;
+}
+
+.skill-input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.blue-line {
+  width: 100px;
+  height: 3px;
+  background-color: #007bff;
+  margin: 10px 0;
+}
+
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.center-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.center-button:hover {
+  background-color: #0056b3;
+}
+
+.nested-section {
+  border-left: 3px solid #007bff;
+  padding-left: 10px;
+  margin-bottom: 15px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.skills-list {
+  /* border-left: 3px solid #007bff; */
+  color: #007bff;
+
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 10px 0;
+}
+
+.skills-list li {
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.skill-input {
+  /* border-left: 3px solid #007bff; */
+  color: #007bff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+  padding: 5px;
+  width: calc(100% - 10px); /* Make input fit nicely inside the list */
+}
+.progress-container {
+  width: 100%;
+  height: 10px;
+  background-color: #f0f0f0;
+  margin: 10px 0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: orange;
+  transition: width 0.2s ease;
+}
+
+/* ######## */
+
+/* General modal container styling */
+
+/* Modal backdrop */
+.modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Black with opacity for overlay effect */
+}
+
+/* Modal content */
+.modal-content {
+  position: relative;
+  background-color: #f1f1f1; /* White background for contrast */
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Slight shadow for depth */
+  padding: 20px;
+  overflow: auto;
+  max-height: 80%;
+  border: 3px solid #0077cc; /* Blue border */
+}
+
+/* Modal headings */
+.modal-content h3 {
+  color: #0077cc; /* Blue for title */
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.modal-content h4 {
+  color: #ff6600; /* Orange for company name */
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.modal-content h5 {
+  color: #0077cc; /* Dark grey for section titles */
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+/* Modal paragraphs */
+.modal-content p {
+  color: #555555; /* Lighter grey for text */
+  line-height: 1.6;
+}
+
+/* Modal lists */
+.modal-content ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  color: #333333; /* Dark grey for list items */
+}
+
+.modal-content li {
+  margin-bottom: 8px;
+}
+
+/* Center button container */
+.center-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Button styling */
+.center-button {
+  background-color: #0077cc; /* Blue background */
+  color: white; /* White text */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.center-button:hover {
+  background-color: #005b99; /* Darker blue for hover effect */
+}
+
+/* 222 */
+
+/* Modal lists */
+.modal-content ul {
+  list-style-type: none; /* Remove default bullet styling */
+  margin-left: 20px;
+  color: #333333; /* Dark grey for list items */
+  padding-left: 0;
+}
+
+.modal-content li {
+  position: relative;
+  margin-bottom: 8px;
+  padding-left: 20px; /* Create space for the custom bullet */
+  color: #333333; /* Text color */
+}
+
+.modal-content li::before {
+  content: "•"; /* Unicode bullet character */
+  position: absolute;
+  left: 0;
+  color: #0077cc; /* Blue for bullet */
+  font-size: 1.2em;
+}

@@ -16,6 +16,9 @@ export class JobDetailsComponent {
   showDetails = false;
   jobDetails: any;
   errorMessage: string = '';
+  // Dynamic job description data
+  jobDescription: any = {}; // Stores dynamic job description data
+  showJobDescription = false; // Controls modal visibility
   private baseUrl: string = 'http://localhost:5000/jobs'; // Flask API base URL
 
   // Resume details dynamically updated via ngModel
@@ -56,7 +59,7 @@ export class JobDetailsComponent {
       'Technical Skills': [],
     },
   };
-  jobDescription: any;
+  // jobDescription: any;
 
   constructor(
     private router: Router,
@@ -74,6 +77,17 @@ export class JobDetailsComponent {
         console.error('Failed to fetch job description:', error);
       }
     );
+  }
+  // Open Job Description Modal
+  openJobDescriptionModal() {
+    // const jobId = 'data-engineer-001'; // Replace with dynamic job ID if available
+    // this.fetchJobDescription(jobId);
+    this.showJobDescription = true;
+  }
+
+  // Close Job Description Modal
+  closeJobDescriptionModal() {
+    this.showJobDescription = false;
   }
 
   fetchJobDetails(jobId: string): Observable<any> {

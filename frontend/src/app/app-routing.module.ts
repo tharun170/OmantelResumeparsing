@@ -5,7 +5,8 @@ import { JobResultComponent } from './job-result/job-result.component';
 import { JobListComponent } from './job-list/job-list.component';
 import { JobDetailsSmComponent } from './job-details-sm/job-details-sm.component';
 import { JobDetailsDeComponent } from './job-details-de/job-details-de.component';
-
+import { JobResultSmComponent } from './job-result-sm/job-result-sm.component';
+import { JobResultDeComponent } from './job-result-de/job-result-de.component';
 // Define routes for your app
 const routes: Routes = [
   { path: '', redirectTo: '/job-list', pathMatch: 'full' }, // Default route
@@ -14,6 +15,9 @@ const routes: Routes = [
   { path: 'job-details-de', component: JobDetailsDeComponent }, // Route for JobDetailsComponent
 
   { path: 'job-result', component: JobResultComponent }, // Route for JobResultComponent
+  { path: 'job-result-sm', component: JobResultSmComponent }, // Route for JobResultComponent
+  { path: 'job-result-de', component: JobResultDeComponent }, // Route for JobResultComponent
+
   { path: 'job-list', component: JobListComponent }, // Route for JobResultComponent
   // { path: '', redirectTo: '/jobs', pathMatch: 'full' },    // Default route
   // { path: '**', redirectTo: '/jobs' }                     // Fallback route

@@ -15,14 +15,12 @@ export class JobDetailsDeComponent {
   showDetails = false;
   jobDetails: any;
   errorMessage: string = '';
+  // Dynamic job description data
+  jobDescription: any = {}; // Stores dynamic job description data
+  showJobDescription = false; // Controls modal visibility
   private baseUrl: string = 'http://localhost:5000/jobs'; // Flask API base URL
 
   // Dynamic job description data
-  jobDescription: any = {
-    Title: '',
-    RequiredSkills: [],
-    Responsibilities: [],
-  };
 
   // Resume details dynamically updated via ngModel
   resumeDetails: any = {
@@ -79,6 +77,17 @@ export class JobDetailsDeComponent {
         console.error('Failed to fetch job description:', error);
       }
     );
+  }
+  // Open Job Description Modal
+  openJobDescriptionModal() {
+    // const jobId = 'data-engineer-001'; // Replace with dynamic job ID if available
+    // this.fetchJobDescription(jobId);
+    this.showJobDescription = true;
+  }
+
+  // Close Job Description Modal
+  closeJobDescriptionModal() {
+    this.showJobDescription = false;
   }
 
   fetchJobDetails(jobId: string): Observable<any> {
@@ -169,7 +178,7 @@ export class JobDetailsDeComponent {
         console.log('Response from /ai-response:', response);
         this.showDetails = false;
         document.body.classList.remove('modal-open');
-        this.router.navigate(['/job-result']);
+        this.router.navigate(['/job-result-de']);
       },
       (error) => {
         console.error('Error while posting to /ai-response:', error);

@@ -18,12 +18,8 @@ export class JobDetailsSmComponent {
   private baseUrl: string = 'http://localhost:5000/jobs'; // Flask API base URL
 
   // Dynamic job description data
-  jobDescription: any = {
-    Title: '',
-    RequiredSkills: [],
-    Responsibilities: [],
-  };
-
+  jobDescription: any = {}; // Stores dynamic job description data
+  showJobDescription = false; // Controls modal visibility
   // Resume details dynamically updated via ngModel
   resumeDetails: any = {
     'Full Name': '',
@@ -139,9 +135,25 @@ export class JobDetailsSmComponent {
       this.processFile(event.dataTransfer.files[0]);
     }
   }
+
+  // Open Job Description Modal
+  openJobDescriptionModal() {
+    // const jobId = 'data-engineer-001'; // Replace with dynamic job ID if available
+    // this.fetchJobDescription(jobId);
+    this.showJobDescription = true;
+  }
+
+  // Close Job Description Modal
+  closeJobDescriptionModal() {
+    this.showJobDescription = false;
+  }
+
+  // Prevent Modal Backdrop Click from Closing Modal
   stopPropagation(event: MouseEvent) {
     event.stopPropagation();
   }
+
+
   openModal() {
     this.showDetails = true;
     document.body.classList.add('modal-open'); // Prevents page scrolling
@@ -169,7 +181,7 @@ export class JobDetailsSmComponent {
         console.log('Response from /ai-response:', response);
         this.showDetails = false;
         document.body.classList.remove('modal-open');
-        this.router.navigate(['/job-result']);
+        this.router.navigate(['/job-result-sm']);
       },
       (error) => {
         console.error('Error while posting to /ai-response:', error);

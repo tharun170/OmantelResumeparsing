@@ -914,6 +914,8 @@
   
   .btn-primary {
     background-color: #ff8c00; /* Orange background */
+  margin-bottom: 22px; /* Spacing below the button */
+
     color: #ffffff; /* White text */
     border: none;
     padding: 10px 15px;
@@ -1529,3 +1531,117 @@
     background-color: orange;
     transition: width 0.2s ease;
   }
+  
+/* General modal container styling */
+
+/* Modal backdrop */
+.modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Black with opacity for overlay effect */
+}
+
+/* Modal content */
+.modal-content {
+  position: relative;
+  background-color: #f1f1f1; /* White background for contrast */
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Slight shadow for depth */
+  padding: 20px;
+  overflow: auto;
+  max-height: 80%;
+  border: 3px solid #0077cc; /* Blue border */
+}
+
+/* Modal headings */
+.modal-content h3 {
+  color: #0077cc; /* Blue for title */
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.modal-content h4 {
+  color: #ff6600; /* Orange for company name */
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.modal-content h5 {
+  color: #0077cc; /* Dark grey for section titles */
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+/* Modal paragraphs */
+.modal-content p {
+  color: #555555; /* Lighter grey for text */
+  line-height: 1.6;
+}
+
+/* Modal lists */
+.modal-content ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  color: #333333; /* Dark grey for list items */
+}
+
+.modal-content li {
+  margin-bottom: 8px;
+}
+
+/* Center button container */
+.center-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Button styling */
+.center-button {
+  background-color: #0077cc; /* Blue background */
+  color: white; /* White text */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.center-button:hover {
+  background-color: #005b99; /* Darker blue for hover effect */
+}
+
+/* 222 */
+
+/* Modal lists */
+.modal-content ul {
+  list-style-type: none; /* Remove default bullet styling */
+  margin-left: 20px;
+  color: #333333; /* Dark grey for list items */
+  padding-left: 0;
+}
+
+.modal-content li {
+  position: relative;
+  margin-bottom: 8px;
+  padding-left: 20px; /* Create space for the custom bullet */
+  color: #333333; /* Text color */
+}
+
+.modal-content li::before {
+  content: "•"; /* Unicode bullet character */
+  position: absolute;
+  left: 0;
+  color: #0077cc; /* Blue for bullet */
+  font-size: 1.2em;
+}

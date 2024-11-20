@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router'; // Import the Router
 import { HttpClient } from '@angular/common/http';
 
+
 @Component({
-  selector: 'app-job-result',
-  templateUrl: './job-result.component.html',
-  styleUrl: './job-result.component.css',
+  selector: 'app-job-result-de',
+  templateUrl: './job-result-de.component.html',
+  styleUrl: './job-result-de.component.css'
 })
-export class JobResultComponent {
+export class JobResultDeComponent {
   constructor(private router: Router, private http: HttpClient) {}
   popupMessage: string | null = null;
   public resumeDetails: any = {

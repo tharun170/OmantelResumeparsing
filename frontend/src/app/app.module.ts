@@ -9,6 +9,8 @@ import { JobListComponent } from './job-list/job-list.component';
 import { FormsModule } from '@angular/forms';
 import { JobDetailsSmComponent } from './job-details-sm/job-details-sm.component';
 import { JobDetailsDeComponent } from './job-details-de/job-details-de.component';
+import { JobResultDeComponent } from './job-result-de/job-result-de.component';
+import { JobResultSmComponent } from './job-result-sm/job-result-sm.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { JobDetailsDeComponent } from './job-details-de/job-details-de.component
     JobResultComponent,
     JobListComponent,
     JobDetailsSmComponent,
-    JobDetailsDeComponent, // Other components
+    JobDetailsDeComponent,
+    JobResultDeComponent,
+    JobResultSmComponent, // Other components
   ],
   imports: [
     BrowserModule,

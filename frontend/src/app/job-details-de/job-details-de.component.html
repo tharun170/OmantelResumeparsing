@@ -172,7 +172,38 @@
             </div>
         </div>
     </div>
-
+    <div class="modal-container">
+        <div class="modal-backdrop" *ngIf="showJobDescription" (click)="closeJobDescriptionModal()">
+            <div class="modal-content" (click)="stopPropagation($event)">
+                <h3>{{ jobDescription?.title }}</h3>
+                <h4>Company: {{ jobDescription?.company }}</h4>
+                <h5>Overview:</h5>
+                <p>{{ jobDescription?.description?.overview }}</p>
+                <h5>Responsibilities:</h5>
+                <ul>
+                    <li *ngFor="
+              let responsibility of jobDescription?.description
+                ?.responsibilities
+            ">
+                        {{ responsibility }}
+                    </li>
+                </ul>
+                <h5>Requirements:</h5>
+                <ul>
+                    <li *ngFor="
+              let requirement of jobDescription?.description?.requirements
+            ">
+                        {{ requirement }}
+                    </li>
+                </ul>
+                <div class="center-container">
+                    <button (click)="closeJobDescriptionModal()" class="center-button">
+            Close
+          </button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Main Content -->
     <div class="main-content">
         <div class="bread_bar">
@@ -195,12 +226,12 @@
             <br />
             <div class="job-header">
                 <h2>Data Engineer</h2>
-                <button class="btn-primary">View Job Description</button>
+                <button class="btn-primary" (click)="openJobDescriptionModal()">View Job Description</button>
             </div>
             <br />
             <div class="job-info">
-                <div class="info-item">🌐 <span>GLAV-262128</span></div>
-                <div class="info-item">📍 <span>Muscat, Oman</span></div>
+                <div class="info-item">🌐 <span>GLAV-512618</span></div>
+                <div class="info-item">📍 <span>Mumbai, India</span></div>
                 <div class="info-item">⏰ <span>Full-time</span></div>
 
                 <div class="info-item">
@@ -210,7 +241,7 @@
 
                 <div class="info-item">🎓 <span>Permanent</span></div>
                 <div class="info-item">🚫 <span>No travel required</span></div>
-                <div class="info-item">📅 <span>16 Nov 2024</span></div>
+                <div class="info-item">📅 <span>28 Nov 2024</span></div>
             </div>
             <br />
             <div class="line"></div>

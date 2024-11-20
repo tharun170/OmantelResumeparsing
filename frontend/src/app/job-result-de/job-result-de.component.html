@@ -172,38 +172,7 @@
             </div>
         </div>
     </div>
-    <div class="modal-container">
-        <div class="modal-backdrop" *ngIf="showJobDescription" (click)="closeJobDescriptionModal()">
-            <div class="modal-content" (click)="stopPropagation($event)">
-                <h3>{{ jobDescription?.title }}</h3>
-                <h4>Company: {{ jobDescription?.company }}</h4>
-                <h5>Overview:</h5>
-                <p>{{ jobDescription?.description?.overview }}</p>
-                <h5>Responsibilities:</h5>
-                <ul>
-                    <li *ngFor="
-              let responsibility of jobDescription?.description
-                ?.responsibilities
-            ">
-                        {{ responsibility }}
-                    </li>
-                </ul>
-                <h5>Requirements:</h5>
-                <ul>
-                    <li *ngFor="
-              let requirement of jobDescription?.description?.requirements
-            ">
-                        {{ requirement }}
-                    </li>
-                </ul>
-                <div class="center-container">
-                    <button (click)="closeJobDescriptionModal()" class="center-button">
-            Close
-          </button>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <!-- Main Content -->
     <div class="main-content">
         <div class="bread_bar">
@@ -211,27 +180,37 @@
                 <ul>
                     <li><a href="# ">Omantel</a></li>
                     <li><a href="# ">Jobs</a></li>
-                    <li><span>Software Developer</span></li>
+                    <li><span>Data Engineer</span></li>
                 </ul>
             </nav>
         </div>
         <br />
         <!-- Breadcrumb separator -->
         <!-- Job Details Section -->
-        <div class="job-details" style="position: relative">
+        <div class="job-details">
             <div class="back-button" (click)="navigateBack()">
                 <span class="arrow">←</span>
                 <span>Back to Jobs</span>
             </div>
             <br />
             <div class="job-header">
-                <h2>Software Developer</h2>
-                <button class="btn-primary" (click)="openJobDescriptionModal()">View Job Description</button>
+                <h2>Data Engineer</h2>
+                <!-- <button class="btn-primary-view">View Job Description</button> -->
+
+                <!-- <button class="btn-primary">Upload Resume</button> -->
+                <button class="btn-primary" [routerLink]="'/job-details-de'">
+                    Upload Resume
+                </button>
+
+                <div class="file-upload" style="display: none">
+                    <input type="file" (change)="onFileSelect($event)" style="display: none" #fileInput accept=".png,.jpg,.docx,.doc,.pdf" />
+                    <p>Allowed file formats (max-2MB): PNG, JPG, DOCX, DOC, PDF</p>
+                </div>
             </div>
             <br />
             <div class="job-info">
-                <div class="info-item">🌐 <span>GLAV-362182</span></div>
-                <div class="info-item">📍 <span>Chennai, India</span></div>
+                <div class="info-item">🌐 <span>GLAV-512618</span></div>
+                <div class="info-item">📍 <span>Mumbai, India</span></div>
                 <div class="info-item">⏰ <span>Full-time</span></div>
 
                 <div class="info-item">
@@ -241,37 +220,64 @@
 
                 <div class="info-item">🎓 <span>Permanent</span></div>
                 <div class="info-item">🚫 <span>No travel required</span></div>
-                <div class="info-item">📅 <span>27 Nov 2024</span></div>
+                <div class="info-item">📅 <span>28 Nov 2024</span></div>
             </div>
             <br />
             <div class="line"></div>
             <br />
-            <div class="job-actions">
-                <button class="btn-primary">🔗Copy job link</button> ‎ ‎
-                <button class="btn-primary">↗️Share</button>
-            </div>
-            <br />
-
-            <div class="ai-scoring-card">
-                <div class="ai-icon">✨</div>
-                <div class="ai-content">
-                    <h3>Instant AI-Powered Scoring</h3>
+            <!-- <div class="card"> -->
+            <div class="candidate-card">
+                <div class="header">
+                    <div class="profile-info">
+                        <img src="https://i.postimg.cc/wTHcKLb0/image.png" alt="Profile" class="profile-img" />
+                        <h2>{{ dynamicName }}</h2>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn shortlist" (click)="showPopup('Shortlisted')">Shortlist</button>
+                        <button class="btn reject" (click)="showPopup('Rejected')">Reject</button>
+                    </div>
+                    <!-- Popup -->
+                    <div *ngIf="popupMessage" class="popup-container">
+                        <div class="popup-content">
+                            <p>{{ popupMessage }}</p>
+                            <button class="close-btn" (click)="closePopup()">Close</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="ai-scoring-card">
+                    <div class="stats">
+                        <div class="stat">
+                            <p class="label">Relevance Score</p>
+                            <p class="value score">{{ apiResult["Relevance Score"] }}%</p>
+                        </div>
+                        <div class="stat">
+                            <p class="label">Propensity To Join</p>
+                            <p class="value high">High</p>
+                            <!-- Replace with dynamic data if available -->
+                        </div>
+                        <div class="stat">
+                            <p class="label">Relevant Experience</p>
+                            <p class="value">
+                                {{ formattedExperience }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="summary">
                     <p>
-                        After submitting your resume, our AI quickly analyzes it against the job description. Receive an instant score that shows how well the resume aligns with the role's requirements. Get actionable insights to make smarter hiring decisions.
+                        Based on the resume of {{ dynamicName }} for the Data Engineer role, here is a summary:
                     </p>
+                    <ul>
+                        <li>
+                            <strong>Experience:</strong> {{ apiResult["Relevant Experience"] }}
+                        </li>
+                        <li><strong>Technologies:</strong> Python, SQL</li>
+                        <!-- Replace with dynamic data if needed -->
+                        <li><strong>Skills:</strong> Data engineering, Data analytics</li>
+                        <li><strong>Certifications:</strong> Azure Data Fundamentals</li>
+                    </ul>
                 </div>
-            </div>
-            <br />
-            <a (click)="fileInput.click()">
-                <div class="file-upload" (dragover)="onDragOver($event)" (drop)="onFileDrop($event)">
-                    <span> 📤 Drop files here to upload or choose file </span>
-                    <input type="file" (change)="onFileSelect($event)" style="display: none" #fileInput />
-                    <p>Allowed file formats (max-2MB): PNG, JPG, DOCX, DOC, PDF</p>
-                </div>
-            </a>
-            <!-- Progress Bar -->
-            <div *ngIf="isLoading" class="progress-container">
-                <div class="progress-bar" [style.width]="progress + '%'"></div>
             </div>
         </div>
     </div>
@@ -295,8 +301,7 @@
       </li>
       <li>
         <span
-          >Lead Securities <br />Operations <br />Representative - Trade
-          <br />
+          >Lead Securities <br />Operations <br />Representative - Trade <br />
           Settlement Securities</span
         >
         <p>• Nizah, Oman ‎ ‎ ‎ ‎‎ ‎ ‎ ‎ ‎‎ ‎‎ ‎‎ ‎‎ ‎ ‎• Operations</p>
