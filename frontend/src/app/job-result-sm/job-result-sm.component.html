@@ -204,7 +204,7 @@
 
                 <div class="file-upload" style="display: none">
                     <input type="file" (change)="onFileSelect($event)" style="display: none" #fileInput accept=".png,.jpg,.docx,.doc,.pdf" />
-                    <p>Allowed file formats (max-2MB): PNG, JPG, DOCX, DOC, PDF</p>
+                    <p>Allowed file formats (max-2MB): PDF, DOCX, DOC</p>
                 </div>
             </div>
             <br />
@@ -270,18 +270,14 @@
                 </div>
                 <br />
                 <div class="summary">
-                    <p>
-                        Based on the resume of {{ dynamicName }} for the Data Engineer role, here is a summary:
+                    <p class="summary-header">
+                        Based on the resume of <span class="dynamic-name">{{ dynamicName }}</span> for the Data Engineer role, here is a summary:
                     </p>
-                    <ul>
-                        <li>
-                            <strong>Experience:</strong> {{ apiResult["Relevant Experience"] }}
-                        </li>
-                        <li><strong>Technologies:</strong> Python, SQL</li>
-                        <!-- Replace with dynamic data if needed -->
-                        <li><strong>Skills:</strong> Data engineering, Data analytics</li>
-                        <li><strong>Certifications:</strong> Azure Data Fundamentals</li>
-                    </ul>
+                    <div class="summary-content">
+                        <ul>
+                            <li *ngFor="let sentence of descriptionList">{{ sentence.trim() }}.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

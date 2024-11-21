@@ -1,0 +1,92 @@
+<div class="title-bar">
+    <div class="title">
+        <img src="https://i.postimg.cc/0yjGZYwP/image.png" alt="Profile" class="logo" />
+    </div>
+    <div class="icons">
+        <span class="material-icons icon">notifications</span>
+        <img src="https://i.postimg.cc/tgbrcVpx/0.jpg" alt="Profile" class="icon profile" />
+    </div>
+</div>
+
+<div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="menu-item active">
+            <i class="icon material-icons">work</i>
+            <span>Jobs</span>
+        </div>
+        <div class="menu-item">
+            <i class="icon material-icons">group</i>
+            <span>Candidates</span>
+        </div>
+        <div class="menu-item">
+            <i class="icon material-icons">done_all</i>
+            <span>Shortlisted Candidates</span>
+        </div>
+        <div class="menu-item">
+            <i class="icon material-icons">info</i>
+            <span>About</span>
+        </div>
+    </div>
+
+    <div class="job-list-container">
+        <!-- Header -->
+        <div class="header">
+            <h2>‎ ‎ ‎ ‎ List of Applied Candidates</h2>
+            <div class="filters">
+                <input type="text" placeholder=" 🔎 Search Candidates" />
+                <button>Sort by</button>
+                <button>Filter by</button>
+            </div>
+        </div>
+
+        <!-- Candidate Cards -->
+        <div class="job-cards">
+            <div *ngFor="let candidate of candidates" class="job-card">
+                <!-- Profile Section -->
+                <div class="profile-section">
+                    <div class="profile-img-container">
+                        <img src="https://i.postimg.cc/wTHcKLb0/image.png" alt="Profile" class="profile-img" />
+                    </div>
+                    <div class="profile-details">
+                        <h2 class="candidate-name">{{ candidate.parsed_resume['Full Name'] }}</h2>
+                        <p class="candidate-role">Potential Candidate</p>
+                    </div>
+                </div>
+
+                <!-- Candidate Info Section -->
+                <div class="candidate-info">
+                    <div class="info-item">
+                        <p class="info-label">Relevance Score</p>
+                        <p class="info-value score">{{ candidate.ai_response['Relevance Score'] }}%</p>
+                    </div>
+                    <div class="info-item">
+                        <p class="info-label">Propensity To Join</p>
+                        <p class="info-value high">High</p>
+                    </div>
+                    <div class="info-item">
+                        <p class="info-label">Relevant Experience</p>
+                        <p class="info-value">{{ candidate.ai_response['Relevant Experience'] }}</p>
+                    </div>
+                </div>
+
+                <!-- Action Section -->
+                <div class="actions">
+                    <button class="view-profile-btn">View Profile</button>
+                    <!-- <button class="shortlist-btn">Shortlist</button> -->
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <p>‎ ‎ ‎‎ ‎‎ ‎ ‎ ‎ ‎Page 1 of 23</p>
+            <div class="pages">
+                <span class="active">1</span>
+                <span>2</span>
+                <button class="next-btn">Next ></button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -11,6 +11,8 @@ import { JobDetailsSmComponent } from './job-details-sm/job-details-sm.component
 import { JobDetailsDeComponent } from './job-details-de/job-details-de.component';
 import { JobResultDeComponent } from './job-result-de/job-result-de.component';
 import { JobResultSmComponent } from './job-result-sm/job-result-sm.component';
+import { CandidatesComponent } from './candidates/candidates.component';
+import { ShortlistedComponent } from './shortlisted/shortlisted.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { JobResultSmComponent } from './job-result-sm/job-result-sm.component';
     JobDetailsSmComponent,
     JobDetailsDeComponent,
     JobResultDeComponent,
-    JobResultSmComponent, // Other components
+    JobResultSmComponent,
+    CandidatesComponent,
+    ShortlistedComponent, // Other components
   ],
   imports: [
     BrowserModule,

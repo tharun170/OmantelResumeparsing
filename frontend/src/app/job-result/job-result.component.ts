@@ -8,7 +8,10 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './job-result.component.css',
 })
 export class JobResultComponent {
-  constructor(private router: Router, private http: HttpClient) {}
+  public descriptionList: string[] = [];
+  constructor(private router: Router, private http: HttpClient) {
+    
+  }
   popupMessage: string | null = null;
   public resumeDetails: any = {
     'Full Name': '',
@@ -82,6 +85,13 @@ export class JobResultComponent {
         // Extract dynamic name after fetching the data
         this.extractNameFromSummary(this.apiResult['Short Description']);
         this.formatExperience(this.apiResult['Relevant Experience']);
+
+          // Populate the description list from "Short Description"
+        this.descriptionList = this.apiResult['Short Description']
+        ? this.splitSentences(this.apiResult['Short Description'])
+        : [];
+
+
       },
       (error) => {
         console.error('Error fetching API result:', error);
@@ -123,7 +133,14 @@ export class JobResultComponent {
       );
     }
   }
-
+  // New method for splitting sentences
+  splitSentences(text: string): string[] {
+    // Regular expression to split by periods, but ignore periods within abbreviations
+    const sentenceRegex = /(?<!\b[A-Z])[.](?=\s|$)/; // Match periods not preceded by single uppercase letters (e.g., B.E)
+    return text
+      .split(sentenceRegex)
+      .map(sentence => sentence.trim())
+      .filter(sentence => sentence !== '');}
   processFile(file: File) {
     if (file.size <= 2 * 1024 * 1024) {
       // 2MB limit

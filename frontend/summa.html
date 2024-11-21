@@ -1,0 +1,26 @@
+<!-- Candidate Cards -->
+<div class="job-cards">
+    <div *ngFor="let candidate of candidates" class="job-card">
+        <!-- Profile Info Section -->
+        <div class="profile-info">
+            <img src="https://i.postimg.cc/wTHcKLb0/image.png" alt="Profile" class="profile-img" />
+            <h2>{{ candidate.parsed_resume['Full Name'] }}</h2>
+        </div>
+
+        <!-- Statistics Section -->
+        <div class="stats">
+            <div class="stat">
+                <p class="label">Relevance Score</p>
+                <p class="value score">{{ candidate.ai_response['Relevance Score'] }}%</p>
+            </div>
+            <div class="stat">
+                <p class="label">Propensity To Join</p>
+                <p class="value high">High</p>
+            </div>
+            <div class="stat">
+                <p class="label">Relevant Experience</p>
+                <p class="value">{{ candidate.ai_response['Relevant Experience'] }}</p>
+            </div>
+        </div>
+    </div>
+</div>

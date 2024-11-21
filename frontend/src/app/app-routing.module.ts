@@ -1,3 +1,5 @@
+import { CandidatesComponent } from './candidates/candidates.component';
+import { ShortlistedComponent } from './shortlisted/shortlisted.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { JobDetailsComponent } from './job-details/job-details.component';
@@ -19,6 +21,8 @@ const routes: Routes = [
   { path: 'job-result-de', component: JobResultDeComponent }, // Route for JobResultComponent
 
   { path: 'job-list', component: JobListComponent }, // Route for JobResultComponent
+  { path: 'candidates', component: CandidatesComponent },
+  { path: 'shortlisted', component: ShortlistedComponent },
   // { path: '', redirectTo: '/jobs', pathMatch: 'full' },    // Default route
   // { path: '**', redirectTo: '/jobs' }                     // Fallback route
 ];

@@ -69,7 +69,7 @@ export class JobDetailsComponent {
 
   ngOnInit() {
     // Fetch dynamic job description data from an API
-    this.http.get('http://localhost:5000/jd1').subscribe(
+    this.http.get('http://localhost:5000/jd3').subscribe(
       (response: any) => {
         this.jobDescription = response; // Bind the response to jobDescription
       },

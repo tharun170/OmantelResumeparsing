@@ -5,6 +5,8 @@ from flask_cors import CORS  # Import CORS
 app = Flask(__name__)
 CORS(app)
 
+
+ 
 jd1 = {
     "id": "data-engineer-001",
     "title": "Data Engineer",
@@ -444,6 +446,43 @@ def get_ai_response():
 #             'status': 'error',
 #             'message': 'Failed to fetch job details'
 #         }), 500
+
+@app.route('/candidates', methods=['GET'])
+def get_candidates():
+    data = {
+        "data": [
+            {
+                "ai_response": {
+                    "Relevance Score": 85,
+                    "Relevant Experience": "2 years 9 months"
+                },
+                "parsed_resume": {
+                    "Full Name": "DEVADHARSHINI B"
+                }
+            },
+            {
+                "ai_response": {
+                    "Relevance Score": 92,
+                    "Relevant Experience": "4 years 5 months"
+                },
+                "parsed_resume": {
+                    "Full Name": "ARUN KUMAR S"
+                }
+            },
+            {
+                "ai_response": {
+                    "Relevance Score": 78,
+                    "Relevant Experience": "1 year 3 months"
+                },
+                "parsed_resume": {
+                    "Full Name": "PRIYA R"
+                }
+            }
+        ],
+        "message": "Records fetched successfully"
+    }
+
+    return jsonify(data)
 
 
 @app.route('/jd1', methods=['GET'])

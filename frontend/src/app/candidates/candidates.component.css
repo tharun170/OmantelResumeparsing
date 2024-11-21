@@ -1,0 +1,789 @@
+/* Overall Layout */
+
+.container {
+  display: flex;
+  flex-direction: row;
+  font-family: Arial, sans-serif;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #f9f9fc;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu-item i.icon {
+  font-size: 20px;
+  color: #6c63ff;
+  margin-right: 15px;
+}
+
+.menu-item span {
+  font-size: 16px;
+  color: #333;
+}
+
+.menu-item.active,
+.menu-item:hover {
+  background-color: #e4e3fd;
+  color: #6c63ff;
+}
+
+.menu-item.active i.icon,
+.menu-item:hover i.icon {
+  color: #6c63ff;
+}
+
+/* Breadcrumb Styling */
+.breadcrumb {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #999; /* Light gray for non-active links */
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.breadcrumb ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb li {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb li a {
+  text-decoration: none;
+  color: #999; /* Light gray links */
+  transition: color 0.3s ease;
+}
+
+.breadcrumb li a:hover {
+  color: #f89406; /* Orange color for hover effect */
+}
+
+.breadcrumb li span {
+  color: #f89406; /* Highlighted color for the current item */
+  font-weight: bold;
+}
+
+.breadcrumb li + li::before {
+  content: "›"; /* Chevron separator */
+  margin: 0 8px;
+  color: #ccc; /* Light gray for separator */
+}
+
+.ai-scoring-card {
+  display: flex;
+  align-items: flex-start;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #e8eeee7d; /* Light gray background */
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+  color: #333; /* Dark text for readability */
+  font-family: "Arial", sans-serif;
+}
+
+.ai-icon {
+  font-size: 24px;
+  margin-right: 12px;
+  color: #ffcc00; /* Gold color for the sparkle icon */
+}
+
+.ai-content h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.ai-content p {
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #666; /* Slightly muted text color for description */
+}
+
+/* Sidebar */
+.sidebar {
+  margin-top: 10px;
+  width: 250px;
+  background: #f7f7f9;
+  padding: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 20px 0;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+.back-button {
+  display: flex;
+  align-items: center;
+  color: orange;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.back-button:hover {
+  text-decoration: underline;
+}
+
+.arrow {
+  margin-right: 5px;
+}
+
+.sidebar .icon {
+  margin-right: 10px;
+}
+
+/* Main Content */
+.main-content {
+  flex: 2;
+  padding: 20px;
+}
+
+.breadcrumbs {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.bread_bar {
+  border: 1px solid #d6d6d6; /* Fine, neutral border */
+  padding: 10px 15px; /* Compact padding for a slim appearance */
+  border-radius: 4px; /* Minimal rounding for a clean look */
+  font-size: 14px; /* Appropriate text size for breadcrumbs */
+  color: #555; /* Neutral gray for text */
+  display: flex; /* Flexbox for alignment */
+  gap: 8px; /* Slight spacing between breadcrumb items */
+  align-items: center; /* Vertically centers breadcrumb items */
+}
+
+.bread_bar a {
+  text-decoration: none; /* Removes underlines from links */
+  color: #0073e6; /* Muted blue for a distinct and clean link color */
+  font-weight: 500; /* Slightly bold for visibility */
+}
+
+.bread_bar a:hover {
+  color: #005bb5; /* Slightly darker blue on hover */
+}
+
+.bread_bar span {
+  color: #888; /* Softer gray for separators */
+}
+
+.job-details {
+  background: #ffffff; /* Keeps it clean and simple */
+  border: 1px solid #e0e0e0; /* Soft border for minimalistic design */
+  padding: 20px; /* Ensures enough spacing for content */
+  border-radius: 12px; /* Slightly larger radius for a more modern feel */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Adds a subtle shadow for depth */
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+}
+
+.job-details:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Enhances shadow on hover */
+  transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.job-header h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.btn-primary {
+  background-color: #ff8c00;
+  color: #ffffff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+/* Job information section */
+.job-info {
+  display: flex;
+  flex-wrap: wrap; /* Ensures it stays responsive */
+  gap: 20px;
+}
+
+.job-info p {
+  margin: 5px 0;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+.job-actions {
+  margin-top: 20px;
+}
+.line {
+  width: 100px; /* Adjust as needed */
+  height: 5px; /* Adjust for thickness */
+  background-color: #ff8c00; /* Adjust color to match */
+}
+.btn-secondary {
+  background-color: #e0e0e0;
+  color: #000;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.ai-scoring {
+  margin-top: 30px;
+}
+
+.file-upload {
+  border: 4px dashed #a785ff; /* Base dashed border */
+  border-radius: 8px; /* Smoothly rounded corners */
+  background-color: #f9f5ff; /* Light purple background */
+  padding: 20px; /* Inner spacing */
+  text-align: center; /* Center align content */
+  color: #993399; /* Purple for text and icon */
+  font-family: Arial, sans-serif; /* Clean and modern font */
+  font-size: 14px; /* Default text size */
+  cursor: pointer; /* Indicate interactivity */
+  border-style: dashed;
+  border-image: repeating-linear-gradient(
+      to right,
+      #a785ff 0,
+      #800080 10px,
+      transparent 10px,
+      transparent 20px
+    )
+    10;
+}
+
+.file-upload .icon {
+  font-size: 24px; /* Prominent icon */
+  margin-bottom: 8px; /* Space between icon and text */
+}
+
+.file-upload:hover {
+  background-color: #f0eaff; /* Slightly darker background */
+  border-color: #6c63ff; /* More vibrant border on hover */
+}
+
+.file-upload p {
+  margin: 5px 0; /* Spacing between text */
+  font-size: 14px; /* Consistent text size */
+}
+
+.file-upload span {
+  font-size: 12px; /* Subtext font size */
+  color: #993399; /* Purple for text and icon */
+}
+
+.file-upload a {
+  font-size: 12px; /* Subtext font size */
+  color: #993399; /* Purple for text and icon */
+}
+
+/* Related Jobs */
+.related-jobs {
+  width: 300px; /* Keeps it compact and structured */
+  padding: 15px 20px; /* Balanced padding */
+  background: #f5f5f5; /* Light gray background for contrast */
+  border: 1px solid #e0e0e0; /* Adds a subtle border */
+  border-radius: 6px; /* Slight rounding for a soft look */
+  font-family: Arial, sans-serif; /* Consistent typography */
+  margin-top: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Slight elevation */
+}
+
+.related-jobs h3 {
+  font-size: 16px; /* Reduced size for subtlety */
+  font-weight: 600; /* Semi-bold for balance */
+  color: #444; /* Darker gray for better contrast */
+  margin-bottom: 15px;
+  border-bottom: 2px solid #dcdcdc; /* Slightly heavier bottom border for emphasis */
+  padding-bottom: 8px;
+}
+
+.related-jobs ul {
+  list-style: none; /* Removes default list styling */
+  padding: 0;
+  margin: 0;
+}
+
+.related-jobs li {
+  margin-bottom: 15px; /* Compact spacing between items */
+  padding: 10px 0; /* Vertical padding for cleaner look */
+  border-bottom: 1px dashed #dcdcdc; /* Dashed separator for visual variety */
+  transition: background-color 0.2s ease, transform 0.2s ease; /* Smooth hover effects */
+}
+
+.related-jobs li:hover {
+  background-color: #eaeaea; /* Subtle highlight on hover */
+  transform: translateX(5px); /* Slight horizontal shift for interactivity */
+  cursor: pointer;
+}
+
+.related-jobs span {
+  font-weight: 500; /* Slightly bold for emphasis */
+  font-size: 15px;
+  color: #333; /* Neutral text color */
+  display: block;
+  margin-bottom: 5px;
+  line-height: 1.5;
+}
+
+.related-jobs p {
+  margin: 0;
+  font-size: 14px;
+  color: #555; /* Muted text for description */
+}
+
+/* Link hover effect */
+.related-jobs span:hover {
+  color: #0073e6; /* Muted blue for hover state */
+  text-decoration: underline; /* Indicates interactivity */
+}
+
+/* Ensures emojis are not italic */
+.info-item span {
+  font-style: normal; /* Removes italic style */
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: normal;
+  gap: 8px; /* Spacing between emoji and text */
+}
+
+.title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px 20px;
+  border-bottom: 6px solid #ff8c00;
+  height: 40px; /* Adjust for title bar height */
+}
+
+.title span {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #0000ff; /* Blue color for "Omantel" */
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  margin-right: 28px;
+
+  width: 150px;
+  height: 110px;
+}
+.icon {
+  margin-left: 28px;
+  font-size: 34px;
+  cursor: pointer;
+}
+
+.material-icons icon {
+  width: 40px;
+  height: 40px;
+}
+.profile {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /* To make the profile icon circular */
+}
+
+/* #################### */
+
+.job-list-container {
+  width: 90%;
+  max-width: 1200px;
+  /* margin: 0 auto; */
+  /* margin-left: 20px; */
+  margin-right: 20px;
+  margin-bottom: 20px;
+
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+}
+
+.filters input {
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  flex: 1;
+}
+
+.filters button {
+  padding: 10px 15px;
+  border: 1px solid #e0e0e0;
+  background-color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filters button:hover {
+  background-color: #f0f0f0;
+}
+
+.job-cards {
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.job-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  background-color: #fff;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.job-info h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #333;
+}
+
+.job-info p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.tags {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.tags:hover {
+  cursor: pointer;
+}
+.tags span:hover {
+  background-color: #ff8c00; /* Darker background on hover */
+  color: #fff; /* White text on hover */
+  border-color: #ff8c00; /* Keep the same border color on hover */
+}
+.tags span {
+  padding: 5px 15px;
+  background-color: #fff5e0; /* Adjusted for a light background */
+  border-radius: 15px; /* Rounded edges */
+  border: 1px solid #ff8c00; /* Light border */
+  font-size: 12px;
+  color: #ff8c00; /* Adjusted text color */
+  font-weight: bold; /* Bold text for better readability */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.status {
+  display: flex;
+  align-items: center;
+}
+
+.open-status {
+  padding: 5px 10px;
+  background-color: #e6f4ea;
+  color: #28a745;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.pages {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pages span {
+  padding: 5px 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pages span.active {
+  background-color: #ff7a00;
+  color: #fff;
+  border: 1px solid #ff7a00;
+}
+
+.next-btn {
+  padding: 5px 10px;
+  background-color: #ff7a00;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.next-btn:hover {
+  background-color: #e06600;
+}
+
+/* ### */
+
+.ah2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* ### */
+
+.job-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.job-card {
+  border-left: 5px solid #f57c00; /* Left border color */
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+.job-card:hover {
+  transform: translateY(-5px); /* Slight lift effect */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+  border-left-color: #007bff; /* Change left border to blue on hover */
+}
+
+.job-title {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.job-info p {
+  margin: 5px 0;
+  font-size: 0.9em;
+}
+
+.status .open-status {
+  color: #28a745;
+  font-weight: bold;
+}
+
+a.no-underline {
+  text-decoration: none !important; /* Forcefully removes the underline */
+  color: inherit; /* Ensure it uses the current text color */
+}
+
+a.no-underline:hover,
+a.no-underline:focus {
+  text-decoration: none !important; /* Prevent underline on hover or focus */
+}
+
+
+
+/* .profile-info{
+
+} */
+
+
+.job-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.job-card {
+  background: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-left: 5px solid #f57c00;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.job-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.profile-img-container {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 1rem;
+  border: 1px solid #1076ff;
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-details {
+  flex-grow: 1;
+}
+
+.candidate-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.candidate-role {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+}
+
+.candidate-info {
+  display: flex;
+  flex-direction: column;
+  /* gap: 1rem; */
+  /* padding: 1.5rem; */
+}
+
+.info-item {
+  display: flex;
+  /* justify-content: space-between; */
+}
+
+.info-label {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.info-value {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #222;
+}
+
+.score {
+  color: #007BFF;
+}
+
+.high {
+  color: #28a745;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem;
+  /* border-top: 1px solid #f0f0f0; */
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.view-profile-btn {
+  background-color: #007BFF;
+  color: #fff;
+}
+
+.view-profile-btn:hover {
+  background-color: #0056b3;
+}
+
+.shortlist-btn {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.shortlist-btn:hover {
+  background-color: #1e7e34;
+}

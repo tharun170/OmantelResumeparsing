@@ -68,6 +68,16 @@ export class JobResultDeComponent {
   closePopup(): void {
     this.popupMessage = null;
   }
+  public descriptionList: string[] = [];
+  // New method for splitting sentences
+  splitSentences(text: string): string[] {
+    // Regular expression to split by periods, but ignore periods within abbreviations
+    const sentenceRegex = /(?<!\b[A-Z])[.](?=\s|$)/; // Match periods not preceded by single uppercase letters (e.g., B.E)
+    return text
+      .split(sentenceRegex)
+      .map(sentence => sentence.trim())
+      .filter(sentence => sentence !== '');}
+
   getBackendData(): void {
     this.http.get('http://localhost:5000/submit').subscribe(
       (response: any) => {
@@ -83,6 +93,11 @@ export class JobResultDeComponent {
         // Extract dynamic name after fetching the data
         this.extractNameFromSummary(this.apiResult['Short Description']);
         this.formatExperience(this.apiResult['Relevant Experience']);
+            // Populate the description list from "Short Description"
+            this.descriptionList = this.apiResult['Short Description']
+            ? this.splitSentences(this.apiResult['Short Description'])
+            : [];
+    
       },
       (error) => {
         console.error('Error fetching API result:', error);
