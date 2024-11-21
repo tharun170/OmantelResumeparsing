@@ -108,6 +108,26 @@ export class JobResultDeComponent {
   onDragOver(event: DragEvent) {
     event.preventDefault();
   }
+  getRelevanceText(score: number): string {
+    if (score >= 80) {
+        return 'High';
+    } else if (score >= 60) {
+        return 'Medium';
+    } else {
+        return 'Low';
+    }
+  }
+
+  getPropensityText(score: number): string {
+      if (score >= 80) {
+          return 'High';
+      } else if (score >= 60) {
+          return 'Medium';
+      } else {
+          return 'Low';
+      }
+  }
+
 
   onFileDrop(event: DragEvent) {
     event.preventDefault();

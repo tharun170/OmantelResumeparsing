@@ -10,25 +10,24 @@
 <div class="container">
     <!-- Sidebar -->
     <div class="sidebar">
-        <div class="menu-item active">
+        <div class="menu-item" routerLink="/job-list" routerLinkActive="active">
             <i class="icon material-icons">work</i>
             <span>Jobs</span>
         </div>
-        <div class="menu-item">
+        <div class="menu-item" routerLink="/candidates" routerLinkActive="active">
             <i class="icon material-icons">group</i>
             <span>Candidates</span>
         </div>
-
-        <div class="menu-item">
+        <div class="menu-item" routerLink="/shortlisted" routerLinkActive="active">
             <i class="icon material-icons">done_all</i>
             <span>Shortlisted Candidates</span>
         </div>
-
-        <div class="menu-item">
+        <div class="menu-item" routerLink="/about" routerLinkActive="active">
             <i class="icon material-icons">info</i>
             <span>About</span>
         </div>
     </div>
+
     <div class="modal-container">
         <!-- Modal Backdrop -->
         <div class="modal-backdrop" *ngIf="showDetails" (click)="closeModal()">
@@ -257,7 +256,15 @@
                         </div>
                         <div class="stat">
                             <p class="label">Propensity To Join</p>
-                            <p class="value high">High</p>
+                            <p class="info-value" [ngClass]="{
+                  high: apiResult['Relevance Score'] >= 80,
+                  medium:
+                    apiResult['Relevance Score'] >= 60 &&
+                    apiResult['Relevance Score'] < 80,
+                  low: apiResult['Relevance Score'] < 60
+                }">
+                                {{ getPropensityText(apiResult["Relevance Score"]) }}
+                            </p>
                             <!-- Replace with dynamic data if available -->
                         </div>
                         <div class="stat">

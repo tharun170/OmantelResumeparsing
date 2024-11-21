@@ -11,19 +11,19 @@
 <div class="container">
     <!-- Sidebar -->
     <div class="sidebar">
-        <div class="menu-item active">
+        <div class="menu-item" routerLink="/job-list" routerLinkActive="active">
             <i class="icon material-icons">work</i>
             <span>Jobs</span>
         </div>
-        <div class="menu-item">
+        <div class="menu-item" routerLink="/candidates" routerLinkActive="active">
             <i class="icon material-icons">group</i>
             <span>Candidates</span>
         </div>
-        <div class="menu-item">
+        <div class="menu-item" routerLink="/shortlisted" routerLinkActive="active">
             <i class="icon material-icons">done_all</i>
             <span>Shortlisted Candidates</span>
         </div>
-        <div class="menu-item">
+        <div class="menu-item" routerLink="/about" routerLinkActive="active">
             <i class="icon material-icons">info</i>
             <span>About</span>
         </div>
@@ -58,12 +58,22 @@
                 <div class="candidate-info">
                     <div class="info-item">
                         <p class="info-label">Relevance Score</p>
-                        <p class="info-value score">{{ candidate.ai_response['Relevance Score'] }}%</p>
+                        <p class="info-value-score">
+                            {{ candidate.ai_response['Relevance Score'] }}%
+                        </p>
                     </div>
+
                     <div class="info-item">
                         <p class="info-label">Propensity To Join</p>
-                        <p class="info-value high">High</p>
+                        <p class="info-value" [ngClass]="{
+                                'high': candidate.ai_response['Relevance Score'] >= 80,
+                                'medium': candidate.ai_response['Relevance Score'] >= 60 && candidate.ai_response['Relevance Score'] < 80,
+                                'low': candidate.ai_response['Relevance Score'] < 60
+                            }">
+                            {{ getPropensityText(candidate.ai_response['Relevance Score']) }}
+                        </p>
                     </div>
+
                     <div class="info-item">
                         <p class="info-label">Relevant Experience</p>
                         <p class="info-value">{{ candidate.ai_response['Relevant Experience'] }}</p>

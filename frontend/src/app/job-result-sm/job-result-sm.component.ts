@@ -69,6 +69,26 @@ export class JobResultSmComponent {
   }
   public descriptionList: string[] = [];
   // New method for splitting sentences
+  getRelevanceText(score: number): string {
+    if (score >= 80) {
+        return 'High';
+    } else if (score >= 60) {
+        return 'Medium';
+    } else {
+        return 'Low';
+    }
+  }
+
+  getPropensityText(score: number): string {
+      if (score >= 80) {
+          return 'High';
+      } else if (score >= 60) {
+          return 'Medium';
+      } else {
+          return 'Low';
+      }
+  }
+
   splitSentences(text: string): string[] {
     // Regular expression to split by periods, but ignore periods within abbreviations
     const sentenceRegex = /(?<!\b[A-Z])[.](?=\s|$)/; // Match periods not preceded by single uppercase letters (e.g., B.E)

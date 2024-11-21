@@ -1142,3 +1142,22 @@ body.modal-open {
     padding-left: 1.5rem;
   }
 }
+.info-value.high {
+  color: #28a745; /* Green */
+  font-weight: bold;
+}
+
+.info-value.medium {
+  color: #ffc107; /* Yellow */
+  font-weight: bold;
+}
+
+.info-value.low {
+  color: #dc3545; /* Red */
+  font-weight: bold;
+}
+
+.info-value-score{
+  color: #007BFF;
+  font-weight: bold;
+}

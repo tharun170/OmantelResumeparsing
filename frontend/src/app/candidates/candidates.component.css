@@ -766,7 +766,7 @@ button {
   border-radius: 6px;
   cursor: pointer;
   font-size: 0.9rem;
-  font-weight: bold;
+  /* font-weight: bold; */
   transition: background-color 0.2s, color 0.2s;
 }
 
@@ -786,4 +786,25 @@ button {
 
 .shortlist-btn:hover {
   background-color: #1e7e34;
+}
+
+/* ======== */
+.info-value.high {
+  color: #28a745; /* Green */
+  font-weight: bold;
+}
+
+.info-value.medium {
+  color: #ffc107; /* Yellow */
+  font-weight: bold;
+}
+
+.info-value.low {
+  color: #dc3545; /* Red */
+  font-weight: bold;
+}
+
+.info-value-score{
+  color: #007BFF;
+  font-weight: bold;
 }

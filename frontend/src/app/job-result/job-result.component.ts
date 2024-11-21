@@ -70,6 +70,26 @@ export class JobResultComponent {
   closePopup(): void {
     this.popupMessage = null;
   }
+  getRelevanceText(score: number): string {
+    if (score >= 80) {
+        return 'High';
+    } else if (score >= 60) {
+        return 'Medium';
+    } else {
+        return 'Low';
+    }
+  }
+
+  getPropensityText(score: number): string {
+      if (score >= 80) {
+          return 'High';
+      } else if (score >= 60) {
+          return 'Medium';
+      } else {
+          return 'Low';
+      }
+  }
+
   getBackendData(): void {
     this.http.get('http://localhost:5000/submit').subscribe(
       (response: any) => {
