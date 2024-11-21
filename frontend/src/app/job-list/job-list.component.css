@@ -601,14 +601,26 @@
 
 /* ### */
 
-
+.ah1 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  width:23.5%;
+}
 .ah2 {
   font-size: 20px;
   font-weight: bold;
   color: #333;
+  /* width:30%; */
 
 }
+.ah3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  width:25%;
 
+}
 
 /* ### */
 
@@ -650,10 +662,10 @@
 
 a.no-underline {
   text-decoration: none !important; /* Forcefully removes the underline */
-  color: inherit;                   /* Ensure it uses the current text color */
+  color: inherit; /* Ensure it uses the current text color */
 }
 
-a.no-underline:hover, 
+a.no-underline:hover,
 a.no-underline:focus {
   text-decoration: none !important; /* Prevent underline on hover or focus */
 }

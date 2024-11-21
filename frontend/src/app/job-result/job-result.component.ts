@@ -50,6 +50,7 @@ export class JobResultComponent {
       'Technical Skills': [],
     },
   };
+  loading = false; // Loading state
   public apiResult: any = {
     'Relevance Score': null,
     'Relevant Experience': '',
@@ -89,8 +90,11 @@ export class JobResultComponent {
           return 'Low';
       }
   }
+  isFetching: boolean = false; // Loading state
 
   getBackendData(): void {
+    this.loading = true; // Start loading
+    this.popupMessage = 'Your Resume is being validated against Job Description...';
     this.http.get('http://localhost:5000/submit').subscribe(
       (response: any) => {
         this.apiResult = {
@@ -101,7 +105,9 @@ export class JobResultComponent {
           message: response.message,
         };
         console.log('API Result:', this.apiResult);
-
+        // Processing logic
+        this.loading = false; // Stop loading
+        this.popupMessage = null; // Hide popup
         // Extract dynamic name after fetching the data
         this.extractNameFromSummary(this.apiResult['Short Description']);
         this.formatExperience(this.apiResult['Relevant Experience']);
@@ -115,6 +121,10 @@ export class JobResultComponent {
       },
       (error) => {
         console.error('Error fetching API result:', error);
+         // Processing logic
+         this.loading = false; // Stop loading
+         this.popupMessage = null; // Hide popup
+
       }
     );
   }

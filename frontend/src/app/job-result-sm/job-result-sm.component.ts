@@ -5,11 +5,15 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-job-result-sm',
   templateUrl: './job-result-sm.component.html',
-  styleUrl: './job-result-sm.component.css'
+  styleUrl: './job-result-sm.component.css',
 })
 export class JobResultSmComponent {
   constructor(private router: Router, private http: HttpClient) {}
   popupMessage: string | null = null;
+  loading = false; // Start loading
+
+  isFetching: boolean = false; // Loading state
+
   public resumeDetails: any = {
     'Full Name': '',
     Email: '',
@@ -58,7 +62,7 @@ export class JobResultSmComponent {
   formattedExperience: any = ''; // Variable for formatted experience
 
   dynamicName: string = ''; // Variable for the dynamic name
-  
+
   showPopup(message: string): void {
     this.popupMessage = `You have ${message} this Candidate!`;
     setTimeout(() => this.closePopup(), 3000); // Auto-close after 3 seconds
@@ -71,22 +75,22 @@ export class JobResultSmComponent {
   // New method for splitting sentences
   getRelevanceText(score: number): string {
     if (score >= 80) {
-        return 'High';
+      return 'High';
     } else if (score >= 60) {
-        return 'Medium';
+      return 'Medium';
     } else {
-        return 'Low';
+      return 'Low';
     }
   }
 
   getPropensityText(score: number): string {
-      if (score >= 80) {
-          return 'High';
-      } else if (score >= 60) {
-          return 'Medium';
-      } else {
-          return 'Low';
-      }
+    if (score >= 80) {
+      return 'High';
+    } else if (score >= 60) {
+      return 'Medium';
+    } else {
+      return 'Low';
+    }
   }
 
   splitSentences(text: string): string[] {
@@ -94,10 +98,14 @@ export class JobResultSmComponent {
     const sentenceRegex = /(?<!\b[A-Z])[.](?=\s|$)/; // Match periods not preceded by single uppercase letters (e.g., B.E)
     return text
       .split(sentenceRegex)
-      .map(sentence => sentence.trim())
-      .filter(sentence => sentence !== '');}
+      .map((sentence) => sentence.trim())
+      .filter((sentence) => sentence !== '');
+  }
 
   getBackendData(): void {
+    this.loading = true; // Start loading
+    this.popupMessage =
+      'Your Resume is being validated against Job Description...';
     this.http.get('http://localhost:5000/submit').subscribe(
       (response: any) => {
         this.apiResult = {
@@ -108,18 +116,20 @@ export class JobResultSmComponent {
           message: response.message,
         };
         console.log('API Result:', this.apiResult);
-
+        this.loading = false; // Stop loading
+        this.popupMessage = null; // Hide popup
         // Extract dynamic name after fetching the data
         this.extractNameFromSummary(this.apiResult['Short Description']);
         this.formatExperience(this.apiResult['Relevant Experience']);
-            // Populate the description list from "Short Description"
-            this.descriptionList = this.apiResult['Short Description']
-            ? this.splitSentences(this.apiResult['Short Description'])
-            : [];
-    
+        // Populate the description list from "Short Description"
+        this.descriptionList = this.apiResult['Short Description']
+          ? this.splitSentences(this.apiResult['Short Description'])
+          : [];
       },
       (error) => {
         console.error('Error fetching API result:', error);
+        this.loading = false; // Stop loading
+        this.popupMessage = null; // Hide popup
       }
     );
   }

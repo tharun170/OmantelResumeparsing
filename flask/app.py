@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS  # Import CORS
+import time
 
 
 app = Flask(__name__)
@@ -377,7 +378,8 @@ def upload_file():
 # Route to return the second AI response data
 @app.route('/submit', methods=['GET','POST'])
 def get_ai_response():
-    
+     # Simulate a delay of 4 seconds
+    time.sleep(4)
     # Data for the second API
     result = {
         "result": {

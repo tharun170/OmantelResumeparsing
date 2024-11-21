@@ -11,6 +11,10 @@ import { HttpClient } from '@angular/common/http';
 export class JobResultDeComponent {
   constructor(private router: Router, private http: HttpClient) {}
   popupMessage: string | null = null;
+  loading = false; // Loading state
+  
+  isFetching: boolean = false; // Loading state
+
   public resumeDetails: any = {
     'Full Name': '',
     Email: '',
@@ -79,6 +83,8 @@ export class JobResultDeComponent {
       .filter(sentence => sentence !== '');}
 
   getBackendData(): void {
+    this.loading = true; // Start loading
+    this.popupMessage = 'Your Resume is being validated against Job Description...';
     this.http.get('http://localhost:5000/submit').subscribe(
       (response: any) => {
         this.apiResult = {
@@ -89,7 +95,8 @@ export class JobResultDeComponent {
           message: response.message,
         };
         console.log('API Result:', this.apiResult);
-
+        this.loading = false; // Stop loading
+        this.popupMessage = null; // Hide popup
         // Extract dynamic name after fetching the data
         this.extractNameFromSummary(this.apiResult['Short Description']);
         this.formatExperience(this.apiResult['Relevant Experience']);
@@ -101,6 +108,8 @@ export class JobResultDeComponent {
       },
       (error) => {
         console.error('Error fetching API result:', error);
+        this.loading = false; // Stop loading
+        this.popupMessage = null; // Hide popup
       }
     );
   }

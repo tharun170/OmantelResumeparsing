@@ -171,7 +171,20 @@
             </div>
         </div>
     </div>
-
+    <div *ngIf="isFetching" class="popup-container">
+        <div class="popup-content">
+            <div class="loader"></div>
+            <p>Your Resume is being validated against Job Description...</p>
+        </div>
+    </div>
+    <!-- Popup -->
+    <div *ngIf="popupMessage" class="popup-container">
+        <div class="popup-content">
+            <p>{{ popupMessage }}</p>
+            <!-- Optional loader animation -->
+            <button class="close-btn" (click)="closePopup()">Close</button>
+        </div>
+    </div>
     <!-- Main Content -->
     <div class="main-content">
         <div class="bread_bar">
@@ -240,13 +253,7 @@
               Reject
             </button>
                     </div>
-                    <!-- Popup -->
-                    <div *ngIf="popupMessage" class="popup-container">
-                        <div class="popup-content">
-                            <p>{{ popupMessage }}</p>
-                            <button class="close-btn" (click)="closePopup()">Close</button>
-                        </div>
-                    </div>
+
                 </div>
                 <div class="ai-scoring-card">
                     <div class="stats">
