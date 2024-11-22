@@ -117,7 +117,7 @@ export class JobDetailsComponent {
       this.progress = 0;
       // Simulating progress bar
       const interval = setInterval(() => {
-        this.progress += 10;
+        this.progress += 5;
         if (this.progress >= 100) {
           clearInterval(interval);
         }
