@@ -449,6 +449,26 @@ def get_ai_response():
 #             'message': 'Failed to fetch job details'
 #         }), 500
 
+@app.route('/getfullname', methods=['GET'])
+def get_full_name():
+    try:
+        # Fetch the last inserted document
+        # latest_record = resumes_collection.find_one(sort=[("_id", -1)])
+        # if not latest_record:
+        #     return jsonify({"error": "No resume data found"}), 404
+ 
+        # # Retrieve the full name
+        # full_name = latest_record.get("parsed_resume", {}).get("Full Name", None)
+        # if not full_name:
+        #     return jsonify({"error": "Full Name not found in the parsed resume"}), 404
+        full_name = "Tharun S C"
+        # Return just the full name
+        return jsonify({"Full Name": full_name}), 200
+ 
+    except Exception as e:
+        print(f"Error in /getfullname: {str(e)}")
+        return jsonify({"error": str(e)}), 500
+
 @app.route('/candidates', methods=['GET'])
 def get_candidates():
     data = {

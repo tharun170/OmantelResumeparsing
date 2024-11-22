@@ -218,6 +218,7 @@
 }
 
 .job-header h2 {
+  
   margin: 0;
   font-size: 24px;
 }
@@ -455,6 +456,9 @@
 
 .header h2 {
   margin: 0;
+  margin-top: 45px;
+    margin-left: 35px;
+    /* margin-bottom: 20px; */
   font-size: 24px;
   font-weight: bold;
   color: #333;
@@ -485,7 +489,7 @@
 }
 
 .job-cards {
-  margin-top: 20px;
+  /* margin-top: 20px; */
   margin-left: 20px;
   margin-right: 20px;
 }
@@ -807,4 +811,381 @@ button {
 .info-value-score{
   color: #007BFF;
   font-weight: bold;
+}
+.sort-buttons button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.sort-buttons button:hover {
+  background-color: #e0e0e0;
+}
+
+/* Container for Sort Buttons */
+.sort-buttons {
+  display: flex;
+  gap: 10px; /* Adds space between buttons */
+  margin-top: 10px;
+}
+
+/* General Button Styles */
+.sort-buttons button {
+  background-color: #007bff; /* Blue color */
+  color: white; /* White text */
+  padding: 10px 15px; /* Comfortable padding */
+  border: none; /* Removes default border */
+  border-radius: 8px; /* Rounded corners for a modern look */
+  font-size: 12px; /* Appropriate font size */
+  font-weight: bold; /* Bold text */
+  cursor: pointer; /* Pointer cursor on hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: all 0.3s ease; /* Smooth hover transition */
+}
+
+/* Hover Effect */
+.sort-buttons button:hover {
+  background-color: #ff8c00; /* Darker blue on hover */
+  transform: translateY(-2px); /* Slight upward motion */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Slightly deeper shadow */
+}
+
+/* Active State */
+.sort-buttons button:active {
+  background-color: #004085; /* Even darker blue */
+  transform: translateY(0); /* Reset upward motion */
+  box-shadow: 0 3px 5px rgba(255, 140, 0, 0.5); /* Subtle pressed shadow */
+}
+
+/* Focus State */
+.sort-buttons button:focus {
+  outline: none; /* Removes default outline */
+  box-shadow: 0 0 8px 4px rgba(255, 140, 0, 0.5); /* Focus glow effect */
+}
+
+
+
+/* ######## */
+
+/* Container for Sort Dropdown */
+.sort-dropdown {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+/* Dropdown Styles */
+#sort-select {
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  border: 2px solid #FF8C00; /* Orange border */
+  border-radius: 8px;
+  background-color: white;
+  color: #333;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  transition: all 0.3s ease;
+}
+
+/* Hover Effect */
+#sort-select:hover {
+  border-color: #e07b00; /* Darker orange on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
+}
+
+/* Focus Effect */
+#sort-select:focus {
+  outline: none;
+  border-color: #b76e00; /* Even darker orange border on focus */
+  box-shadow: 0 0 4px 2px rgba(255, 140, 0, 0.5); /* Focus glow effect */
+}
+
+/* Option Styles */
+#sort-select option {
+  font-weight: normal;
+}
+
+/* Container for JD Filter */
+.jd-filter {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+/* JD Filter Dropdown Styles */
+#jd-select {
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  border: 2px solid #FF8C00; /* Orange border */
+  border-radius: 8px;
+  background-color: white;
+  color: #333;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  transition: all 0.3s ease;
+}
+
+/* Hover Effect */
+#jd-select:hover {
+  border-color: #e07b00; /* Darker orange on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
+}
+
+/* Focus Effect */
+#jd-select:focus {
+  outline: none;
+  border-color: #b76e00; /* Even darker orange border on focus */
+  box-shadow: 0 0 4px 2px rgba(255, 140, 0, 0.5); /* Focus glow effect */
+}
+
+/* Option Styles */
+#jd-select option {
+  font-weight: normal;
+}
+
+/* Container for Experience Filter */
+.experience-filter {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+/* Experience Filter Dropdown Styles */
+#experience-select {
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  border: 2px solid #FF8C00; /* Orange border */
+  border-radius: 8px;
+  background-color: white;
+  color: #333;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  transition: all 0.3s ease;
+}
+
+/* Hover Effect */
+#experience-select:hover {
+  border-color: #e07b00; /* Darker orange on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
+}
+
+/* Focus Effect */
+#experience-select:focus {
+  outline: none;
+  border-color: #b76e00; /* Even darker orange border on focus */
+  box-shadow: 0 0 4px 2px rgba(255, 140, 0, 0.5); /* Focus glow effect */
+}
+
+/* Option Styles */
+#experience-select option {
+  font-weight: normal;
+}
+
+
+/* ...
+ */
+
+ .filters {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.filters label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+.filters select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid #ff8c00;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  background-color: white;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.filters select:hover {
+  border-color: #ff6000;
+}
+
+.filters select:focus {
+  box-shadow: 0 0 5px rgba(255, 140, 0, 0.6);
+  border-color: #ff6000;
+}
+
+.sort-dropdown, .experience-filter, .jd-filter {
+  flex: 1;
+  min-width: 200px;
+}
+
+#jd-select {
+  width: 100%;
+}
+
+#jd-select option {
+  font-weight: normal;
+  color: #333;
+}
+
+.filters select, .filters option {
+  background-color: #fff;
+  padding: 10px;
+}
+
+.filters .sort-dropdown select {
+  border: 2px solid #ff8c00;
+}
+
+.filters .experience-filter select {
+  border: 2px solid #ff8c00;
+}
+
+.filters .jd-filter select {
+  border: 2px solid #ff8c00;
+}
+
+.filters select:disabled {
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  cursor: not-allowed;
+}
+
+.filters select:focus {
+  outline: none;
+  border-color: #ff6000;
+  box-shadow: 0 0 5px rgba(255, 140, 0, 0.6);
+}
+
+
+/* @@@@# */
+
+.filters {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-top: 20px;
+  flex-wrap: wrap; /* Allow the filters to wrap if they exceed container width */
+}
+
+.filters label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px; /* Space between label and dropdown */
+}
+
+.filters select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid #ff8c00;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  background-color: white;
+  transition: all 0.3s ease;
+  outline: none;
+  width: 100%;
+}
+
+.filters select:hover {
+  border-color: #ff6000;
+}
+
+.filters select:focus {
+  box-shadow: 0 0 5px rgba(255, 140, 0, 0.6);
+  border-color: #ff6000;
+}
+
+.filters .sort-dropdown, 
+.filters .experience-filter, 
+.filters .jd-filter {
+  display: flex;
+  flex-direction: column; /* Arrange label above dropdown */
+  flex: 1;
+  min-width: 150px;
+}
+
+.filters select:disabled {
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  cursor: not-allowed;
+}
+
+.filters select:focus {
+  outline: none;
+  border-color: #ff6000;
+  box-shadow: 0 0 5px rgba(255, 140, 0, 0.6);
+}
+
+
+/* .. */
+
+.filters {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-top: 20px;
+  flex-wrap: wrap; /* Allow the filters to wrap if they exceed container width */
+}
+
+.filters label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px; /* Space between label and dropdown */
+}
+
+.filters select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid #ff8c00;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  background-color: white;
+  transition: all 0.3s ease;
+  outline: none;
+  width: 100%;
+}
+
+.filters select:hover {
+  border-color: #ff6000;
+}
+
+.filters select:focus {
+  box-shadow: 0 0 5px rgba(255, 140, 0, 0.6);
+  border-color: #ff6000;
+}
+
+.filters .sort-dropdown, 
+.filters .experience-filter, 
+.filters .jd-filter {
+  display: flex;
+  flex-direction: column; /* Arrange label above dropdown */
+  flex: 1;
+  min-width: 150px;
+}
+
+.filters select:disabled {
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  cursor: not-allowed;
+}
+
+.filters select:focus {
+  outline: none;
+  border-color: #ff6000;
+  box-shadow: 0 0 5px rgba(255, 140, 0, 0.6);
 }

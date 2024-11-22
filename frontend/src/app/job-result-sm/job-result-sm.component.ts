@@ -101,35 +101,50 @@ export class JobResultSmComponent {
       .map((sentence) => sentence.trim())
       .filter((sentence) => sentence !== '');
   }
-
   getBackendData(): void {
     this.loading = true; // Start loading
-    this.popupMessage =
-      'Your Resume is being validated against Job Description...';
+    this.popupMessage = 'Your Resume is being validated against Job Description...';
+   
+    // First API call to /storeresume
     this.http.get('http://localhost:5000/submit').subscribe(
       (response: any) => {
         this.apiResult = {
-          'Relevance Score': response.result['Relevance Score'],
-          'Relevant Experience': response.result['Relevant Experience'],
-          'Short Description': response.result['Short Description'],
+          'Relevance Score': response.ai_response['Relevance Score'],
+          'Relevant Experience': response.ai_response['Relevant Experience'],
+          'Short Description': response.ai_response['Short Description'],
           id: response.id,
           message: response.message,
         };
         console.log('API Result:', this.apiResult);
-        this.loading = false; // Stop loading
-        this.popupMessage = null; // Hide popup
-        // Extract dynamic name after fetching the data
-        this.extractNameFromSummary(this.apiResult['Short Description']);
+   
+        // Handle data processing
         this.formatExperience(this.apiResult['Relevant Experience']);
-        // Populate the description list from "Short Description"
         this.descriptionList = this.apiResult['Short Description']
           ? this.splitSentences(this.apiResult['Short Description'])
           : [];
+   
+        // Fetch dynamic name from /getfullname
+        this.fetchDynamicName();
+   
+        this.loading = false; // Stop loading
+        this.popupMessage = null; // Hide popup
       },
       (error) => {
         console.error('Error fetching API result:', error);
         this.loading = false; // Stop loading
         this.popupMessage = null; // Hide popup
+      }
+    );
+  }
+   
+  fetchDynamicName(): void {
+    this.http.get('http://localhost:5000/getfullname').subscribe(
+      (response: any) => {
+        this.dynamicName = response['Full Name']; // Store the full name
+        console.log('Dynamic Name:', this.dynamicName);
+      },
+      (error) => {
+        console.error('Error fetching dynamic name:', error);
       }
     );
   }

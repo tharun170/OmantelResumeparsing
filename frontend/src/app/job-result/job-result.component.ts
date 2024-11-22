@@ -9,9 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class JobResultComponent {
   public descriptionList: string[] = [];
-  constructor(private router: Router, private http: HttpClient) {
-    
-  }
+  constructor(private router: Router, private http: HttpClient) {}
   popupMessage: string | null = null;
   public resumeDetails: any = {
     'Full Name': '',
@@ -62,7 +60,7 @@ export class JobResultComponent {
   formattedExperience: any = ''; // Variable for formatted experience
 
   dynamicName: string = ''; // Variable for the dynamic name
-  
+
   showPopup(message: string): void {
     this.popupMessage = `You have ${message} this Candidate!`;
     setTimeout(() => this.closePopup(), 3000); // Auto-close after 3 seconds
@@ -73,62 +71,109 @@ export class JobResultComponent {
   }
   getRelevanceText(score: number): string {
     if (score >= 80) {
-        return 'High';
+      return 'High';
     } else if (score >= 60) {
-        return 'Medium';
+      return 'Medium';
     } else {
-        return 'Low';
+      return 'Low';
     }
   }
 
   getPropensityText(score: number): string {
-      if (score >= 80) {
-          return 'High';
-      } else if (score >= 60) {
-          return 'Medium';
-      } else {
-          return 'Low';
-      }
+    if (score >= 80) {
+      return 'High';
+    } else if (score >= 60) {
+      return 'Medium';
+    } else {
+      return 'Low';
+    }
   }
   isFetching: boolean = false; // Loading state
 
+  // getBackendData(): void {
+  //   this.loading = true; // Start loading
+  //   this.popupMessage = 'Your Resume is being validated against Job Description...';
+  //   this.http.get('http://localhost:5000/submit').subscribe(
+  //     (response: any) => {
+  //       this.apiResult = {
+  //         'Relevance Score': response.result['Relevance Score'],
+  //         'Relevant Experience': response.result['Relevant Experience'],
+  //         'Short Description': response.result['Short Description'],
+  //         id: response.id,
+  //         message: response.message,
+  //       };
+  //       console.log('API Result:', this.apiResult);
+  //       // Processing logic
+  //       this.loading = false; // Stop loading
+  //       this.popupMessage = null; // Hide popup
+  //       // Extract dynamic name after fetching the data
+  //       this.extractNameFromSummary(this.apiResult['Short Description']);
+  //       this.formatExperience(this.apiResult['Relevant Experience']);
+
+  //         // Populate the description list from "Short Description"
+  //       this.descriptionList = this.apiResult['Short Description']
+  //       ? this.splitSentences(this.apiResult['Short Description'])
+  //       : [];
+
+  //     },
+  //     (error) => {
+  //       console.error('Error fetching API result:', error);
+  //        // Processing logic
+  //        this.loading = false; // Stop loading
+  //        this.popupMessage = null; // Hide popup
+
+  //     }
+  //   );
+  // }
+
   getBackendData(): void {
     this.loading = true; // Start loading
-    this.popupMessage = 'Your Resume is being validated against Job Description...';
+    this.popupMessage =
+      'Your Resume is being validated against Job Description...';
+
+    // First API call to /storeresume
     this.http.get('http://localhost:5000/submit').subscribe(
       (response: any) => {
         this.apiResult = {
-          'Relevance Score': response.result['Relevance Score'],
-          'Relevant Experience': response.result['Relevant Experience'],
-          'Short Description': response.result['Short Description'],
+          'Relevance Score': response.ai_response['Relevance Score'],
+          'Relevant Experience': response.ai_response['Relevant Experience'],
+          'Short Description': response.ai_response['Short Description'],
           id: response.id,
           message: response.message,
         };
         console.log('API Result:', this.apiResult);
-        // Processing logic
+
+        // Handle data processing
+        this.formatExperience(this.apiResult['Relevant Experience']);
+        this.descriptionList = this.apiResult['Short Description']
+          ? this.splitSentences(this.apiResult['Short Description'])
+          : [];
+
+        // Fetch dynamic name from /getfullname
+        this.fetchDynamicName();
+
         this.loading = false; // Stop loading
         this.popupMessage = null; // Hide popup
-        // Extract dynamic name after fetching the data
-        this.extractNameFromSummary(this.apiResult['Short Description']);
-        this.formatExperience(this.apiResult['Relevant Experience']);
-
-          // Populate the description list from "Short Description"
-        this.descriptionList = this.apiResult['Short Description']
-        ? this.splitSentences(this.apiResult['Short Description'])
-        : [];
-
-
       },
       (error) => {
         console.error('Error fetching API result:', error);
-         // Processing logic
-         this.loading = false; // Stop loading
-         this.popupMessage = null; // Hide popup
-
+        this.loading = false; // Stop loading
+        this.popupMessage = null; // Hide popup
       }
     );
   }
 
+  fetchDynamicName(): void {
+    this.http.get('http://localhost:5000/getfullname').subscribe(
+      (response: any) => {
+        this.dynamicName = response['Full Name']; // Store the full name
+        console.log('Dynamic Name:', this.dynamicName);
+      },
+      (error) => {
+        console.error('Error fetching dynamic name:', error);
+      }
+    );
+  }
   onDragOver(event: DragEvent) {
     event.preventDefault();
   }
@@ -169,8 +214,9 @@ export class JobResultComponent {
     const sentenceRegex = /(?<!\b[A-Z])[.](?=\s|$)/; // Match periods not preceded by single uppercase letters (e.g., B.E)
     return text
       .split(sentenceRegex)
-      .map(sentence => sentence.trim())
-      .filter(sentence => sentence !== '');}
+      .map((sentence) => sentence.trim())
+      .filter((sentence) => sentence !== '');
+  }
   processFile(file: File) {
     if (file.size <= 2 * 1024 * 1024) {
       // 2MB limit

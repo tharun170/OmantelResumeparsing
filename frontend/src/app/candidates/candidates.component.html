@@ -33,10 +33,44 @@
         <!-- Header -->
         <div class="header">
             <h2>‎ ‎ ‎ ‎ List of Applied Candidates</h2>
+
             <div class="filters">
-                <input type="text" placeholder=" 🔎 Search Candidates" />
-                <button>Sort by</button>
-                <button>Filter by</button>
+                <!-- <input type="text" placeholder=" 🔎 Search Candidates" /> -->
+                <div class="sort-dropdown">
+                    <label for="sort-select">Sort by: </label>
+                    <select id="sort-select" (change)="onSortChange($event)">
+            <option value="reset"></option>
+
+            <option value="propensity">Propensity To Join</option>
+            <option value="relevance">Relevance Score</option>
+            <option value="experience">Relevant Experience</option>
+          </select>
+                </div>
+
+                <!-- Experience Filter Dropdown -->
+                <div class="experience-filter">
+                    <label for="experience-select">Filter by Experience: </label>
+                    <select id="experience-select" (change)="onExperienceFilterChange($event)">
+            <option value="all"></option>
+            <option value="1">1 Year</option>
+            <option value="2">2 Years</option>
+            <option value="3">3 Years</option>
+            <option value="4">4 Years</option>
+            <option value="5">5 Years</option>
+          </select>
+                </div>
+
+                <!-- JD Filter Dropdown -->
+                <div class="jd-filter">
+                    <label for="jd-select">Filter by Job Description: </label>
+                    <select id="jd-select" (change)="onJDFilterChange($event)">
+      <option value="all"></option>
+      <option value="Data Engineer">Data Engineer</option>
+      <option value="Data Engineer">Senior Manager, Growth Portfolio</option>
+      <option value="Software Developer">Software Developer</option>
+
+    </select>
+                </div>
             </div>
         </div>
 
@@ -49,7 +83,9 @@
                         <img src="https://i.postimg.cc/wTHcKLb0/image.png" alt="Profile" class="profile-img" />
                     </div>
                     <div class="profile-details">
-                        <h2 class="candidate-name">{{ candidate.parsed_resume['Full Name'] }}</h2>
+                        <h2 class="candidate-name">
+                            {{ candidate.parsed_resume["Full Name"] }}
+                        </h2>
                         <!-- <p class="candidate-role">Potential Candidate</p> -->
                     </div>
                 </div>
@@ -59,24 +95,28 @@
                     <div class="info-item">
                         <p class="info-label">Relevance Score</p>
                         <p class="info-value-score">
-                            {{ candidate.ai_response['Relevance Score'] }}%
+                            {{ candidate.ai_response["Relevance Score"] }}%
                         </p>
                     </div>
 
                     <div class="info-item">
                         <p class="info-label">Propensity To Join</p>
                         <p class="info-value" [ngClass]="{
-                                'high': candidate.ai_response['Relevance Score'] >= 80,
-                                'medium': candidate.ai_response['Relevance Score'] >= 60 && candidate.ai_response['Relevance Score'] < 80,
-                                'low': candidate.ai_response['Relevance Score'] < 60
-                            }">
-                            {{ getPropensityText(candidate.ai_response['Relevance Score']) }}
+                high: candidate.ai_response['Relevance Score'] >= 80,
+                medium:
+                  candidate.ai_response['Relevance Score'] >= 60 &&
+                  candidate.ai_response['Relevance Score'] < 80,
+                low: candidate.ai_response['Relevance Score'] < 60
+              }">
+                            {{ getPropensityText(candidate.ai_response["Relevance Score"]) }}
                         </p>
                     </div>
 
                     <div class="info-item">
                         <p class="info-label">Relevant Experience</p>
-                        <p class="info-value">{{ candidate.ai_response['Relevant Experience'] }}</p>
+                        <p class="info-value">
+                            {{ candidate.ai_response["Relevant Experience"] }}
+                        </p>
                     </div>
                 </div>
 
@@ -87,7 +127,6 @@
                 </div>
             </div>
         </div>
-
 
         <!-- Pagination -->
         <div class="pagination">
