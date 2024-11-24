@@ -7,8 +7,19 @@
         <img src="https://i.postimg.cc/tgbrcVpx/0.jpg" alt="Profile" class="icon profile" />
     </div>
 </div>
-
+<!-- Modal for displaying profile -->
+<div *ngIf="showModal" class="modal-overlay" (click)="closeModalOnOutsideClick($event)">
+    <div class="modal-content">
+        <span class="close-btn" (click)="closeModal()">&times;</span>
+        <h2>{{ selectedProfile?.name }}</h2>
+        <p><strong>Experience:</strong> {{ selectedProfile?.experience }}</p>
+        <p><strong>Skills:</strong> {{ selectedProfile?.skills }}</p>
+        <p><strong>Achievements:</strong> {{ selectedProfile?.achievements }}</p>
+        <button class="close-modal-btn" (click)="closeModal()">Close</button>
+    </div>
+</div>
 <div class="container">
+
     <!-- Sidebar -->
     <div class="sidebar">
         <div class="menu-item" routerLink="/job-list" routerLinkActive="active">
@@ -62,12 +73,12 @@
 
                 <!-- JD Filter Dropdown -->
                 <div class="jd-filter">
-                    <label for="jd-select">Filter by Job Description: </label>
+                    <label for="jd-select">Filter by Job: </label>
                     <select id="jd-select" (change)="onJDFilterChange($event)">
       <option value="all"></option>
-      <option value="Data Engineer">Data Engineer</option>
-      <option value="Data Engineer">Senior Manager, Growth Portfolio</option>
-      <option value="Software Developer">Software Developer</option>
+      <option value="data-engineer">Data Engineer</option>
+      <option value="senior-manager-growth">Senior Manager, Growth Portfolio</option>
+      <option value="software-developer">Software Developer</option>
 
     </select>
                 </div>
@@ -86,7 +97,7 @@
                         <h2 class="candidate-name">
                             {{ candidate.parsed_resume["Full Name"] }}
                         </h2>
-                        <!-- <p class="candidate-role">Potential Candidate</p> -->
+                        <p class="candidate-role">{{formatJobId(candidate.job_id)}}</p>
                     </div>
                 </div>
 
@@ -122,8 +133,9 @@
 
                 <!-- Action Section -->
                 <div class="actions">
-                    <button class="view-profile-btn">View Profile</button>
-                    <!-- <button class="shortlist-btn">Shortlist</button> -->
+                    <button class="view-profile-btn" (click)="viewProfile(candidate.parsed_resume['Full Name'])">
+                        View Profile
+                      </button>
                 </div>
             </div>
         </div>

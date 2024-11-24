@@ -14,10 +14,21 @@ export class CandidatesComponent implements OnInit {
   currentJDFilter: string = 'all';
   currentSort: string = 'reset';
 
+  selectedProfile: any = null; // Store profile data for the modal
+  showModal: boolean = false; // Modal visibility toggle
+
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
     this.getBackendData(); // Fetch data on component initialization
+  }
+
+  formatJobId(jobId: string): string {
+    // Remove numbers using regex and convert to Title Case
+    return jobId
+      .replace(/-\d+$/, '') // Remove the trailing numbers
+      .replace(/-/g, ' ') // Replace hyphens with spaces
+      .replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substring(1).toLowerCase()); // Title Case
   }
 
   getBackendData(): void {
@@ -33,7 +44,6 @@ export class CandidatesComponent implements OnInit {
     );
   }
 
-  // Update filters and reapply the filtering and sorting logic
   onExperienceFilterChange(event: any): void {
     this.currentExperienceFilter = event.target.value;
     this.applyFiltersAndSorting();
@@ -67,13 +77,11 @@ export class CandidatesComponent implements OnInit {
       });
     }
 
-    // Step 3: Apply JD filter
+    // Step 3: Apply JD filter (using job_id)
     if (this.currentJDFilter !== 'all') {
-      filteredCandidates = filteredCandidates.filter((candidate) => {
-        return candidate.parsed_resume['Job Description'].includes(
-          this.currentJDFilter
-        );
-      });
+      filteredCandidates = filteredCandidates.filter((candidate) =>
+        candidate.job_id.toLowerCase().includes(this.currentJDFilter.toLowerCase())
+      );
     }
 
     // Step 4: Apply sorting
@@ -133,4 +141,35 @@ export class CandidatesComponent implements OnInit {
       return 'Low';
     }
   }
+
+
+
+
+
+  viewProfile(fullName: string): void {
+    // Send POST request to fetch profile info for a specific candidate
+    this.http.post('http://localhost:5000/profile', { full_name: fullName }).subscribe(
+      (response: any) => {
+        this.selectedProfile = response; // Save profile data
+        this.showModal = true; // Display modal
+        console.log('Profile Data:', this.selectedProfile);
+      },
+      (error) => {
+        console.error('Error fetching profile data:', error);
+      }
+    );
+  }
+  closeModal(): void {
+    this.showModal = false; // Hide modal
+    this.selectedProfile = null; // Clear profile data
+  }
+  closeModalOnOutsideClick(event: MouseEvent): void {
+    const target = event.target as HTMLElement;
+  
+    // Check if the click is outside the modal content
+    if (target.classList.contains('modal-overlay')) {
+      this.closeModal(); // Close the modal
+    }
+  }
+  
 }

@@ -480,7 +480,8 @@ def get_candidates():
                 },
                 "parsed_resume": {
                     "Full Name": "DEVADHARSHINI B"
-                }
+                },
+                "job_id": "data-engineer-001"
             },
             {
                 "ai_response": {
@@ -489,7 +490,8 @@ def get_candidates():
                 },
                 "parsed_resume": {
                     "Full Name": "ARUN KUMAR S"
-                }
+                },
+                "job_id": "software-developer-002"
             },
             {
                 "ai_response": {
@@ -498,13 +500,44 @@ def get_candidates():
                 },
                 "parsed_resume": {
                     "Full Name": "PRIYA R"
-                }
+                },
+                "job_id": "senior-manager-growth-001"
             }
         ],
         "message": "Records fetched successfully"
     }
 
     return jsonify(data)
+
+@app.route('/profile', methods=['POST'])
+def get_profile():
+    data = request.json
+    full_name = data.get('full_name')
+    profiles = {
+        "DEVADHARSHINI B": {
+            "name": "Devadharshini B",
+            "experience": "2 years 9 months",
+            "skills": "Python, Angular, Flask",
+            "achievements": "Developed scalable apps"
+        },
+        "ARUN KUMAR S": {
+            "name": "Arun Kumar S",
+            "experience": "4 years 5 months",
+            "skills": "Java, AWS, React",
+            "achievements": "Led cloud migrations"
+        },
+        "PRIYA R": {
+            "name": "Priya R",
+            "experience": "1 year 3 months",
+            "skills": "SQL, Tableau, Power BI",
+            "achievements": "Created interactive dashboards"
+        }
+    }
+    return jsonify(profiles.get(full_name, {}))
+
+
+
+
 
 
 @app.route('/jd1', methods=['GET'])
@@ -518,6 +551,11 @@ def get_jd2():
 @app.route('/jd3', methods=['GET'])
 def get_jd3():
     return jsonify(jd3)
+
+
+
+
+
 
 
 if __name__ == '__main__':

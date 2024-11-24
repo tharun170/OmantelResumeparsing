@@ -1189,3 +1189,287 @@ button {
   border-color: #ff6000;
   box-shadow: 0 0 5px rgba(255, 140, 0, 0.6);
 }
+
+
+/* Styling for Candidate Cards */
+.candidate-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.view-profile-btn {
+  background-color: #007bff; /* Blue */
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.view-profile-btn:hover {
+  background-color: #0056b3; /* Darker Blue */
+}
+
+/* Modal Styling */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: linear-gradient(to right, #007bff, #ff8c00); /* Blue to Orange gradient */
+  color: #fff;
+  width: 500px;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  animation: scaleUp 0.3s ease-in-out;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.close-modal-btn {
+  background-color: #ff8c00; /* Orange */
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.close-modal-btn:hover {
+  background-color: #e56e00; /* Darker Orange */
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: linear-gradient(to right, #007bff, #ff8c00); /* Blue to Orange gradient */
+  color: #fff;
+  width: 500px;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.modal-content {
+  font-family: 'Poppins', sans-serif; /* Modern, clean font */
+  font-size: 16px; /* Base font size */
+  font-weight: 400; /* Regular weight for readability */
+  line-height: 1.6; /* Optimal line height for legibility */
+  color: #ffffff; /* Text color for good contrast on gradient */
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Slightly transparent dark background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #ffffff; /* White background for clean UI */
+  color: #ff7300; /* Vibrant orange for text and accents */
+  width: 600px; /* Wider for a luxurious feel */
+  padding: 30px;
+  border-radius: 15px; /* Smooth, modern borders */
+  position: relative;
+  text-align: center;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+  font-family: 'Poppins', sans-serif; /* Modern font */
+  font-size: 18px; /* Slightly larger for professional look */
+  line-height: 1.8; /* Increased line spacing for readability */
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff7300; /* Orange accent for close button */
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #ff4500; /* Slightly darker orange for hover effect */
+}
+
+button.close-modal-btn {
+  margin-top: 20px;
+  background-color: #ff7300; /* Vibrant orange */
+  color: #ffffff; /* White text for contrast */
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+button.close-modal-btn:hover {
+  background-color: #ff4500; /* Slightly darker orange for hover */
+  transform: scale(1.1); /* Subtle zoom effect */
+}.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Darker overlay for focus */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: linear-gradient(135deg, #ffffff 60%, #ffe6cc 100%); /* Subtle gradient from white to light orange */
+  border: 2px solid #ff7300; /* Bold orange border */
+  border-radius: 20px; /* More pronounced rounded corners */
+  width: 600px;
+  padding: 30px 40px;
+  text-align: left; /* Align content for better readability */
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); /* Stronger shadow for depth */
+  font-family: 'Poppins', sans-serif;
+  animation: slide-down 0.5s ease; /* Smooth slide-down animation */
+}
+
+.modal-content h2 {
+  color: #ff7300; /* Vibrant orange for titles */
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for style */
+}
+
+.modal-content p {
+  font-size: 18px;
+  color: #333333; /* Neutral dark gray for text readability */
+  margin: 10px 0;
+}
+
+.modal-content strong {
+  color: #ff7300; /* Accent color for important info */
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #ffffff; /* White circle for elegance */
+  border: 2px solid #ff7300;
+  color: #ff7300;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  line-height: 36px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.close-btn:hover {
+  background: #ff7300; /* Orange hover background */
+  color: #ffffff;
+  transform: rotate(90deg); /* Eye-catching rotation effect */
+}
+
+button.close-modal-btn {
+  margin-top: 30px;
+  background: linear-gradient(135deg, #ff7300, #ff4500); /* Orange gradient */
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button.close-modal-btn:hover {
+  transform: scale(1.1); /* Pop-out effect */
+  box-shadow: 0 10px 20px rgba(255, 115, 0, 0.5); /* Glowing shadow */
+}
+
+button.view-profile-btn {
+  background: #ffffff;
+  color: #ff7300;
+  border: 2px solid #ff7300;
+  padding: 10px 25px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button.view-profile-btn:hover {
+  background: #ff7300;
+  color: #ffffff;
+  transform: translateY(-2px); /* Subtle lift effect */
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
