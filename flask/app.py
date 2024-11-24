@@ -511,31 +511,192 @@ def get_candidates():
 
 @app.route('/profile', methods=['POST'])
 def get_profile():
-    data = request.json
-    full_name = data.get('full_name')
-    profiles = {
-        "DEVADHARSHINI B": {
-            "name": "Devadharshini B",
-            "experience": "2 years 9 months",
-            "skills": "Python, Angular, Flask",
-            "achievements": "Developed scalable apps"
+    # Extract the candidate's full name from the request
+    data = request.get_json()
+    # full_name = data.get('full_name', '')
+    full_name = data.get('full_name', '').lower().strip()
+
+    # Simulated profile data for multiple candidates
+    profiles = [
+        {
+            "Full Name": "B DEVADHARSHINI",
+            "Email": "devabaskar09@gmail.com",
+            "Phone Number": "+91-9578120402",
+            "Location": "Trichy, Tamil Nadu",
+            "Summary": "I am a highly competent IT professional with 2 year and 9 months work experience...",
+            "Education": [
+                {
+                    "Degree": "B.E.",
+                    "Institution": "K.Ramakrishnan College Of Engineering",
+                    "Location": "Trichy, Tamil Nadu",
+                    "StartDate": "2017",
+                    "EndDate": "2021",
+                    "GPA": "9.12"
+                }
+            ],
+            "Certifications": [
+                {
+                    "Name": "Google Cloud Certified Professional Data Engineer",
+                    "Organization": "Google Cloud"
+                },
+                {
+                    "Name": "Google Cloud Certified Associate Cloud Engineer",
+                    "Organization": "Google Cloud"
+                },
+                {
+                    "Name": "First Level Of Certification in Japanese Language Course",
+                    "Organization": "N-5"
+                }
+            ],
+            "Work Experience": [
+                {
+                    "Company": "Wipro Ltd.",
+                    "Title": "Data Engineer | Developer",
+                    "Location": "Chennai, Tamil Nadu",
+                    "StartDate": "Feb 2022",
+                    "EndDate": "Current",
+                    "Description": "As a part of Insurance Data Hub, built a data platform on GCP..."
+                },
+                {
+                    "Company": "Accenture Solutions Pvt Ltd.",
+                    "Title": "Application Development Associate | Developer",
+                    "Location": "Chennai, Tamil Nadu",
+                    "StartDate": "May 2021",
+                    "EndDate": "Dec 2021",
+                    "Description": "Fulfilled tasks and jobs delegated by project manager..."
+                },
+                {
+                    "Company": "Cognizant Solutions Pvt Ltd.",
+                    "Title": "Intern",
+                    "Location": "Chennai, Tamil Nadu",
+                    "StartDate": "March 2021",
+                    "EndDate": "April 2021",
+                    "Description": "Undergone series of webinars, quizzes, SME interactions..."
+                }
+            ],
+            "Skills": {
+                "Technical Skills": [
+                    "Python",
+                    "SQL (Postgres, MySQL, CloudSQL)",
+                    "GCP (GCS, Biquery, CloudSQL, Dataflow)",
+                    "ETLs",
+                    "GIT",
+                    "JIRA",
+                    "Shell Scripting"
+                ],
+                "Soft Skills": []
+            }
         },
-        "ARUN KUMAR S": {
-            "name": "Arun Kumar S",
-            "experience": "4 years 5 months",
-            "skills": "Java, AWS, React",
-            "achievements": "Led cloud migrations"
+        {
+            "Full Name": "PRIYA R",
+            "Email": "ananya.sharma@example.com",
+            "Phone Number": "+91-9876543210",
+            "Location": "Mumbai, Maharashtra",
+            "Summary": "Experienced senior manager with a proven track record in leading growth portfolios and strategic initiatives...",
+            "Education": [
+                {
+                    "Degree": "MBA",
+                    "Institution": "Indian Institute of Management, Bangalore",
+                    "Location": "Bangalore, Karnataka",
+                    "StartDate": "2014",
+                    "EndDate": "2016",
+                    "GPA": "8.9"
+                }
+            ],
+            "Certifications": [
+                {
+                    "Name": "PMP (Project Management Professional)",
+                    "Organization": "PMI"
+                },
+                {
+                    "Name": "Certified Scrum Master",
+                    "Organization": "Scrum Alliance"
+                }
+            ],
+            "Work Experience": [
+                {
+                    "Company": "Reliance Industries",
+                    "Title": "Senior Manager - Growth Portfolio",
+                    "Location": "Mumbai, Maharashtra",
+                    "StartDate": "Jan 2020",
+                    "EndDate": "Current",
+                    "Description": "Led a cross-functional team to deliver high-impact projects..."
+                },
+                {
+                    "Company": "Tata Consultancy Services",
+                    "Title": "Project Manager",
+                    "Location": "Mumbai, Maharashtra",
+                    "StartDate": "Aug 2016",
+                    "EndDate": "Dec 2019",
+                    "Description": "Managed global teams to ensure successful project delivery..."
+                }
+            ],
+            "Skills": {
+                "Technical Skills": [
+                    "Project Management",
+                    "Agile Methodologies",
+                    "Team Leadership"
+                ],
+                "Soft Skills": ["Strategic Thinking", "Team Collaboration", "Problem Solving"]
+            }
         },
-        "PRIYA R": {
-            "name": "Priya R",
-            "experience": "1 year 3 months",
-            "skills": "SQL, Tableau, Power BI",
-            "achievements": "Created interactive dashboards"
+        {
+            "Full Name": "ARUN KUMAR S",
+            "Email": "rajesh.kumar@example.com",
+            "Phone Number": "+91-9876541234",
+            "Location": "Bangalore, Karnataka",
+            "Summary": "A software developer passionate about building scalable and efficient solutions...",
+            "Education": [
+                {
+                    "Degree": "B.Tech in Computer Science",
+                    "Institution": "National Institute of Technology, Karnataka",
+                    "Location": "Surathkal, Karnataka",
+                    "StartDate": "2015",
+                    "EndDate": "2019",
+                    "GPA": "9.1"
+                }
+            ],
+            "Certifications": [
+                {
+                    "Name": "AWS Certified Solutions Architect",
+                    "Organization": "Amazon Web Services"
+                },
+                {
+                    "Name": "Microsoft Certified Azure Developer",
+                    "Organization": "Microsoft"
+                }
+            ],
+            "Work Experience": [
+                {
+                    "Company": "Infosys",
+                    "Title": "Software Developer",
+                    "Location": "Bangalore, Karnataka",
+                    "StartDate": "Jul 2019",
+                    "EndDate": "Current",
+                    "Description": "Developed and maintained enterprise-level web applications..."
+                }
+            ],
+            "Skills": {
+                "Technical Skills": [
+                    "Java",
+                    "Spring Boot",
+                    "Angular",
+                    "React",
+                    "Docker",
+                    "Kubernetes"
+                ],
+                "Soft Skills": ["Analytical Thinking", "Problem Solving"]
+            }
         }
-    }
-    return jsonify(profiles.get(full_name, {}))
-
-
+    ]
+    # Flexible name matching logic
+    for profile in profiles:
+        profile_name = profile["Full Name"].lower()
+        # Check if all words in the request name are in the profile name
+        if all(word in profile_name for word in full_name.split()):
+            return jsonify(profile)
+    
+    return jsonify({"message": "Profile not found"}), 404
 
 
 

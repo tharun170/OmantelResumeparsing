@@ -147,18 +147,19 @@ export class CandidatesComponent implements OnInit {
 
 
   viewProfile(fullName: string): void {
-    // Send POST request to fetch profile info for a specific candidate
-    this.http.post('http://localhost:5000/profile', { full_name: fullName }).subscribe(
+    const payload = { full_name: fullName };
+
+    this.http.post('http://localhost:5000/profile', payload).subscribe(
       (response: any) => {
-        this.selectedProfile = response; // Save profile data
-        this.showModal = true; // Display modal
-        console.log('Profile Data:', this.selectedProfile);
+        this.selectedProfile = response; // Store profile data
+        this.showModal = true; // Open modal
       },
       (error) => {
         console.error('Error fetching profile data:', error);
       }
     );
   }
+
   closeModal(): void {
     this.showModal = false; // Hide modal
     this.selectedProfile = null; // Clear profile data

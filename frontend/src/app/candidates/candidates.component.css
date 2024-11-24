@@ -218,7 +218,6 @@
 }
 
 .job-header h2 {
-  
   margin: 0;
   font-size: 24px;
 }
@@ -457,8 +456,8 @@
 .header h2 {
   margin: 0;
   margin-top: 45px;
-    margin-left: 35px;
-    /* margin-bottom: 20px; */
+  margin-left: 35px;
+  /* margin-bottom: 20px; */
   font-size: 24px;
   font-weight: bold;
   color: #333;
@@ -659,12 +658,9 @@ a.no-underline:focus {
   text-decoration: none !important; /* Prevent underline on hover or focus */
 }
 
-
-
 /* .profile-info{
 
 } */
-
 
 .job-cards {
   display: flex;
@@ -750,7 +746,7 @@ a.no-underline:focus {
 }
 
 .score {
-  color: #007BFF;
+  color: #007bff;
 }
 
 .high {
@@ -775,7 +771,7 @@ button {
 }
 
 .view-profile-btn {
-  background-color: #007BFF;
+  background-color: #007bff;
   color: #fff;
 }
 
@@ -808,8 +804,8 @@ button {
   font-weight: bold;
 }
 
-.info-value-score{
-  color: #007BFF;
+.info-value-score {
+  color: #007bff;
   font-weight: bold;
 }
 .sort-buttons button {
@@ -866,8 +862,6 @@ button {
   box-shadow: 0 0 8px 4px rgba(255, 140, 0, 0.5); /* Focus glow effect */
 }
 
-
-
 /* ######## */
 
 /* Container for Sort Dropdown */
@@ -881,7 +875,7 @@ button {
   padding: 10px 15px;
   font-size: 14px;
   font-weight: bold;
-  border: 2px solid #FF8C00; /* Orange border */
+  border: 2px solid #ff8c00; /* Orange border */
   border-radius: 8px;
   background-color: white;
   color: #333;
@@ -919,7 +913,7 @@ button {
   padding: 10px 15px;
   font-size: 14px;
   font-weight: bold;
-  border: 2px solid #FF8C00; /* Orange border */
+  border: 2px solid #ff8c00; /* Orange border */
   border-radius: 8px;
   background-color: white;
   color: #333;
@@ -957,7 +951,7 @@ button {
   padding: 10px 15px;
   font-size: 14px;
   font-weight: bold;
-  border: 2px solid #FF8C00; /* Orange border */
+  border: 2px solid #ff8c00; /* Orange border */
   border-radius: 8px;
   background-color: white;
   color: #333;
@@ -984,11 +978,10 @@ button {
   font-weight: normal;
 }
 
-
 /* ...
  */
 
- .filters {
+.filters {
   display: flex;
   gap: 20px;
   align-items: center;
@@ -1023,7 +1016,9 @@ button {
   border-color: #ff6000;
 }
 
-.sort-dropdown, .experience-filter, .jd-filter {
+.sort-dropdown,
+.experience-filter,
+.jd-filter {
   flex: 1;
   min-width: 200px;
 }
@@ -1037,7 +1032,8 @@ button {
   color: #333;
 }
 
-.filters select, .filters option {
+.filters select,
+.filters option {
   background-color: #fff;
   padding: 10px;
 }
@@ -1065,7 +1061,6 @@ button {
   border-color: #ff6000;
   box-shadow: 0 0 5px rgba(255, 140, 0, 0.6);
 }
-
 
 /* @@@@# */
 
@@ -1107,8 +1102,8 @@ button {
   border-color: #ff6000;
 }
 
-.filters .sort-dropdown, 
-.filters .experience-filter, 
+.filters .sort-dropdown,
+.filters .experience-filter,
 .filters .jd-filter {
   display: flex;
   flex-direction: column; /* Arrange label above dropdown */
@@ -1127,7 +1122,6 @@ button {
   border-color: #ff6000;
   box-shadow: 0 0 5px rgba(255, 140, 0, 0.6);
 }
-
 
 /* .. */
 
@@ -1169,8 +1163,8 @@ button {
   border-color: #ff6000;
 }
 
-.filters .sort-dropdown, 
-.filters .experience-filter, 
+.filters .sort-dropdown,
+.filters .experience-filter,
 .filters .jd-filter {
   display: flex;
   flex-direction: column; /* Arrange label above dropdown */
@@ -1189,7 +1183,6 @@ button {
   border-color: #ff6000;
   box-shadow: 0 0 5px rgba(255, 140, 0, 0.6);
 }
-
 
 /* Styling for Candidate Cards */
 .candidate-card {
@@ -1229,7 +1222,11 @@ button {
 }
 
 .modal-content {
-  background: linear-gradient(to right, #007bff, #ff8c00); /* Blue to Orange gradient */
+  background: linear-gradient(
+    to right,
+    #007bff,
+    #ff8c00
+  ); /* Blue to Orange gradient */
   color: #fff;
   width: 500px;
   padding: 20px;
@@ -1284,7 +1281,11 @@ button {
 }
 
 .modal-content {
-  background: linear-gradient(to right, #007bff, #ff8c00); /* Blue to Orange gradient */
+  background: linear-gradient(
+    to right,
+    #007bff,
+    #ff8c00
+  ); /* Blue to Orange gradient */
   color: #fff;
   width: 500px;
   padding: 20px;
@@ -1294,7 +1295,7 @@ button {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 .modal-content {
-  font-family: 'Poppins', sans-serif; /* Modern, clean font */
+  font-family: "Poppins", sans-serif; /* Modern, clean font */
   font-size: 16px; /* Base font size */
   font-weight: 400; /* Regular weight for readability */
   line-height: 1.6; /* Optimal line height for legibility */
@@ -1307,7 +1308,12 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Slightly transparent dark background */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Slightly transparent dark background */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1323,7 +1329,7 @@ button {
   position: relative;
   text-align: center;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
-  font-family: 'Poppins', sans-serif; /* Modern font */
+  font-family: "Poppins", sans-serif; /* Modern font */
   font-size: 18px; /* Slightly larger for professional look */
   line-height: 1.8; /* Increased line spacing for readability */
 }
@@ -1359,7 +1365,8 @@ button.close-modal-btn {
 button.close-modal-btn:hover {
   background-color: #ff4500; /* Slightly darker orange for hover */
   transform: scale(1.1); /* Subtle zoom effect */
-}.modal-overlay {
+}
+.modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -1373,7 +1380,11 @@ button.close-modal-btn:hover {
 }
 
 .modal-content {
-  background: linear-gradient(135deg, #ffffff 60%, #ffe6cc 100%); /* Subtle gradient from white to light orange */
+  background: linear-gradient(
+    135deg,
+    #ffffff 60%,
+    #ffe6cc 100%
+  ); /* Subtle gradient from white to light orange */
   border: 2px solid #ff7300; /* Bold orange border */
   border-radius: 20px; /* More pronounced rounded corners */
   width: 600px;
@@ -1381,7 +1392,7 @@ button.close-modal-btn:hover {
   text-align: left; /* Align content for better readability */
   position: relative;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); /* Stronger shadow for depth */
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   animation: slide-down 0.5s ease; /* Smooth slide-down animation */
 }
 
@@ -1473,3 +1484,584 @@ button.view-profile-btn:hover {
   }
 }
 
+/* 333 */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #ffffff;
+  border: 2px solid #ff7300;
+  border-radius: 10px;
+  padding: 20px;
+  width: 700px;
+  max-height: 80%;
+  overflow-y: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ff7300;
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  background: #e65c00;
+}
+
+
+
+
+/* 222 */
+
+/* Modal Container */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal Content */
+.modal-content {
+  background: linear-gradient(to bottom, #ffffff, #ff9800); /* Stunning white to orange gradient */
+  width: 80%;
+  max-width: 700px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  color: #333;
+  font-family: 'Roboto', sans-serif;
+  overflow-y: auto;
+  max-height: 90%;
+  padding: 20px;
+}
+
+/* Close Button */
+.close-btn {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+}
+
+/* Profile Header */
+.profile-header {
+  text-align: center;
+  background: #ff9800; /* Vibrant orange */
+  color: #fff;
+  padding: 15px;
+  border-radius: 10px 10px 0 0;
+}
+
+.profile-header h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.profile-header p {
+  margin: 5px 0;
+  font-style: italic;
+}
+
+/* Profile Body */
+.profile-body {
+  padding: 15px;
+}
+
+.profile-body h3 {
+  border-bottom: 2px solid #ff9800;
+  padding-bottom: 5px;
+  margin-top: 20px;
+  color: #ff9800;
+}
+
+.profile-body ul {
+  list-style: none;
+  padding: 0;
+}
+
+.profile-body ul li {
+  margin-bottom: 10px;
+}
+
+.profile-body ul li strong {
+  color: #333;
+}
+
+.profile-body p {
+  margin: 10px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+  }
+}
+/* .. */
+
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Slightly dark overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #ffffff; /* White background */
+  border-radius: 15px;
+  padding: 20px;
+  width: 90%; /* Responsive width */
+  max-width: 600px; /* Limit max size */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease-in-out;
+  font-family: 'Arial', sans-serif; /* Clean font */
+}
+
+/* Close Button */
+.close-btn {
+  color: #ff6600; /* Orange */
+  font-size: 24px;
+  font-weight: bold;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #cc5200; /* Darker orange */
+}
+
+/* Headings */
+.modal-content h2,
+.modal-content h3 {
+  color: #ff6600; /* Orange headings */
+  border-bottom: 2px solid #ff6600;
+  padding-bottom: 5px;
+}
+
+/* Paragraphs and List Items */
+.modal-content p,
+.modal-content li {
+  color: #333333; /* Dark text */
+  line-height: 1.6;
+  margin: 10px 0;
+}
+
+/* Certifications and Skills */
+.modal-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.modal-content li {
+  background-color: #ffefdb; /* Light orange background */
+  color: #333333;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .modal-content {
+    padding: 15px;
+  }
+  .close-btn {
+    font-size: 20px;
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Slightly darker overlay for contrast */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Modal Content */
+.modal-content {
+  /* background: linear-gradient(145deg, #ffffff, #fffcf5); Subtle gradient for a polished look */
+  background: linear-gradient(120deg, #ffecd2, #fcb69f); /* Warm peach to coral for an inviting look */
+  /* background: linear-gradient(135deg, #ffffff, #ff6600); Pure white to bold, hard orange for high contrast and richness */
+
+  border: 2px solid #ff6600; /* Add a sharp orange border */
+  border-radius: 20px;
+  padding: 25px;
+  width: 90%;
+  max-width: 650px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transform: scale(1);
+  animation: scaleUp 0.4s ease-in-out;
+  font-family: 'Poppins', sans-serif; /* Trendy font for a modern aesthetic */
+  overflow-y: auto; /* Handles overflow gracefully */
+  max-height: 80vh; /* Prevents modal from exceeding viewport height */
+}
+
+/* Close Button */
+.close-btn {
+  color: #ff6600;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #cc5200;
+  transform: rotate(90deg) scale(1.2); /* Stylish hover effect */
+}
+
+/* Headings */
+.modal-content h2,
+.modal-content h3 {
+  color: #ff6600;
+  border-bottom: 2px solid #ff6600;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+/* Paragraphs */
+.modal-content p {
+  color: #444444;
+  line-height: 1.7;
+  margin: 10px 0;
+  font-size: 1rem;
+}
+
+/* Lists */
+.modal-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.modal-content li {
+  background-color: #fff6e5; /* Softer light orange background */
+  color: #333333;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.modal-content li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Pop-out hover effect */
+}
+
+/* Work Experience and Education Sections */
+.modal-content div {
+  margin-bottom: 15px;
+}
+
+.modal-content strong {
+  color: #ff6600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .modal-content {
+    padding: 20px;
+  }
+  .modal-content h2,
+  .modal-content h3 {
+    font-size: 1.2rem;
+  }
+  .close-btn {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    padding: 15px;
+  }
+  .modal-content h2,
+  .modal-content h3 {
+    font-size: 1rem;
+  }
+  .close-btn {
+    font-size: 20px;
+  }
+}
+
+/* Keyframes for Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+
+
+/* Base Modal Content Styles */
+.modal-content {
+  font-family: Arial, sans-serif; /* Use a default, clean font */
+  color: #333333; /* Dark gray for good readability */
+  line-height: 1.6; /* Improved spacing for better readability */
+  font-size: 1rem; /* Standard font size */
+  padding: 20px;
+}
+
+/* Modal Headings */
+.modal-content h2 {
+  font-size: 1.8rem; /* Larger font size for emphasis */
+  color: #ff6600; /* Hard orange for vibrance */
+  margin-bottom: 15px;
+  font-weight: bold;
+  text-align: center; /* Centered for better focus */
+  text-decoration: underline;
+}
+
+.modal-content h3 {
+  font-size: 1.4rem;
+  color: #ff6600; /* Hard orange for consistency */
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-transform: uppercase; /* Add style with uppercase */
+  border-bottom: 2px solid #ff6600; /* Line for separation */
+  padding-bottom: 5px;
+}
+
+/* Paragraphs */
+.modal-content p {
+  font-size: 1rem; /* Clean and readable */
+  color: #444444; /* Slightly lighter gray */
+  margin-bottom: 15px;
+}
+
+/* Lists */
+.modal-content ul {
+  list-style-type: square; /* More stylish bullet points */
+  padding-left: 20px; /* Proper indentation */
+}
+
+.modal-content li {
+  font-size: 1rem;
+  color: #333333;
+  margin-bottom: 10px;
+}
+
+/* Emphasis on Strong Text */
+.modal-content strong {
+  font-weight: bold;
+  color: #ff6600; /* Hard orange for emphasis */
+}
+
+/* Close Button */
+.close-btn {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ff6600; /* Hard orange for consistency */
+  cursor: pointer;
+  float: right; /* Align to the top-right */
+  transition: color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+}
+
+.close-btn:hover {
+  color: #cc5200; /* Darker orange on hover */
+  transform: scale(1.1); /* Slight zoom effect */
+}
+
+/* Add Subtle Shadows for Depth */
+.modal-content h2, 
+.modal-content h3 {
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1); /* Minimal shadow for polished look */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .modal-content {
+    font-size: 0.9rem; /* Slightly smaller text for smaller screens */
+  }
+
+  .modal-content h2 {
+    font-size: 1.5rem; /* Adjust heading size */
+  }
+
+  .modal-content h3 {
+    font-size: 1.2rem;
+  }
+}
+
+
+/* Base Modal Content Styles */
+.modal-content {
+  font-family: 'Poppins', sans-serif; /* Modern, clean font for body */
+  color: #333333; /* Dark gray for readability */
+  line-height: 1.6; /* Better spacing for text */
+  font-size: 1rem; /* Standard body font size */
+  padding: 20px;
+  /* background: linear-gradient(135deg, #ffffff, #ff6600); Orange-to-white gradient */
+  background: linear-gradient(135deg, #ffffff, #ffe0b3); 
+
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+/* Modal Headings */
+.modal-content h2 {
+  font-family: 'Playfair Display', serif; /* Elegant serif font for headings */
+  font-size: 2rem; /* Large for emphasis */
+  color: #ff6600; /* Bold orange */
+  text-align: center; /* Center align for focus */
+  margin-bottom: 20px;
+}
+
+.modal-content h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem; /* Distinct subheading size */
+  color: #ff6600; /* Consistent orange theme */
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #ff6600; /* Visual separation */
+  padding-bottom: 5px;
+  text-transform: capitalize; /* Stylish capitalization */
+}
+
+/* Paragraph Styles */
+.modal-content p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: #444444; /* Lighter gray for contrast */
+  margin-bottom: 15px;
+}
+
+/* Lists */
+.modal-content ul {
+  list-style-type: circle; /* Aesthetic bullet points */
+  padding-left: 20px;
+}
+
+.modal-content li {
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  color: #333333;
+  margin-bottom: 10px;
+}
+
+/* Highlight Strong Text */
+.modal-content strong {
+  font-weight: bold;
+  color: #ff6600; /* Highlight important info with orange */
+}
+
+/* Close Button */
+.close-btn {
+  font-size: 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  float: right;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.close-btn:hover {
+  color: #cc5200; /* Darker orange */
+  transform: scale(1.1); /* Subtle hover effect */
+}
+
+/* Subtle Text Shadow for Depth */
+.modal-content h2,
+.modal-content h3 {
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1); /* Minimal for polish */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .modal-content h2 {
+    font-size: 1.7rem;
+  }
+  .modal-content h3 {
+    font-size: 1.3rem;
+  }
+  .modal-content p,
+  .modal-content li {
+    font-size: 0.9rem;
+  }
+}

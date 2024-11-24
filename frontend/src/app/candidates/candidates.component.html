@@ -11,57 +11,95 @@
 <div *ngIf="showModal" class="modal-overlay" (click)="closeModalOnOutsideClick($event)">
     <div class="modal-content">
         <span class="close-btn" (click)="closeModal()">&times;</span>
-        <h2>{{ selectedProfile?.name }}</h2>
-        <p><strong>Experience:</strong> {{ selectedProfile?.experience }}</p>
-        <p><strong>Skills:</strong> {{ selectedProfile?.skills }}</p>
-        <p><strong>Achievements:</strong> {{ selectedProfile?.achievements }}</p>
-        <button class="close-modal-btn" (click)="closeModal()">Close</button>
+        <h2>{{ selectedProfile?.['Full Name'] }}</h2>
+        <p><strong>Email:</strong> {{ selectedProfile?.Email }}</p>
+        <p>
+            <strong>Phone Number:</strong> {{ selectedProfile?.['Phone Number'] }}
+        </p>
+        <p><strong>Location:</strong> {{ selectedProfile?.Location }}</p>
+        <h3>Summary</h3>
+        <p>{{ selectedProfile?.Summary }}</p>
+
+        <h3>Education</h3>
+        <div *ngFor="let edu of selectedProfile?.Education">
+            <p>
+                <strong>{{ edu.Degree }}</strong
+        >, {{ edu.Institution }}
+      </p>
+      <p>{{ edu.StartDate }} - {{ edu.EndDate }} | GPA: {{ edu.GPA }}</p>
     </div>
+
+    <h3>Certifications</h3>
+    <ul>
+      <li *ngFor="let cert of selectedProfile?.Certifications">
+        {{ cert.Name }} ({{ cert.Organization }})
+      </li>
+    </ul>
+
+    <h3>Work Experience</h3>
+    <div *ngFor="let exp of selectedProfile?.['Work Experience']">
+      <p>
+        <strong>{{ exp.Title }}</strong
+        >, {{ exp.Company }}
+      </p>
+      <p>{{ exp.StartDate }} - {{ exp.EndDate }}</p>
+      <p>{{ exp.Description }}</p>
+    </div>
+
+    <h3>Technical Skills</h3>
+    <ul>
+      <li *ngFor="let skill of selectedProfile?.Skills?.['Technical Skills']">
+        {{ skill }}
+      </li>
+    </ul>
+  </div>
 </div>
 <div class="container">
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <div class="menu-item" routerLink="/job-list" routerLinkActive="active">
-            <i class="icon material-icons">work</i>
-            <span>Jobs</span>
-        </div>
-        <div class="menu-item" routerLink="/candidates" routerLinkActive="active">
-            <i class="icon material-icons">group</i>
-            <span>Candidates</span>
-        </div>
-        <div class="menu-item" routerLink="/shortlisted" routerLinkActive="active">
-            <i class="icon material-icons">done_all</i>
-            <span>Shortlisted Candidates</span>
-        </div>
-        <div class="menu-item" routerLink="/about" routerLinkActive="active">
-            <i class="icon material-icons">info</i>
-            <span>About</span>
-        </div>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="menu-item" routerLink="/job-list" routerLinkActive="active">
+      <i class="icon material-icons">work</i>
+      <span>Jobs</span>
     </div>
+    <div class="menu-item" routerLink="/candidates" routerLinkActive="active">
+      <i class="icon material-icons">group</i>
+      <span>Candidates</span>
+    </div>
+    <div class="menu-item" routerLink="/shortlisted" routerLinkActive="active">
+      <i class="icon material-icons">done_all</i>
+      <span>Shortlisted Candidates</span>
+    </div>
+    <div class="menu-item" routerLink="/about" routerLinkActive="active">
+      <i class="icon material-icons">info</i>
+      <span>About</span>
+    </div>
+  </div>
 
-    <div class="job-list-container">
-        <!-- Header -->
-        <div class="header">
-            <h2>‎ ‎ ‎ ‎ List of Applied Candidates</h2>
+  <div class="job-list-container">
+    <!-- Header -->
+    <div class="header">
+      <h2>‎ ‎ ‎ ‎ List of Applied Candidates</h2>
 
-            <div class="filters">
-                <!-- <input type="text" placeholder=" 🔎 Search Candidates" /> -->
-                <div class="sort-dropdown">
-                    <label for="sort-select">Sort by: </label>
-                    <select id="sort-select" (change)="onSortChange($event)">
+      <div class="filters">
+        <!-- <input type="text" placeholder=" 🔎 Search Candidates" /> -->
+        <div class="sort-dropdown">
+          <label for="sort-select">Sort by: </label>
+          <select id="sort-select" (change)="onSortChange($event)">
             <option value="reset"></option>
 
             <option value="propensity">Propensity To Join</option>
             <option value="relevance">Relevance Score</option>
             <option value="experience">Relevant Experience</option>
           </select>
-                </div>
+        </div>
 
-                <!-- Experience Filter Dropdown -->
-                <div class="experience-filter">
-                    <label for="experience-select">Filter by Experience: </label>
-                    <select id="experience-select" (change)="onExperienceFilterChange($event)">
+        <!-- Experience Filter Dropdown -->
+        <div class="experience-filter">
+          <label for="experience-select">Filter by Experience: </label>
+          <select
+            id="experience-select"
+            (change)="onExperienceFilterChange($event)"
+          >
             <option value="all"></option>
             <option value="1">1 Year</option>
             <option value="2">2 Years</option>
@@ -69,85 +107,96 @@
             <option value="4">4 Years</option>
             <option value="5">5 Years</option>
           </select>
-                </div>
-
-                <!-- JD Filter Dropdown -->
-                <div class="jd-filter">
-                    <label for="jd-select">Filter by Job: </label>
-                    <select id="jd-select" (change)="onJDFilterChange($event)">
-      <option value="all"></option>
-      <option value="data-engineer">Data Engineer</option>
-      <option value="senior-manager-growth">Senior Manager, Growth Portfolio</option>
-      <option value="software-developer">Software Developer</option>
-
-    </select>
-                </div>
-            </div>
         </div>
 
-        <!-- Candidate Cards -->
-        <div class="job-cards">
-            <div *ngFor="let candidate of candidates" class="job-card">
-                <!-- Profile Section -->
-                <div class="profile-section">
-                    <div class="profile-img-container">
-                        <img src="https://i.postimg.cc/wTHcKLb0/image.png" alt="Profile" class="profile-img" />
-                    </div>
-                    <div class="profile-details">
-                        <h2 class="candidate-name">
-                            {{ candidate.parsed_resume["Full Name"] }}
-                        </h2>
-                        <p class="candidate-role">{{formatJobId(candidate.job_id)}}</p>
-                    </div>
-                </div>
+        <!-- JD Filter Dropdown -->
+        <div class="jd-filter">
+          <label for="jd-select">Filter by Job: </label>
+          <select id="jd-select" (change)="onJDFilterChange($event)">
+            <option value="all"></option>
+            <option value="data-engineer">Data Engineer</option>
+            <option value="senior-manager-growth">
+              Senior Manager, Growth Portfolio
+            </option>
+            <option value="software-developer">Software Developer</option>
+          </select>
+        </div>
+      </div>
+    </div>
 
-                <!-- Candidate Info Section -->
-                <div class="candidate-info">
-                    <div class="info-item">
-                        <p class="info-label">Relevance Score</p>
-                        <p class="info-value-score">
-                            {{ candidate.ai_response["Relevance Score"] }}%
-                        </p>
-                    </div>
+    <!-- Candidate Cards -->
+    <div class="job-cards">
+      <div *ngFor="let candidate of candidates" class="job-card">
+        <!-- Profile Section -->
+        <div class="profile-section">
+          <div class="profile-img-container">
+            <img
+              src="https://i.postimg.cc/wTHcKLb0/image.png"
+              alt="Profile"
+              class="profile-img"
+            />
+          </div>
+          <div class="profile-details">
+            <h2 class="candidate-name">
+              {{ candidate.parsed_resume["Full Name"] }}
+            </h2>
+            <p class="candidate-role">{{ formatJobId(candidate.job_id) }}</p>
+          </div>
+        </div>
 
-                    <div class="info-item">
-                        <p class="info-label">Propensity To Join</p>
-                        <p class="info-value" [ngClass]="{
+        <!-- Candidate Info Section -->
+        <div class="candidate-info">
+          <div class="info-item">
+            <p class="info-label">Relevance Score</p>
+            <p class="info-value-score">
+              {{ candidate.ai_response["Relevance Score"] }}%
+            </p>
+          </div>
+
+          <div class="info-item">
+            <p class="info-label">Propensity To Join</p>
+            <p
+              class="info-value"
+              [ngClass]="{
                 high: candidate.ai_response['Relevance Score'] >= 80,
                 medium:
                   candidate.ai_response['Relevance Score'] >= 60 &&
                   candidate.ai_response['Relevance Score'] < 80,
                 low: candidate.ai_response['Relevance Score'] < 60
-              }">
-                            {{ getPropensityText(candidate.ai_response["Relevance Score"]) }}
-                        </p>
-                    </div>
+              }"
+            >
+              {{ getPropensityText(candidate.ai_response["Relevance Score"]) }}
+            </p>
+          </div>
 
-                    <div class="info-item">
-                        <p class="info-label">Relevant Experience</p>
-                        <p class="info-value">
-                            {{ candidate.ai_response["Relevant Experience"] }}
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Action Section -->
-                <div class="actions">
-                    <button class="view-profile-btn" (click)="viewProfile(candidate.parsed_resume['Full Name'])">
-                        View Profile
-                      </button>
-                </div>
-            </div>
+          <div class="info-item">
+            <p class="info-label">Relevant Experience</p>
+            <p class="info-value">
+              {{ candidate.ai_response["Relevant Experience"] }}
+            </p>
+          </div>
         </div>
 
-        <!-- Pagination -->
-        <div class="pagination">
-            <p>‎ ‎ ‎‎ ‎‎ ‎ ‎ ‎ ‎Page 1 of 23</p>
-            <div class="pages">
-                <span class="active">1</span>
-                <span>2</span>
-                <button class="next-btn">Next ></button>
-            </div>
+        <!-- Action Section -->
+        <div class="actions">
+          <button
+            class="view-profile-btn"
+            (click)="viewProfile(candidate.parsed_resume['Full Name'])"
+          >
+            View Profile
+          </button>
         </div>
+      </div>
     </div>
+
+    <!-- Pagination -->
+    <div class="pagination">
+      <p>‎ ‎ ‎‎ ‎‎ ‎ ‎ ‎ ‎Page 1 of 23</p>
+      <div class="pages">
+        <span class="active">1</span>
+        <span>2</span>
+        <button class="next-btn">Next ></button>
+      </div>
+    </div>
+  </div>
 </div>
