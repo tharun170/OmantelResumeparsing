@@ -7,54 +7,6 @@
         <img src="https://i.postimg.cc/tgbrcVpx/0.jpg" alt="Profile" class="icon profile" />
     </div>
 </div>
-
-<div class="modal" *ngIf="isModalVisible">
-    <div class="modal-content">
-        <h3>Candidate Summary</h3>
-
-
-        <!-- Skills or Tech Stack the Candidate Matches -->
-        <div class="modal-section">
-            <h4>Skills or Tech Stack the Candidate Matches</h4>
-            <ul>
-                <li *ngFor="let skill of getMatchedSkills(candidateSummary?.summary)">
-                    {{ skill }}
-                </li>
-            </ul>
-        </div>
-
-        <!-- Skills or Tech Stack the Candidate Lacks -->
-        <div class="modal-section">
-            <h4>Skills or Tech Stack the Candidate Lacks</h4>
-            <ul>
-                <li *ngFor="let skill of getLackedSkills(candidateSummary?.summary)">
-                    {{ skill }}
-                </li>
-            </ul>
-        </div>
-
-        <!-- Professional Summary
-        <div class="modal-section">
-            <h4>Professional Summary</h4>
-            <p>{{ getProfessionalSummary(candidateSummary?.summary) }}</p>
-        </div> -->
-
-        <div class="professional-summary" *ngIf="splitSummary(candidateSummary?.summary).length">
-            <h3>Professional Summary</h3>
-            <ul>
-                <li *ngFor="let sentence of splitSummary(candidateSummary?.summary)">
-                    {{ sentence }}
-                </li>
-            </ul>
-        </div>
-
-        <!-- Close Button -->
-        <!-- <button class="close-btn" (click)="closeModal()">&times;</button> -->
-        <span class="close-btn" (click)="closeModal()">&times;</span>
-
-    </div>
-</div>
-
 <!-- Modal for displaying profile -->
 <div *ngIf="showModal" class="modal-overlay" (click)="closeModalOnOutsideClick($event)">
     <div class="modal-content">
@@ -233,23 +185,13 @@
           >
             View Profile
           </button>
-               <!-- Clickable Text for Modal -->
-               <div class="summary-link-container">
-                <span
-                  class="summary-link"
-                  (click)="fetchCandidateSummary(candidate.parsed_resume['Full Name'])"
-                >
-                  View Summary
-                </span>
-              </div>
-              
         </div>
       </div>
     </div>
 
     <!-- Pagination -->
     <div class="pagination">
-      <p>‎ ‎ ‎‎ ‎‎ ‎ ‎ ‎ ‎Page 1 of 2</p>
+      <p>‎ ‎ ‎‎ ‎‎ ‎ ‎ ‎ ‎Page 1 of 23</p>
       <div class="pages">
         <span class="active">1</span>
         <span>2</span>

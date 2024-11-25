@@ -448,9 +448,12 @@
   
   .header {
     display: flex;
+    margin-top: 30px;
     justify-content: space-between;
     align-items: center;
     padding: 20px 0;
+    padding-top:20px;
+    margin-left: 33px;
   }
   
   .header h2 {
@@ -807,4 +810,170 @@
   .info-value-score{
     color: #007BFF;
     font-weight: bold;
+  }/* General Card Styling */
+.job-card {
+  position: relative;
+  /* border: 2px solid #e0f7e9; Light green border */
+  border-left: 6px solid #32cd32; 
+  border-radius: 16px; /* Rounded corners */
+  background: #ffffff; /* Pure white background */
+  /* padding: 24px; */
+  margin-bottom: 24px;
+  box-shadow: 0 8px 20px rgba(0, 128, 0, 0.2); /* Soft green shadow */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.job-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 12px 30px rgba(0, 128, 0, 0.3); /* Enhanced shadow */
+}
+
+/* Shortlisted Badge */
+.shortlisted-badge {
+  position: absolute;
+  top: -7px;
+  right: -15px;
+  background: linear-gradient(135deg, #32cd32, #228b22); /* Vibrant green gradient */
+  color: #ffffff; /* White text */
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 50px; /* Capsule shape */
+  box-shadow: 0 4px 10px rgba(0, 128, 0, 0.3); /* Subtle shadow for badge */
+  z-index: 1;
+  /* transform: rotate(-5deg); Slight rotation for a unique look */
+}
+
+
+.shortlisted-badge {
+  position: absolute;
+  top: -7px;
+  right: -15px;
+  background: linear-gradient(135deg, #32cd32, #228b22); /* Vibrant green gradient */
+  color: #ffffff; /* White text */
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 50px; /* Capsule shape */
+  box-shadow: 0 4px 10px rgba(0, 128, 0, 0.3); /* Subtle shadow for badge */
+  z-index: 1;
+  text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2); /* Subtle shadow under the text */
+  letter-spacing: 1px; /* Slightly increase letter spacing for readability */
+  font-family: 'Poppins', sans-serif; /* Use a modern, professional font */
+  white-space: nowrap; /* Prevent text wrapping */
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover effect */
+}
+
+.shortlisted-badge:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  box-shadow: 0 6px 12px rgba(0, 128, 0, 0.4); /* Enhanced shadow on hover */
+}
+
+
+.shortlisted-badge span{
+  margin-top:20px;
+}
+/* Profile Section */
+.profile-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.profile-img-container {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%; /* Circular image */
+  overflow: hidden;
+  border: 3px solid #32cd32; /* Green border */
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-details {
+  margin-left: 16px;
+}
+
+.candidate-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333; /* Rich black for text */
+  margin: 0;
+}
+
+.candidate-role {
+  font-size: 14px;
+  font-style: italic;
+  color: #228b22; /* Dark green for role text */
+  margin: 4px 0 0;
+}
+
+/* Candidate Info Section */
+.candidate-info {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.info-item {
+  width: 30%; /* Adjust width for three items per row */
+  margin-bottom: 16px;
+}
+
+.info-label {
+  font-size: 14px;
+  color: #666; /* Subtle grey for labels */
+  text-transform: uppercase;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.info-value {
+  font-size: 18px;
+  font-weight: bold;
+  color: #228b22; /* Green for values */
+  margin: 4px 0 0;    
+  white-space: nowrap;
+}
+
+.info-value-score {
+  font-size: 20px;
+  font-weight: bold;
+  color: #32cd32; /* Bright green for scores */
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+  .info-item {
+    width: 100%; /* Stack items on smaller screens */
   }
+
+  .profile-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-details {
+    margin-left: 0;
+    margin-top: 12px;
+  }
+}
+
+.info-label {
+  font-family: 'Roboto Condensed', sans-serif; /* A sleek and professional font */
+  font-size: 13px; /* Slightly smaller size for labels */
+  font-weight: 500; /* Medium weight for clarity */
+  text-transform: uppercase; /* Keep the uppercase for emphasis */
+  color: #555555; /* Subtle dark gray for distinction */
+  letter-spacing: 0.8px; /* Improved readability */
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  margin: 0; /* Clean and compact layout */
+}

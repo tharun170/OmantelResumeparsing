@@ -469,6 +469,38 @@ def get_full_name():
         print(f"Error in /getfullname: {str(e)}")
         return jsonify({"error": str(e)}), 500
 
+@app.route('/shortlisted-candidates', methods=['GET'])
+def get_shortlisted_candidates():
+    data = {
+        "data": [
+            {
+                "ai_response": {
+                    "Relevance Score": 85,
+                    "Relevant Experience": "2 years 9 months"
+                },
+                "parsed_resume": {
+                    "Full Name": "DEVADHARSHINI B"
+                },
+                "job_id": "data-engineer-001"
+            },
+            {
+                "ai_response": {
+                    "Relevance Score": 92,
+                    "Relevant Experience": "4 years 5 months"
+                },
+                "parsed_resume": {
+                    "Full Name": "ARUN KUMAR S"
+                },
+                "job_id": "software-developer-002"
+            },
+         
+        ],
+        "message": "Records fetched successfully"
+    }
+
+    return jsonify(data)
+
+
 @app.route('/candidates', methods=['GET'])
 def get_candidates():
     data = {
@@ -699,6 +731,57 @@ def get_profile():
     return jsonify({"message": "Profile not found"}), 404
 
 
+# Mock Data
+CANDIDATE_SUMMARIES = {
+    "DEVADHARSHINI B": {
+        "candidate_name": "DEVADHARSHINI B",
+        "job_id": "data-engineer-001",
+        "summary": """## Skills or Tech Stack the Candidate Matches
+- Python
+- ETL
+
+## Skills or Tech Stack the Candidate Lacks
+- FastAPI
+- AWS
+- GCP
+- SQL
+- Github
+- Jenkins
+
+## Professional Summary
+DEVADHARSHINI B possesses skills in Python and ETL that align with the Data Engineer position at Omantel. However, they lack experience in the required tech stack, including FastAPI, AWS, GCP, SQL, Github, and Jenkins. As a result, they may require additional training or support to meet the demands of the role."""
+    }
+}
+
+@app.route('/api/candidate-summary', methods=['POST'])
+def get_candidate_summary():
+    try:
+        # Parse the incoming JSON payload
+        data = request.get_json()
+        candidate_name = data.get('candidate_name')
+        print(candidate_name)
+
+        # Check if candidate_name is provided
+        if not candidate_name:
+            return jsonify({"error": "Candidate name is required"}), 400
+
+        # Normalize and tokenize the requested name into a set of words
+        request_name_words = set(candidate_name.lower().split())
+
+        # Check against profiles in mock data
+        for profile_name, summary in CANDIDATE_SUMMARIES.items():
+            # Normalize and tokenize the profile name into a set of words
+            profile_name_words = set(profile_name.lower().split())
+
+            # Check if both sets of words are equal (order-independent match)
+            if request_name_words == profile_name_words:
+                return jsonify(summary), 200    
+
+        # If no match is found
+        return jsonify({"error": "Candidate not found"}), 404
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 
 @app.route('/jd1', methods=['GET'])

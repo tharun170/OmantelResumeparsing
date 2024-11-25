@@ -9,7 +9,6 @@ import { HttpClient } from '@angular/common/http';
 export class CandidatesComponent implements OnInit {
   candidates: any[] = []; // Array to store candidate data
   originalCandidates: any[] = []; // Backup for reset
-  isModalVisible = false;
 
   currentExperienceFilter: string = 'all';
   currentJDFilter: string = 'all';
@@ -17,7 +16,6 @@ export class CandidatesComponent implements OnInit {
 
   selectedProfile: any = null; // Store profile data for the modal
   showModal: boolean = false; // Modal visibility toggle
-  candidateSummary: any = {};
 
   constructor(private http: HttpClient) {}
 
@@ -25,32 +23,6 @@ export class CandidatesComponent implements OnInit {
     this.getBackendData(); // Fetch data on component initialization
   }
 
-  splitSummary(summary: string): string[] {
-    // Use getProfessionalSummary to extract the relevant section
-    const professionalSummary = this.getProfessionalSummary(summary);
-    
-    if (!professionalSummary) return [];
-  
-    // Regex to split sentences intelligently, preserving abbreviations
-    const regex = /(?<!\b(?:e\.g|i\.e|etc|Mr|Ms|Dr|vs)\.)(?<!\.\.\.)(?<!\.\d)\.(?!\d)/g;
-  
-    // Split the summary and trim each resulting sentence
-    return professionalSummary.split(regex).map(sentence => sentence.trim()).filter(sentence => sentence.length > 0);
-  }
-  fetchCandidateSummary(fullName: string) {
-    const payload = { candidate_name: fullName };
-
-    this.http.post('http://localhost:5000/api/candidate-summary', payload)
-      .subscribe(
-        (response) => {
-          this.candidateSummary = response;
-          this.isModalVisible = true;
-        },
-        (error) => {
-          console.error('Error fetching candidate summary:', error);
-        }
-      );
-  }
   formatJobId(jobId: string): string {
     // Remove numbers using regex and convert to Title Case
     return jobId
@@ -114,11 +86,12 @@ export class CandidatesComponent implements OnInit {
 
     // Step 4: Apply sorting
     if (this.currentSort === 'propensity') {
-      filteredCandidates.sort((a, b) => 
-        b.ai_response['Relevance Score'] - a.ai_response['Relevance Score']
+      filteredCandidates.sort((a, b) =>
+        this.getPropensityText(b.ai_response['Relevance Score']).localeCompare(
+          this.getPropensityText(a.ai_response['Relevance Score'])
+        )
       );
-    }
-     else if (this.currentSort === 'relevance') {
+    } else if (this.currentSort === 'relevance') {
       filteredCandidates.sort(
         (a, b) =>
           b.ai_response['Relevance Score'] - a.ai_response['Relevance Score']
@@ -189,7 +162,6 @@ export class CandidatesComponent implements OnInit {
 
   closeModal(): void {
     this.showModal = false; // Hide modal
-    this.isModalVisible = false;
     this.selectedProfile = null; // Clear profile data
   }
   closeModalOnOutsideClick(event: MouseEvent): void {
@@ -199,20 +171,6 @@ export class CandidatesComponent implements OnInit {
     if (target.classList.contains('modal-overlay')) {
       this.closeModal(); // Close the modal
     }
-  }
-  getMatchedSkills(summary: string): string[] {
-    const matchSection = summary.match(/## Skills or Tech Stack the Candidate Matches([\s\S]*?)##/);
-    return matchSection ? matchSection[1].trim().split('\n').filter(skill => skill.startsWith('-')).map(skill => skill.replace('- ', '').trim()) : [];
-  }
-  
-  getLackedSkills(summary: string): string[] {
-    const lackSection = summary.match(/## Skills or Tech Stack the Candidate Lacks([\s\S]*?)##/);
-    return lackSection ? lackSection[1].trim().split('\n').filter(skill => skill.startsWith('-')).map(skill => skill.replace('- ', '').trim()) : [];
-  }
-  
-  getProfessionalSummary(summary: string): string {
-    const professionalSummarySection = summary.match(/## Professional Summary([\s\S]*)/);
-    return professionalSummarySection ? professionalSummarySection[1].trim() : '';
   }
   
 }
